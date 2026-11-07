@@ -1,3 +1,113 @@
 <resources>
+    <string name="time_hour">%1$02d:00</string>
+    <string name="activity_pool">Piscina</string>
+    <string name="activity_fitness_room">Sala fitness</string>
+    <string name="activity_padel">Pàdel</string>
+    <string name="activity_tennis">Tennis</string>
+    <string name="activity_squash">Esquaix</string>
+    <string name="activity_sports_hall">Pavelló</string>
+    <string name="activity_futsal">Futbol sala</string>
+    <string name="activity_football">Futbol 7/11</string>
+    <string name="activity_barbell_area">Espai barbell</string>
+    <string name="activity_calisthenics">Cal·listènia</string>
+    <string name="activity_climbing_wall">Rocòdrom</string>
     <string name="app_name">MySAF</string>
+    <string name="brand_title">UAB | SAF</string>
+    <string name="action_back">Enrere</string>
+    <string name="action_open_methodology">Obrir la metodologia</string>
+    <string name="action_methodology">Com ho calculem</string>
+    <string name="content_description_info">Informació</string>
+
+    <string name="home_headline">Quin és el teu moment?</string>
+    <string name="home_intro">Consulta quan acostuma a haver-hi menys ocupació i troba el millor moment per fer esport.</string>
+    <string name="home_activities_heading">Què vols fer?</string>
+
+    <string name="activity_quietest_slot">Franja més tranquil·la de %1$s: %2$s</string>
+    <string name="activity_availability_heading">Disponibilitat per hores</string>
+    <string name="activity_long_blocks_note">Algunes franges poden incloure blocs de club o escola.</string>
+    <string name="activity_select_hour">Selecciona una hora</string>
+    <string name="activity_find_alternatives">Troba alternatives per a les %1$s</string>
+    <string name="activity_example_data_note">Dades d’exemple per a la maqueta. Les xifres definitives es calcularan al dispositiu a partir de daily_counts.json.</string>
+    <string name="activity_metric_occupied">≈ %1$d de %2$d %3$s</string>
+    <string name="activity_metric_available">≈ %1$d de %2$d %3$s lliures</string>
+    <string name="activity_accessibility_description">%1$s, %2$s%3$s</string>
+    <string name="activity_accessibility_metric">, %1$s</string>
+
+    <string name="period_term_title">Període lectiu</string>
+    <string name="period_term_subtitle">Abr–Jun + Set–Oct</string>
+    <string name="period_all_title">Tot el període</string>
+    <string name="period_all_subtitle">Abr–Oct</string>
+
+    <string name="weekday_monday">dilluns</string>
+    <string name="weekday_tuesday">dimarts</string>
+    <string name="weekday_wednesday">dimecres</string>
+    <string name="weekday_thursday">dijous</string>
+    <string name="weekday_friday">divendres</string>
+    <string name="weekday_saturday">dissabte</string>
+    <string name="weekday_sunday">diumenge</string>
+    <string name="weekday_monday_short">dl</string>
+    <string name="weekday_tuesday_short">dt</string>
+    <string name="weekday_wednesday_short">dc</string>
+    <string name="weekday_thursday_short">dj</string>
+    <string name="weekday_friday_short">dv</string>
+    <string name="weekday_saturday_short">ds</string>
+    <string name="weekday_sunday_short">dg</string>
+
+    <string name="status_closed">Tancat</string>
+    <string name="status_shift_change">Canvi de torn</string>
+    <string name="status_low_data">Poques dades</string>
+    <string name="occupancy_quiet">Tranquil</string>
+    <string name="occupancy_moderate">Moderat</string>
+    <string name="occupancy_full">Ple</string>
+
+    <string name="methodology_title">Com ho calculem</string>
+    <string name="methodology_intro">Una estimació basada en l’històric de reserves del SAF. Tots els càlculs es fan localment al dispositiu.</string>
+    <string name="methodology_sources_title">Fonts de dades</string>
+    <string name="methodology_sources_body">Llibre de dades del SAF: fulls «Espais», «Horari general» i «Reserves». Les dades es processen prèviament i l’app només rep comptatges agregats per activitat, dia i franja horària.</string>
+    <string name="methodology_period_title">Període de referència</string>
+    <string name="methodology_period_body">Per defecte s’utilitzen abril, maig, juny, setembre i octubre de 2026 (període lectiu). També es pot consultar tot el període d’abril a octubre.</string>
+    <string name="methodology_occupancy_title">Com calculem l’ocupació</string>
+    <string name="methodology_occupancy_body">Sales i piscines: mitjana de persones amb una reserva que coincideix amb la franja, dividida per l’aforament. Pistes i camps: mitjana d’unitats reservades dividida pel nombre d’unitats disponibles. Les reserves llargues compten com a ocupades i es poden marcar com a blocs de club o escola.</string>
+    <string name="methodology_labels_title">Etiquetes</string>
+    <string name="methodology_labels_body" formatted="false">Tranquil: menys del 50%. Moderat: del 50% a menys del 80%. Ple: 80% o més. Una alternativa només es proposa quan és almenys 10 punts percentuals més tranquil·la que la franja seleccionada.</string>
+    <string name="methodology_limitations_title">Límits de les dades</string>
+    <string name="methodology_limit_1">Mostra l’ocupació habitual (mitjana històrica), no en temps real.</string>
+    <string name="methodology_limit_2">Compta reserves, no persones que realment hi han anat.</string>
+    <string name="methodology_limit_3">Període per defecte: abril–juny i setembre–octubre de 2026; juliol i agost tenen molta menys activitat.</string>
+    <string name="methodology_limit_4">Les pistes es compten com a ocupades o lliures; les sales i piscines, en persones.</string>
+    <string name="methodology_limit_5">Les dades no tenen identificadors: l’app no sap qui ets ni et personalitza.</string>
+    <string name="methodology_limit_6">Les franges amb menys de 8 dies observats es marquen com a «poques dades».</string>
+    <string name="methodology_limit_7">Els canvis de torn de la sala fitness (10 h i 15 h) no tenen dades.</string>
+    <string name="methodology_privacy">Privacitat: aquesta aplicació no necessita connexió a Internet, no incorpora analítica i no envia dades fora del dispositiu.</string>
+
+    <string name="recommendations_title">Alternatives més tranquil·les</string>
+    <string name="recommendations_already_quiet">Per %1$s a les %2$s, ja has triat una franja habitualment tranquil·la.</string>
+    <string name="recommendations_lower_load">Per %1$s a les %2$s, aquestes opcions tenen una ocupació estimada més baixa.</string>
+    <string name="recommendations_good_time">Bon moment! Aquesta franja ja acostuma a ser tranquil·la.</string>
+    <string name="recommendations_none">No hem trobat alternatives prou més tranquil·les per a aquesta hora.</string>
+    <string name="recommendations_historical_note">Dades: mitjanes històriques del període lectiu (abril–juny i setembre–octubre de 2026). Es compten reserves; no és una ocupació en temps real.</string>
+    <string name="recommendations_demo_note">Recomanacions de demostració: es connectaran al motor local i aplicaran el llindar de 10 punts percentuals.</string>
+    <string name="recommendation_same_activity_today">Mateixa activitat, avui</string>
+    <string name="recommendation_same_activity_another_day">Mateixa activitat, un altre dia</string>
+    <string name="recommendation_alternative_activity">Activitat alternativa</string>
+    <string name="recommendation_today_time">14:00</string>
+    <string name="recommendation_tuesday_time">Dimarts a les %1$s</string>
+    <string name="recommendation_fitness_time">Sala fitness · %1$s</string>
+    <string name="recommendation_people_detail">≈ %1$d de %2$d %3$s · %4$s</string>
+    <string name="recommendation_units_detail">≈ %1$d de %2$d %3$s lliures · %4$s</string>
+    <string name="recommendation_reduction">−%1$d pp</string>
+    <string name="recommendation_view_content_description">Veure alternativa</string>
+
+    <plurals name="unit_people">
+        <item quantity="one">persona</item>
+        <item quantity="other">persones</item>
+    </plurals>
+    <plurals name="unit_courts">
+        <item quantity="one">pista</item>
+        <item quantity="other">pistes</item>
+    </plurals>
+    <plurals name="unit_pitches">
+        <item quantity="one">camp</item>
+        <item quantity="other">camps</item>
+    </plurals>
 </resources>

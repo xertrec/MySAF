@@ -2,6 +2,7 @@ package com.uab.mysaf.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,19 +16,24 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.uab.mysaf.R
+import com.uab.mysaf.data.OccupancyLabel
 import com.uab.mysaf.data.activityById
 import com.uab.mysaf.data.sampleAvailability
-import com.uab.mysaf.data.weekdayName
+import com.uab.mysaf.data.weekdayNameRes
+import com.uab.mysaf.ui.components.AppTopBar
 import com.uab.mysaf.ui.components.InfoNoteCard
 import com.uab.mysaf.ui.components.RecommendationCard
 import com.uab.mysaf.ui.components.RecommendationUi
-import com.uab.mysaf.ui.components.ScreenHeader
 import com.uab.mysaf.ui.theme.UabGreen
 
 @Composable
@@ -39,34 +45,87 @@ fun RecommendationsScreen(
     onOpenMethodology: () -> Unit,
 ) {
     val activity = activityById(activityId)
-    val day = weekdayName(weekday)
-    val selectedTime = "%02d:00".format(hour)
+    val day = stringResource(weekdayNameRes(weekday))
+    val selectedTime = stringResource(R.string.time_hour, hour)
     val requestedLoad = sampleAvailability(activity, weekday, allPeriod = false)
         .firstOrNull { it.hour == hour }
         ?.let { it.occupied.toFloat() / it.capacity.coerceAtLeast(1) }
     val fitnessActivity = activityById("sala_fitness")
-    val alternatives = listOf(
-        Triple(RecommendationUi("Mateixa activitat, avui", "14:00", "", 0), activity, 0.37f),
-        Triple(RecommendationUi("Mateixa activitat, un altre dia", "Dimarts a les $selectedTime", "", 0), activity, 0.73f),
-        Triple(RecommendationUi("Activitat alternativa", "Sala fitness · $selectedTime", "", 0), fitnessActivity, 0.70f),
-    ).mapNotNull { (candidate, candidateActivity, targetLoad) ->
+    val activityName = stringResource(activity.nameRes)
+
+    val rawAlternatives = listOf(
+        Triple(
+            RecommendationUi(
+                eyebrow = stringResource(R.string.recommendation_same_activity_today),
+                title = stringResource(R.string.recommendation_today_time),
+                detail = "",
+                reduction = 0,
+            ),
+            activity,
+            0.37f,
+        ),
+        Triple(
+            RecommendationUi(
+                eyebrow = stringResource(R.string.recommendation_same_activity_another_day),
+                title = stringResource(R.string.recommendation_tuesday_time, selectedTime),
+                detail = "",
+                reduction = 0,
+            ),
+            activity,
+            0.73f,
+        ),
+        Triple(
+            RecommendationUi(
+                eyebrow = stringResource(R.string.recommendation_alternative_activity),
+                title = stringResource(R.string.recommendation_fitness_time, selectedTime),
+                detail = "",
+                reduction = 0,
+            ),
+            fitnessActivity,
+            0.70f,
+        ),
+    )
+
+    val alternatives = rawAlternatives.mapNotNull { (candidate, candidateActivity, targetLoad) ->
         val reduction = (((requestedLoad ?: 0f) - targetLoad) * 100).toInt()
         if (reduction < 10) return@mapNotNull null
+
         val occupied = (candidateActivity.capacity * targetLoad).toInt().coerceIn(0, candidateActivity.capacity)
-        val label = when {
-            targetLoad < 0.5f -> "Tranquil"
-            targetLoad < 0.8f -> "Moderat"
-            else -> "Ple"
+        val occupancyLabelRes = when {
+            targetLoad < 0.5f -> OccupancyLabel.QUIET.labelRes
+            targetLoad < 0.8f -> OccupancyLabel.MODERATE.labelRes
+            else -> OccupancyLabel.FULL.labelRes
         }
+        val label = stringResource(occupancyLabelRes)
+        val unitLabel = pluralStringResource(candidateActivity.unitRes, candidateActivity.capacity)
         val detail = if (candidateActivity.isPersonCount) {
-            "≈ $occupied de ${candidateActivity.capacity} ${candidateActivity.countingLabel} · $label"
+            stringResource(
+                R.string.recommendation_people_detail,
+                occupied,
+                candidateActivity.capacity,
+                unitLabel,
+                label,
+            )
         } else {
-            "≈ ${candidateActivity.capacity - occupied} de ${candidateActivity.capacity} ${candidateActivity.countingLabel} lliures · $label"
+            stringResource(
+                R.string.recommendation_units_detail,
+                candidateActivity.capacity - occupied,
+                candidateActivity.capacity,
+                unitLabel,
+                label,
+            )
         }
         candidate.copy(detail = detail, reduction = reduction)
     }
 
-    Scaffold { innerPadding ->
+    Scaffold(
+        topBar = {
+            AppTopBar(
+                title = activityName,
+                onBack = onBack,
+            )
+        },
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -75,22 +134,26 @@ fun RecommendationsScreen(
                 .padding(horizontal = 16.dp, vertical = 10.dp),
             verticalArrangement = Arrangement.spacedBy(13.dp),
         ) {
-            ScreenHeader(title = activity.name, onBack = onBack)
             Surface(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(18.dp),
                 color = UabGreen.copy(alpha = 0.10f),
             ) {
                 Column(modifier = Modifier.padding(17.dp)) {
-                    androidx.compose.foundation.layout.Row(verticalAlignment = Alignment.CenterVertically) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Filled.CheckCircle, contentDescription = null, tint = UabGreen)
-                        Text("Alternatives més tranquil·les", modifier = Modifier.padding(start = 9.dp), fontWeight = FontWeight.Bold, fontSize = 17.sp)
+                        Text(
+                            stringResource(R.string.recommendations_title),
+                            modifier = Modifier.padding(start = 9.dp),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 17.sp,
+                        )
                     }
                     Text(
-                        if (requestedLoad != null && requestedLoad < 0.5f) {
-                            "Per $day a les $selectedTime, ja has triat una franja habitualment tranquil·la."
+                        text = if (requestedLoad != null && requestedLoad < 0.5f) {
+                            stringResource(R.string.recommendations_already_quiet, day, selectedTime)
                         } else {
-                            "Per $day a les $selectedTime, aquestes opcions tenen una ocupació estimada més baixa."
+                            stringResource(R.string.recommendations_lower_load, day, selectedTime)
                         },
                         modifier = Modifier.padding(top = 10.dp),
                         fontSize = 13.sp,
@@ -106,14 +169,14 @@ fun RecommendationsScreen(
                     color = UabGreen.copy(alpha = 0.10f),
                 ) {
                     Text(
-                        "Bon moment! Aquesta franja ja acostuma a ser tranquil·la.",
+                        stringResource(R.string.recommendations_good_time),
                         modifier = Modifier.padding(16.dp),
                         color = UabGreen,
                         fontWeight = FontWeight.SemiBold,
                     )
                 }
             } else if (alternatives.isEmpty()) {
-                Text("No hem trobat alternatives prou més tranquil·les per a aquesta hora.", fontSize = 14.sp)
+                Text(stringResource(R.string.recommendations_none), fontSize = 14.sp)
             } else {
                 alternatives.forEach { recommendation ->
                     RecommendationCard(recommendation = recommendation)
@@ -121,14 +184,17 @@ fun RecommendationsScreen(
             }
 
             InfoNoteCard(
-                "Dades: mitjanes històriques del període lectiu (abril–juny i setembre–octubre de 2026). Es compten reserves; no és una ocupació en temps real.",
+                stringResource(R.string.recommendations_historical_note),
                 modifier = Modifier.padding(top = 2.dp),
             )
-            androidx.compose.material3.TextButton(onClick = onOpenMethodology, modifier = Modifier.align(Alignment.CenterHorizontally)) {
-                Text("Com ho calculem", color = UabGreen)
+            TextButton(
+                onClick = onOpenMethodology,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            ) {
+                Text(stringResource(R.string.action_methodology), color = UabGreen)
             }
             Text(
-                "Recomanacions de demostració: es connectaran al motor local i aplicaran el llindar de 10 punts percentuals.",
+                stringResource(R.string.recommendations_demo_note),
                 modifier = Modifier.padding(bottom = 18.dp),
                 fontSize = 11.sp,
                 lineHeight = 15.sp,

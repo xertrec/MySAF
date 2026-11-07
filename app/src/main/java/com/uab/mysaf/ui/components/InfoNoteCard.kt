@@ -13,9 +13,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.uab.mysaf.R
 import com.uab.mysaf.ui.theme.UabGreen
 
 @Composable
@@ -32,7 +33,11 @@ fun InfoNoteCard(
             modifier = Modifier.padding(14.dp),
             verticalAlignment = Alignment.Top,
         ) {
-            Icon(Icons.Outlined.Info, contentDescription = "Informació", tint = UabGreen)
+            Icon(
+                Icons.Outlined.Info,
+                contentDescription = stringResource(R.string.content_description_info),
+                tint = UabGreen,
+            )
             Text(
                 text,
                 modifier = Modifier.padding(start = 10.dp),

@@ -22,12 +22,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.uab.mysaf.R
 import com.uab.mysaf.data.activities
 import com.uab.mysaf.ui.components.ActivityTile
-import com.uab.mysaf.ui.components.BrandHeader
+import com.uab.mysaf.ui.components.AppTopBar
 import com.uab.mysaf.ui.theme.UabGreen
 
 @Composable
@@ -35,7 +37,11 @@ fun HomeScreen(
     onActivitySelected: (String) -> Unit,
     onOpenMethodology: () -> Unit,
 ) {
-    Scaffold { innerPadding ->
+    Scaffold(
+        topBar = {
+            AppTopBar(title = stringResource(R.string.brand_title))
+        },
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -43,22 +49,21 @@ fun HomeScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp, vertical = 16.dp),
         ) {
-            BrandHeader()
             Text(
-                "Quin és el teu moment?",
+                stringResource(R.string.home_headline),
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.ExtraBold,
                 color = MaterialTheme.colorScheme.onBackground,
             )
             Text(
-                "Consulta quan acostuma a haver-hi menys ocupació i troba el millor moment per fer esport.",
+                stringResource(R.string.home_intro),
                 modifier = Modifier.padding(top = 8.dp),
                 fontSize = 15.sp,
                 lineHeight = 22.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
-                "Què vols fer?",
+                stringResource(R.string.home_activities_heading),
                 modifier = Modifier.padding(top = 26.dp, bottom = 13.dp),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
@@ -71,7 +76,7 @@ fun HomeScreen(
                 ) {
                     pair.forEach { activity ->
                         ActivityTile(
-                            name = activity.name,
+                            name = stringResource(activity.nameRes),
                             icon = activity.icon,
                             onClick = { onActivitySelected(activity.id) },
                             modifier = Modifier.weight(1f),
@@ -93,8 +98,16 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Icon(Icons.Outlined.Info, contentDescription = null, tint = UabGreen)
-                    Text("Com ho calculem", modifier = Modifier.padding(start = 12.dp).weight(1f), fontWeight = FontWeight.SemiBold)
-                    Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Obrir metodologia", tint = UabGreen)
+                    Text(
+                        stringResource(R.string.action_methodology),
+                        modifier = Modifier.padding(start = 12.dp).weight(1f),
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Icon(
+                        Icons.AutoMirrored.Filled.ArrowForward,
+                        contentDescription = stringResource(R.string.action_open_methodology),
+                        tint = UabGreen,
+                    )
                 }
             }
         }

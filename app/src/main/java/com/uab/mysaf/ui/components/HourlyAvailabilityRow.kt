@@ -20,12 +20,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.uab.mysaf.R
 import com.uab.mysaf.data.HourAvailability
 import com.uab.mysaf.data.OccupancyLabel
 import com.uab.mysaf.data.occupancyLabel
@@ -37,17 +39,17 @@ import com.uab.mysaf.ui.theme.LoadQuiet
 fun HourlyAvailabilityRow(
     row: HourAvailability,
     isPersonCount: Boolean,
-    unitLabel: String,
+    unitRes: Int,
     selected: Boolean,
     onClick: () -> Unit,
 ) {
     val ratio = (row.occupied.toFloat() / row.capacity.coerceAtLeast(1)).coerceIn(0f, 1f)
     val label = occupancyLabel(row)
     val specialStatus = when {
-        row.isClosed -> "Tancat"
-        row.shiftChange -> "Canvi de torn"
-        row.lowData -> "Poques dades"
-        else -> label.catalan
+        row.isClosed -> stringResource(R.string.status_closed)
+        row.shiftChange -> stringResource(R.string.status_shift_change)
+        row.lowData -> stringResource(R.string.status_low_data)
+        else -> stringResource(label.labelRes)
     }
     val loadColor = when {
         row.isClosed || row.shiftChange -> MaterialTheme.colorScheme.onSurfaceVariant
@@ -58,14 +60,15 @@ fun HourlyAvailabilityRow(
             OccupancyLabel.FULL -> LoadFull
         }
     }
+    val unitLabel = pluralStringResource(unitRes, row.capacity)
     val metric = when {
-        row.isClosed -> ""
-        row.shiftChange -> ""
-        isPersonCount -> "≈ ${row.occupied} de ${row.capacity} $unitLabel"
-        else -> "≈ ${row.capacity - row.occupied} de ${row.capacity} $unitLabel lliures"
+        row.isClosed || row.shiftChange -> ""
+        isPersonCount -> stringResource(R.string.activity_metric_occupied, row.occupied, row.capacity, unitLabel)
+        else -> stringResource(R.string.activity_metric_available, row.capacity - row.occupied, row.capacity, unitLabel)
     }
-    val accessibleText = "${row.hour.toString().padStart(2, '0')}:00, $specialStatus" +
-        if (metric.isNotBlank()) ", $metric" else ""
+    val hourLabel = stringResource(R.string.time_hour, row.hour)
+    val accessibilityMetric = if (metric.isBlank()) "" else stringResource(R.string.activity_accessibility_metric, metric)
+    val accessibleText = stringResource(R.string.activity_accessibility_description, hourLabel, specialStatus, accessibilityMetric)
 
     Surface(
         modifier = Modifier
@@ -79,14 +82,22 @@ fun HourlyAvailabilityRow(
             modifier = Modifier.padding(horizontal = 10.dp, vertical = 11.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text("${row.hour.toString().padStart(2, '0')}:00", modifier = Modifier.width(48.dp), fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
+            Text(hourLabel, modifier = Modifier.width(48.dp), fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
             Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(5.dp)) {
                 if (!row.isClosed && !row.shiftChange) {
                     Box(
-                        modifier = Modifier.fillMaxWidth().height(9.dp).clip(RoundedCornerShape(20.dp)).background(MaterialTheme.colorScheme.surfaceVariant),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(9.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(MaterialTheme.colorScheme.surfaceVariant),
                     ) {
                         Box(
-                            modifier = Modifier.fillMaxWidth(ratio).height(9.dp).clip(RoundedCornerShape(20.dp)).background(loadColor),
+                            modifier = Modifier
+                                .fillMaxWidth(ratio)
+                                .height(9.dp)
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(loadColor),
                         )
                     }
                 }

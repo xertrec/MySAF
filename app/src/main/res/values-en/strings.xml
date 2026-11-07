@@ -1,0 +1,113 @@
+<resources>
+    <string name="time_hour">%1$02d:00</string>
+    <string name="activity_pool">Swimming pool</string>
+    <string name="activity_fitness_room">Fitness room</string>
+    <string name="activity_padel">Padel</string>
+    <string name="activity_tennis">Tennis</string>
+    <string name="activity_squash">Squash</string>
+    <string name="activity_sports_hall">Sports hall</string>
+    <string name="activity_futsal">Futsal</string>
+    <string name="activity_football">7-a-side / 11-a-side football</string>
+    <string name="activity_barbell_area">Barbell area</string>
+    <string name="activity_calisthenics">Calisthenics</string>
+    <string name="activity_climbing_wall">Climbing wall</string>
+    <string name="app_name">MySAF</string>
+    <string name="brand_title">UAB | SAF</string>
+    <string name="action_back">Back</string>
+    <string name="action_open_methodology">Open methodology</string>
+    <string name="action_methodology">How do we calculate this?</string>
+    <string name="content_description_info">Information</string>
+
+    <string name="home_headline">Find your best moment</string>
+    <string name="home_intro">See when each sports facility is usually less busy and find a better time to exercise.</string>
+    <string name="home_activities_heading">What would you like to do?</string>
+
+    <string name="activity_quietest_slot">Quietest time on %1$s: %2$s</string>
+    <string name="activity_availability_heading">Hourly availability</string>
+    <string name="activity_long_blocks_note">Some time slots may include club or school sessions.</string>
+    <string name="activity_select_hour">Select a time</string>
+    <string name="activity_find_alternatives">Find alternatives for %1$s</string>
+    <string name="activity_example_data_note">Sample data for this prototype. Final figures will be calculated on the device from daily_counts.json.</string>
+    <string name="activity_metric_occupied">≈ %1$d of %2$d %3$s</string>
+    <string name="activity_metric_available">≈ %1$d of %2$d %3$s free</string>
+    <string name="activity_accessibility_description">%1$s, %2$s%3$s</string>
+    <string name="activity_accessibility_metric">, %1$s</string>
+
+    <string name="period_term_title">Teaching period</string>
+    <string name="period_term_subtitle">Apr–Jun + Sep–Oct</string>
+    <string name="period_all_title">Full period</string>
+    <string name="period_all_subtitle">Apr–Oct</string>
+
+    <string name="weekday_monday">Monday</string>
+    <string name="weekday_tuesday">Tuesday</string>
+    <string name="weekday_wednesday">Wednesday</string>
+    <string name="weekday_thursday">Thursday</string>
+    <string name="weekday_friday">Friday</string>
+    <string name="weekday_saturday">Saturday</string>
+    <string name="weekday_sunday">Sunday</string>
+    <string name="weekday_monday_short">Mon</string>
+    <string name="weekday_tuesday_short">Tue</string>
+    <string name="weekday_wednesday_short">Wed</string>
+    <string name="weekday_thursday_short">Thu</string>
+    <string name="weekday_friday_short">Fri</string>
+    <string name="weekday_saturday_short">Sat</string>
+    <string name="weekday_sunday_short">Sun</string>
+
+    <string name="status_closed">Closed</string>
+    <string name="status_shift_change">Shift change</string>
+    <string name="status_low_data">Limited data</string>
+    <string name="occupancy_quiet">Quiet</string>
+    <string name="occupancy_moderate">Moderate</string>
+    <string name="occupancy_full">Busy</string>
+
+    <string name="methodology_title">How do we calculate this?</string>
+    <string name="methodology_intro">An estimate based on the SAF booking history. All calculations take place locally on your device.</string>
+    <string name="methodology_sources_title">Data sources</string>
+    <string name="methodology_sources_body">SAF data workbook: “Spaces”, “General timetable” and “Bookings” sheets. The data is pre-processed and the app receives only aggregated counts by activity, day and time slot.</string>
+    <string name="methodology_period_title">Reference period</string>
+    <string name="methodology_period_body">By default, the app uses April, May, June, September and October 2026 (teaching period). You can also consult the full period from April to October.</string>
+    <string name="methodology_occupancy_title">How occupancy is calculated</string>
+    <string name="methodology_occupancy_body">Gyms and swimming pools: average number of people with a booking overlapping the time slot, divided by capacity. Courts and pitches: average number of booked units divided by the number of available units. Long bookings count as occupied and may be marked as club or school sessions.</string>
+    <string name="methodology_labels_title">Occupancy labels</string>
+    <string name="methodology_labels_body" formatted="false">Quiet: below 50%. Moderate: from 50% to below 80%. Busy: 80% or more. An alternative is suggested only when it is at least 10 percentage points quieter than the selected time slot.</string>
+    <string name="methodology_limitations_title">Data limitations</string>
+    <string name="methodology_limit_1">Shows usual occupancy (historical average), not real-time occupancy.</string>
+    <string name="methodology_limit_2">Counts bookings, not the people who actually attended.</string>
+    <string name="methodology_limit_3">Default period: April–June and September–October 2026; activity is much lower in July and August.</string>
+    <string name="methodology_limit_4">Courts are counted as occupied or available units; gyms and swimming pools are counted in people.</string>
+    <string name="methodology_limit_5">The data contains no personal identifiers: the app does not know who you are and does not personalize results.</string>
+    <string name="methodology_limit_6">Time slots with fewer than 8 observed days are marked as “limited data”.</string>
+    <string name="methodology_limit_7">Fitness room shift changes (10:00 and 15:00) do not have data.</string>
+    <string name="methodology_privacy">Privacy: this app does not need an internet connection, contains no analytics and does not send data outside your device.</string>
+
+    <string name="recommendations_title">Quieter alternatives</string>
+    <string name="recommendations_already_quiet">For %1$s at %2$s, you have already chosen a time that is usually quiet.</string>
+    <string name="recommendations_lower_load">For %1$s at %2$s, these options have a lower estimated occupancy.</string>
+    <string name="recommendations_good_time">Good choice! This time slot is usually quiet already.</string>
+    <string name="recommendations_none">No alternatives that are sufficiently quieter were found for this time.</string>
+    <string name="recommendations_historical_note">Data: historical averages for the teaching period (April–June and September–October 2026). Bookings are counted; this is not real-time occupancy.</string>
+    <string name="recommendations_demo_note">Prototype recommendations: these will be connected to the local engine and will apply the 10-percentage-point threshold.</string>
+    <string name="recommendation_same_activity_today">Same activity, today</string>
+    <string name="recommendation_same_activity_another_day">Same activity, another day</string>
+    <string name="recommendation_alternative_activity">Alternative activity</string>
+    <string name="recommendation_today_time">14:00</string>
+    <string name="recommendation_tuesday_time">Tuesday at %1$s</string>
+    <string name="recommendation_fitness_time">Fitness room · %1$s</string>
+    <string name="recommendation_people_detail">≈ %1$d of %2$d %3$s · %4$s</string>
+    <string name="recommendation_units_detail">≈ %1$d of %2$d %3$s free · %4$s</string>
+    <string name="recommendation_reduction">−%1$d pp</string>
+    <string name="recommendation_view_content_description">View alternative</string>
+
+    <plurals name="unit_people">
+        <item quantity="one">person</item>
+        <item quantity="other">people</item>
+    </plurals>
+    <plurals name="unit_courts">
+        <item quantity="one">court</item>
+        <item quantity="other">courts</item>
+    </plurals>
+    <plurals name="unit_pitches">
+        <item quantity="one">pitch</item>
+        <item quantity="other">pitches</item>
+    </plurals>
+</resources>

@@ -1,5 +1,6 @@
 package com.uab.mysaf.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,10 +11,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.uab.mysaf.R
 import com.uab.mysaf.ui.theme.UabGreen
 
 @Composable
@@ -26,15 +29,15 @@ fun PeriodSelector(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         PeriodOption(
-            title = "Lectiu",
-            subtitle = "Abr–Jun + Set–Oct",
+            title = stringResource(R.string.period_term_title),
+            subtitle = stringResource(R.string.period_term_subtitle),
             selected = !allPeriod,
             onClick = { onPeriodChange(false) },
             modifier = Modifier.weight(1f),
         )
         PeriodOption(
-            title = "Tot el període",
-            subtitle = "Abr–Oct",
+            title = stringResource(R.string.period_all_title),
+            subtitle = stringResource(R.string.period_all_subtitle),
             selected = allPeriod,
             onClick = { onPeriodChange(true) },
             modifier = Modifier.weight(1f),
@@ -56,7 +59,7 @@ private fun PeriodOption(
         shape = RoundedCornerShape(15.dp),
         color = if (selected) UabGreen else MaterialTheme.colorScheme.surface,
         contentColor = if (selected) androidx.compose.ui.graphics.Color.White else MaterialTheme.colorScheme.onSurface,
-        border = if (selected) null else androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        border = if (selected) null else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         androidx.compose.foundation.layout.Column(
             modifier = Modifier.padding(vertical = 10.dp, horizontal = 8.dp),

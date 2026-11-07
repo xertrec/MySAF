@@ -1,5 +1,8 @@
 package com.uab.mysaf.data
 
+import androidx.annotation.StringRes
+import com.uab.mysaf.R
+
 /**
  * Deterministic demonstration values used only to lay out the UI.
  * Replace this file's source with the on-device profile built from daily_counts.json.
@@ -14,10 +17,10 @@ data class HourAvailability(
     val longBlock: Boolean = false,
 )
 
-enum class OccupancyLabel(val catalan: String) {
-    QUIET("Tranquil"),
-    MODERATE("Moderat"),
-    FULL("Ple"),
+enum class OccupancyLabel(@StringRes val labelRes: Int) {
+    QUIET(R.string.occupancy_quiet),
+    MODERATE(R.string.occupancy_moderate),
+    FULL(R.string.occupancy_full),
 }
 
 fun occupancyLabel(row: HourAvailability): OccupancyLabel {
@@ -75,13 +78,14 @@ fun quieterHour(rows: List<HourAvailability>): Int? =
         .minByOrNull { it.occupied.toFloat() / it.capacity.coerceAtLeast(1) }
         ?.hour
 
-fun weekdayName(short: String): String = when (short) {
-    "dl" -> "dilluns"
-    "dt" -> "dimarts"
-    "dc" -> "dimecres"
-    "dj" -> "dijous"
-    "dv" -> "divendres"
-    "ds" -> "dissabte"
-    "dg" -> "diumenge"
-    else -> "dilluns"
+@StringRes
+fun weekdayNameRes(short: String): Int = when (short) {
+    "dl" -> R.string.weekday_monday
+    "dt" -> R.string.weekday_tuesday
+    "dc" -> R.string.weekday_wednesday
+    "dj" -> R.string.weekday_thursday
+    "dv" -> R.string.weekday_friday
+    "ds" -> R.string.weekday_saturday
+    "dg" -> R.string.weekday_sunday
+    else -> R.string.weekday_monday
 }
