@@ -30,8 +30,10 @@
     <string name="activity_example_data_note">Sample data for this prototype. Final figures will be calculated on the device from daily_counts.json.</string>
     <string name="activity_metric_occupied">≈ %1$d of %2$d %3$s</string>
     <string name="activity_metric_available">≈ %1$d of %2$d %3$s free</string>
+    <string name="activity_metric_percentage">%1$d%%</string>
     <string name="activity_accessibility_description">%1$s, %2$s%3$s</string>
     <string name="activity_accessibility_metric">, %1$s</string>
+    <string name="activity_accessibility_percentage">, %1$s</string>
 
     <string name="period_term_title">Teaching period</string>
     <string name="period_term_subtitle">Apr–Jun + Sep–Oct</string>

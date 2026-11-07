@@ -27,6 +27,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.roundToInt
 import com.uab.mysaf.R
 import com.uab.mysaf.data.HourAvailability
 import com.uab.mysaf.data.OccupancyLabel
@@ -61,13 +62,21 @@ fun HourlyAvailabilityRow(
         }
     }
     val unitLabel = pluralStringResource(unitRes, row.capacity)
+    val occupancyPercentage = (ratio * 100f).roundToInt()
+    val percentageMetric = if (!row.isClosed && !row.shiftChange) {
+        stringResource(R.string.activity_metric_percentage, occupancyPercentage)
+    } else {
+        ""
+    }
     val metric = when {
         row.isClosed || row.shiftChange -> ""
         isPersonCount -> stringResource(R.string.activity_metric_occupied, row.occupied, row.capacity, unitLabel)
         else -> stringResource(R.string.activity_metric_available, row.capacity - row.occupied, row.capacity, unitLabel)
     }
     val hourLabel = stringResource(R.string.time_hour, row.hour)
-    val accessibilityMetric = if (metric.isBlank()) "" else stringResource(R.string.activity_accessibility_metric, metric)
+    val accessibilityMetric =
+        (if (metric.isNotBlank()) stringResource(R.string.activity_accessibility_metric, metric) else "") +
+                (if (percentageMetric.isNotBlank()) stringResource(R.string.activity_accessibility_percentage, percentageMetric) else "")
     val accessibleText = stringResource(R.string.activity_accessibility_description, hourLabel, specialStatus, accessibilityMetric)
 
     Surface(
@@ -80,10 +89,22 @@ fun HourlyAvailabilityRow(
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 10.dp, vertical = 11.dp),
+            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(hourLabel, modifier = Modifier.width(48.dp), fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
-            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(5.dp)) {
+            Text(
+                hourLabel,
+                modifier = Modifier.width(48.dp),
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 13.sp
+            )
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(
+                    space = 5.dp,
+                    alignment = Alignment.CenterVertically
+                )
+            ) {
                 if (!row.isClosed && !row.shiftChange) {
                     Box(
                         modifier = Modifier
@@ -104,13 +125,27 @@ fun HourlyAvailabilityRow(
                 Text(specialStatus, color = loadColor, fontSize = 11.sp, fontWeight = FontWeight.Bold)
             }
             Spacer(Modifier.width(9.dp))
-            Text(
-                metric,
-                modifier = Modifier.width(102.dp),
-                fontSize = 10.sp,
-                lineHeight = 13.sp,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    metric,
+                    fontSize = 10.sp,
+                    lineHeight = 13.sp,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+                if (percentageMetric.isNotBlank()) {
+                    Text(
+                        percentageMetric,
+                        modifier = Modifier.padding(top = 2.dp),
+                        fontSize = 10.sp,
+                        lineHeight = 12.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
         }
     }
 }
