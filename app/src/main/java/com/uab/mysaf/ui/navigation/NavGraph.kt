@@ -1,24 +1,14 @@
 package com.uab.mysaf.ui.navigation
 
-import android.content.Intent
-import androidx.activity.compose.LocalActivity
-import androidx.activity.compose.R
-import androidx.compose.animation.SharedTransitionLayout
-import androidx.compose.animation.core.spring
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.scaleOut
-import androidx.compose.foundation.background
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.core.net.toUri
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.uab.mysaf.ui.main.MainScreen
+import androidx.navigation.toRoute
+import com.uab.mysaf.ui.screens.ActivityScreen
+import com.uab.mysaf.ui.screens.HomeScreen
+import com.uab.mysaf.ui.screens.MethodologyScreen
+import com.uab.mysaf.ui.screens.RecommendationsScreen
 import kotlin.reflect.KClass
 
 @Composable
@@ -30,8 +20,54 @@ fun NavGraph(
         navController = navController,
         startDestination = screenInitial,
     ) {
-        composable(ScreenMain::class) {
-            MainScreen(navController)
+        composable<ScreenHome> {
+            HomeScreen(
+                onActivitySelected = { activityId ->
+                    navController.navigate(ScreenActivity(activityId))
+                },
+                onOpenMethodology = {
+                    navController.navigate(ScreenMethodology)
+                },
+            )
+        }
+
+        composable<ScreenActivity> { backStackEntry ->
+            val route = backStackEntry.toRoute<ScreenActivity>()
+            ActivityScreen(
+                activityId = route.activityId,
+                onBack = { navController.popBackStack() },
+                onOpenMethodology = {
+                    navController.navigate(ScreenMethodology)
+                },
+                onFindAlternatives = { activityId, weekday, hour ->
+                    navController.navigate(
+                        ScreenRecommendations(
+                            activityId = activityId,
+                            weekday = weekday,
+                            hour = hour,
+                        ),
+                    )
+                },
+            )
+        }
+
+        composable<ScreenRecommendations> { backStackEntry ->
+            val route = backStackEntry.toRoute<ScreenRecommendations>()
+            RecommendationsScreen(
+                activityId = route.activityId,
+                weekday = route.weekday,
+                hour = route.hour,
+                onBack = { navController.popBackStack() },
+                onOpenMethodology = {
+                    navController.navigate(ScreenMethodology)
+                },
+            )
+        }
+
+        composable<ScreenMethodology> {
+            MethodologyScreen(
+                onBack = { navController.popBackStack() },
+            )
         }
     }
 }
