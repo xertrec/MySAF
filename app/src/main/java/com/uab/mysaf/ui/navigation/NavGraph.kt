@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.uab.mysaf.ui.chat.ChatScreen
 import com.uab.mysaf.ui.screens.ActivityScreen
 import com.uab.mysaf.ui.screens.HomeScreen
 import com.uab.mysaf.ui.screens.MethodologyScreen
@@ -25,6 +26,18 @@ fun NavGraph(
                 onActivitySelected = { activityId ->
                     navController.navigate(ScreenActivity(activityId))
                 },
+                onOpenMethodology = {
+                    navController.navigate(ScreenMethodology)
+                },
+                onOpenChat = {
+                    navController.navigate(ScreenChat)
+                },
+            )
+        }
+
+        composable<ScreenChat> {
+            ChatScreen(
+                onBack = { navController.popBackStack() },
                 onOpenMethodology = {
                     navController.navigate(ScreenMethodology)
                 },

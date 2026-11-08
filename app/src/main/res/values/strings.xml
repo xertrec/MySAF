@@ -112,4 +112,34 @@
         <item quantity="one">camp</item>
         <item quantity="other">camps</item>
     </plurals>
+
+    <string name="home_chat_title">Pregunta a SAFIA</string>
+    <string name="home_chat_subtitle">L’assistent del SAF: horaris, ocupació i franges més tranquil·les.</string>
+    <string name="home_chat_open">Obrir l’assistent</string>
+
+    <string name="chat_title">SAFIA</string>
+    <string name="chat_headline">Hola! Sóc SAFIA</string>
+    <string name="chat_intro">Pregunta’m sobre horaris, aforaments i quan acostuma a haver-hi menys gent al SAF. Responc a partir de les dades històriques de l’app.</string>
+    <string name="chat_suggestions_heading">Prova amb…</string>
+    <string name="chat_suggestion_1">A quina hora tanca el SAF els dissabtes?</string>
+    <string name="chat_suggestion_2">Quan hi ha menys gent a la sala fitness?</string>
+    <string name="chat_suggestion_3">Vull jugar a pàdel dilluns a les 18:00. Hi ha alternatives més tranquil·les?</string>
+    <string name="chat_suggestion_4">Quines activitats puc fer al SAF?</string>
+    <string name="chat_disclaimer">SAFIA fa servir un model de llenguatge de la UAB. Les teves preguntes s’envien al servidor de l’assistent; les dades d’ocupació es consulten al dispositiu.</string>
+    <string name="chat_input_placeholder">Escriu una pregunta…</string>
+    <string name="chat_send">Enviar</string>
+    <string name="chat_new_conversation">Nova conversa</string>
+    <string name="chat_thinking">SAFIA està pensant…</string>
+    <string name="chat_source">Font: %1$s</string>
+    <string name="chat_slot_detail">%1$s · %2$d%%</string>
+    <string name="chat_retry">Torna-ho a provar</string>
+    <string name="chat_error_network">No es pot connectar amb SAFIA. Comprova la connexió i que el servidor estigui en marxa.</string>
+    <string name="chat_error_rate_limited">Hi ha massa peticions. Torna-ho a provar d’aquí a uns segons.</string>
+    <string name="chat_error_not_configured">L’assistent no està configurat al servidor.</string>
+    <string name="chat_error_generic">SAFIA no ha pogut respondre ara mateix.</string>
+    <string name="chat_limit_provisional_capacity">Els aforaments són provisionals (inventari del SAF).</string>
+    <string name="chat_limit_general_hours_only">Només hi ha l’horari general del SAF, no el de cada instal·lació.</string>
+    <string name="chat_limit_unvalidated_metric">La mètrica d’aquesta activitat encara no està validada.</string>
+    <string name="chat_limit_data_unavailable">No s’han pogut consultar algunes dades.</string>
+    <string name="chat_limit_unverified_figures">Algunes xifres no s’han pogut verificar amb les dades.</string>
 </resources>

@@ -19,3 +19,6 @@ data class ScreenRecommendations(
 
 @Serializable
 data object ScreenMethodology
+
+@Serializable
+data object ScreenChat

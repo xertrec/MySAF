@@ -70,6 +70,12 @@ fun quieterHour(rows: List<HourAvailability>): Int? =
         .minByOrNull { it.load }
         ?.hour
 
+/** P2: the [limit] quietest usable hours of a day, quietest first (used by the SAFIA chat). */
+fun quietestHours(rows: List<HourAvailability>, limit: Int): List<HourAvailability> =
+    rows.filter { it.isUsable }
+        .sortedBy { it.load }
+        .take(limit.coerceAtLeast(0))
+
 val WEEKDAYS = listOf("dl", "dt", "dc", "dj", "dv", "ds", "dg")
 
 @StringRes

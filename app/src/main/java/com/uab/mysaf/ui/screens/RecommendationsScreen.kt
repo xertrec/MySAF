@@ -157,7 +157,7 @@ fun RecommendationsScreen(
 }
 
 @Composable
-private fun alternativeUi(alternative: Alternative): RecommendationUi {
+internal fun alternativeUi(alternative: Alternative): RecommendationUi {
     val candidate = activityById(alternative.activityId)
     val row = alternative.row
     val time = stringResource(R.string.time_hour, row.hour)

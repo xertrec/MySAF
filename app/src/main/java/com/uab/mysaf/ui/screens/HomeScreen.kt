@@ -1,6 +1,8 @@
 package com.uab.mysaf.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,10 +10,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -22,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -36,6 +43,7 @@ import com.uab.mysaf.ui.theme.UabGreen
 fun HomeScreen(
     onActivitySelected: (String) -> Unit,
     onOpenMethodology: () -> Unit,
+    onOpenChat: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -62,9 +70,11 @@ fun HomeScreen(
                 lineHeight = 22.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            ChatEntryCard(onClick = onOpenChat)
+
             Text(
                 stringResource(R.string.home_activities_heading),
-                modifier = Modifier.padding(top = 26.dp, bottom = 13.dp),
+                modifier = Modifier.padding(top = 22.dp, bottom = 13.dp),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
             )
@@ -110,6 +120,45 @@ fun HomeScreen(
                     )
                 }
             }
+        }
+    }
+}
+
+/** Entry point to the SAFIA assistant, styled like the rest of the home screen. */
+@Composable
+private fun ChatEntryCard(onClick: () -> Unit) {
+    Card(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = UabGreen, contentColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                modifier = Modifier.size(42.dp).background(Color.White.copy(alpha = 0.18f), CircleShape),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(Icons.Filled.AutoAwesome, contentDescription = null, tint = Color.White)
+            }
+            Column(modifier = Modifier.padding(start = 13.dp).weight(1f)) {
+                Text(stringResource(R.string.home_chat_title), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(
+                    stringResource(R.string.home_chat_subtitle),
+                    modifier = Modifier.padding(top = 2.dp),
+                    fontSize = 13.sp,
+                    lineHeight = 17.sp,
+                    color = Color.White.copy(alpha = 0.85f),
+                )
+            }
+            Icon(
+                Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = stringResource(R.string.home_chat_open),
+                tint = Color.White,
+            )
         }
     }
 }

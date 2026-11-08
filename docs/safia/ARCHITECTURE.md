@@ -1,6 +1,6 @@
-# SAFIA — Phase 1 audit & Phase 2 architecture proposal
+# SAFIA — Architecture
 
-Status: **architecture agreed (client-executed tools)**; only the P2 shift-change fix is implemented so far. Based on the repo at commit `203177a`.
+Status: **backend v0.1 implemented** (`backend/`), LLM = UAB **Ornith** (`https://dcc-llm-gw.uab.cat/uabthehack/v1`, OpenAI-compatible). Android chat screen and tool executor: not yet implemented — contract in [`ANDROID_INTEGRATION.md`](ANDROID_INTEGRATION.md). Section 1 is the original audit (commit `203177a`). Based on the repo at commit `203177a`.
 
 ---
 
@@ -12,7 +12,7 @@ Status: **architecture agreed (client-executed tools)**; only the P2 shift-chang
 |---|---|
 | `app/` | Android, Kotlin, **Jetpack Compose** + Navigation-Compose (type-safe routes), Room 2.8.4, minSdk 24. 4 screens: Home, Activity, Recommendations, Methodology. Strings in `values/` (Catalan, default) and `values-en/`. |
 | `data_engineering/` | Python pipeline (`clean_data.py` → `create_database.py`), pytest, mapping CSVs, quality report. `data_dictionary.md` is **empty**. |
-| Backend | **None.** No FastAPI, no OpenAI code. `requirements.txt` only has pandas/pytest stack. |
+| Backend | **None at audit time.** Now: `backend/` (FastAPI + Ornith), see §3. |
 | Android ↔ network | No `INTERNET` permission, no Retrofit/OkHttp, **no ViewModels** (screens call the repository via `produceState`). |
 
 ### 1.2 The real SQLite schema (`mysaf.db`, identical in `data_engineering/database/` and `app/src/main/assets/database/`)
@@ -52,7 +52,7 @@ P2 is implemented **in Kotlin on the device**:
 | All people-capacities are `provisional`; padel court 2 has no people capacity | same | Capacity answers carry a "provisional inventory figure" note. |
 | Pool record = person, court record = booked court | DB `is_person_count`, methodology strings | Never compare/rank across the two kinds; units always explicit. |
 | Data counts **bookings**, not attendance | `methodology_limit_2` | Phrase as "recorded bookings/occupancy", never "people present". |
-| Fitness room shift changes at 10 h and 15 h have no data | `methodology_limit_7` | ⚠️ **Gap in P2:** `HourAvailability.shiftChange` is never set from the DB (always `false`), so those hours *are* currently offered as recommendations. Should be fixed once, in P2, so both app and SAFIA benefit. |
+| Fitness room shift changes at 10 h and 15 h have no data | `methodology_limit_7` | **Was a gap in P2:** `shiftChange` was never set from the DB, so those hours were offered as recommendations. **Fixed** in `Availability.kt` (see §4). |
 | `long_block_share` ≥ 0.25 = club/school blocks | DB | Mention when a slot includes block bookings. |
 | Default period `lectiu` (Apr–Jun, Sep–Oct); Jul–Aug much quieter | `methodology_limit_3` | Default to `lectiu`; say so; allow "including summer". |
 | Historical only (Apr–Oct 2026) | `dataset_info` | Any "right now / today / currently" question → explain it's historical and offer the typical pattern for that weekday/hour. |
@@ -72,147 +72,81 @@ What it costs, and how we contain it:
 | Extra round trips (one per tool round) | The model is allowed **parallel tool calls** in one round; rounds capped at 3; typical question = 1 round (2 HTTP calls). |
 | Backend can't be tested against the DB on its own | The Kotlin tool executor writes **recorded tool results from the real asset DB** to `contracts/fixtures/*.json` (instrumented test). Backend pytest replays them with a fake executor. |
 | Untrusted client returns tool results | Backend validates every result against Pydantic models before it reaches the model; the grounding check only accepts numbers that came from those results. |
-| Backend holds turn state between calls | In-memory pending-turn store keyed by `turn_id`, 5-minute TTL. Conversation history itself stays on the phone (stateless across turns). Fine for a single-process MVP. |
+| Backend holds state between calls | In-memory store: conversation history per `conversation_id` (1 h TTL) and the pending tool round per `turn_id` (5 min TTL). Android only sends the new message; it may resend recent `history` to recover after a server restart. Single-process MVP. |
 
-The previously recommended option (server-side DB copy + Python port of P2) is documented in git history and can be revisited if latency becomes a problem; the tool contract is identical in both.
+Alternative considered: a server-side DB copy with a Python port of P2 (fewer round trips, easier backend testing, but two P2 implementations). It can be revisited if latency becomes a problem; the tool contract would stay the same.
 
 ---
 
-## 3. Architecture
+## 3. Architecture (as implemented)
 
 ```mermaid
 flowchart LR
-  subgraph Android["Android app (Compose + MVVM)"]
+  subgraph Android["Android app (Compose + MVVM) — to build"]
     ChatScreen --> ChatViewModel --> ChatRepository
     ChatRepository --> SafiaApi["SafiaApi (Retrofit)"]
     ChatRepository --> Exec["SafiaToolExecutor"]
-    Exec --> Repo["AvailabilityRepository"]
+    Exec --> Repo["AvailabilityRepository / Dao"]
     Repo --> P2["P2: findAlternatives / quieterHour"]
     Repo --> Room[(Room: mysaf.db asset)]
-    Existing["Existing screens"] --> Repo
   end
   SafiaApi -- "1. POST /v1/chat" --> API
   API -- "2. tool_calls" --> SafiaApi
   SafiaApi -- "3. POST /v1/chat/{turn_id}/tool-results" --> API
   API -- "4. final reply" --> SafiaApi
-  subgraph Backend["FastAPI backend (no database)"]
-    API["api/chat.py"] --> Orch["orchestrator.py"]
-    Orch --> LLM["OpenAI client\n(key from env only)"]
-    Orch --> Turns["pending-turn store (TTL)"]
-    Orch --> Val["validation: tool-call args,\ntool results, grounding"]
-    Orch --> Local["backend-only tools:\nresolve_facility, data_limitations"]
+  subgraph Backend["backend/ — FastAPI, no database"]
+    API["api/routes.py"] --> Orch["conversation/orchestrator.py"]
+    Orch --> Store["conversation/store.py\n(in-memory)"]
+    Orch --> Val["tools/registry.py\nargs + results validation"]
+    Orch --> G["grounding.py"]
+    Orch --> LLM["llm/client.py\nOpenAI SDK → Ornith\n(UTH_KEY from .env)"]
+    Orch -.-> RAG["retrieval/ (empty, later RAG)"]
   end
 ```
 
 ### 3.1 Turn sequence
 
-1. **Phone → backend** `POST /v1/chat` with `{conversation_id, message, locale, history[], context}`.
-2. Backend builds the prompt (system rules + last N turns + echoed `context`) and calls OpenAI with the tool schemas.
-3. If the model calls only backend-side tools (`resolve_facility`, `data_limitations`), the backend answers them itself and continues.
-4. If it calls phone-side tools, the backend validates the arguments (whitelisted name, `strict` JSON schema, enums for `activity_id` / `weekday` / `period`), stores the turn, and returns `status: "tool_calls"` with `turn_id` and the calls.
-5. **Phone** runs each call through `SafiaToolExecutor` (Room + P2, all local, read-only), then `POST /v1/chat/{turn_id}/tool-results`.
-6. Backend validates the results, feeds them to the model, repeats 4–5 at most 3 times.
-7. Grounding check on the draft: every number must come from this turn's tool results; on failure, one regeneration, then a safe fallback ("I can't verify that figure").
-8. Backend returns `status: "final"` with `reply`, `sources[]`, `limitations[]`, optional `recommendation` cards, `needs_clarification`, and the updated `context`.
+1. Android `POST /v1/chat` `{message, conversation_id?, locale?}`.
+2. Backend appends the message to the conversation and calls Ornith with the system prompt (rules, catalogue, today's weekday, conversation focus) and 7 tool schemas.
+3. Each tool call is checked: known name, JSON object, Pydantic validation (enums for activity / weekday / period, hour ranges, no extra fields). Rejected calls are answered to the model with an error and never reach Android.
+4. Valid calls → `status: "tool_calls"` with `turn_id` and the calls (ids preserved exactly).
+5. Android runs them on Room / Kotlin P2 and posts `results` (one per `call_id`; `ok:false` on local failure).
+6. Backend validates every output against the contract (422 if it doesn't match, turn kept open), narrows it to the requested days/hours, adds presentation fields (`time`, `load_pct`, unit, names, validation flags) and sends it to Ornith as `tool` messages in the original call order.
+7. Steps 2–6 repeat up to 3 rounds; after that the model must answer (`tool_choice: "none"`).
+8. Grounding: every number in the reply must appear in tool results, the user's messages or fixed prompt facts. Otherwise one regeneration; if it still fails, a safe "can't verify" reply (configurable).
+9. `status: "final"` with `reply`, `language`, `sources`, `limitations`, `recommendation` (P2 output, if any), `needs_clarification`, `context`.
 
-### 3.2 Tools
+Compatibility handling for the OpenAI-compatible gateway: `<think>` blocks are stripped; tool calls written as text (`<tool_call>{…}</tool_call>` or JSON) are parsed; `parallel_tool_calls` / `tool_choice` are dropped automatically if the gateway rejects them; missing call ids are generated.
 
-All phone-side tools map onto **existing** DAO queries / repository methods, so no new SQL is needed and nothing is generated by the model.
+### 3.2 Tools (all executed by Android)
 
-| Tool | Runs on | Backed by |
+The facility catalogue (ids, names in ca/es/en, aliases, units, unvalidated metrics, what is *not* covered) is in the system prompt, so no backend-side lookup tool is needed. `get_facility_capacity` and `get_resource_information` became one tool, `get_facility_info`.
+
+| Tool | Kotlin backing | Status in Kotlin |
 |---|---|---|
-| `resolve_facility(text)` | backend | Alias table ("gimnàs/gym/gimnasio" → `sala_fitness`; "piscina" → `piscina_25m` + note that the 16 m pool isn't covered; ambiguous → candidates). Static, mirrors `ActivityCatalog` ids. |
-| `data_limitations(topics[])` | backend | Static text mirroring the methodology strings + validation flags (rocodrom/calistenia unvalidated, capacities provisional). |
-| `list_activities()` | phone | `dao.activities()` + `ActivityCatalog` (unit kind). |
-| `get_opening_hours(weekdays?)` | phone | `dao.openingHours()`. General SAF schedule only. |
-| `get_facility_capacity(activity_id)` | phone | `dao.activity(id)`. Returns unit `people`/`courts`. |
-| `get_hourly_occupancy(activity_id, weekdays[], hour_from?, hour_to?, period)` | phone | `repository.dayAvailability(...)` per weekday → load %, label, `closed`, `low_data`, `long_block`, `shift_change`. |
-| `find_quieter_slots(activity_id, weekdays[], period, limit)` | phone | **P2** `quieterHour` / usable-row ranking. |
-| `recommend_alternatives(activity_id, weekday, hour, period)` | phone | **P2** `repository.recommendations(...)` → `findAlternatives`. |
-| `get_dataset_info()` | phone | `dao.datasetInfo(key)` for coverage dates, active days, rule version. |
+| `list_activities` | `dao.activities()` | exists |
+| `get_opening_hours(weekdays?)` | `dao.openingHours()` | exists |
+| `get_facility_info(activity_id)` | `dao.activity(id)` | exists |
+| `get_hourly_occupancy(activity_id, weekdays, hour_from?, hour_to?, period)` | `repository.dayAvailability` | exists |
+| `find_quieter_slots(activity_id, weekdays, period, limit)` — P2 | `dayAvailability` + `quietestHours` | **NEW** one-line helper next to `quieterHour` |
+| `recommend_alternatives(activity_id, weekday, hour, period)` — P2 | `repository.recommendations` → `findAlternatives` | exists; `no_result_reason` mapping **NEW** in executor |
+| `get_dataset_info()` | `dao.datasetInfo(key)` | exists (optional **NEW** `allDatasetInfo()`) |
 
-Not offered, deliberately: directed-activity timetables, real-time occupancy, per-facility hours. The model is instructed to say it can't verify these.
+Not offered, deliberately: directed-activity timetables, real-time occupancy, per-facility hours, prices — SAFIA says it can't verify them.
 
-### 3.3 P2 result contract (`recommend_alternatives`)
+Exact JSON for arguments and outputs: [`contracts/tools.schema.json`](../../contracts/tools.schema.json) (generated by `backend/scripts/export_contract.py`) and [`ANDROID_INTEGRATION.md`](ANDROID_INTEGRATION.md) §4.
 
-Serialized by Kotlin (kotlinx-serialization), mirrored by Pydantic models on the backend. Schema lives in `contracts/tools.schema.json`.
+### 3.3 HTTP API
 
-```json
-{
-  "requested": {"activity_id":"tennis","weekday":"dl","hour":18,"load_pct":92,
-                "label":"full","occupied":5,"capacity":5,"unit":"courts"},
-  "is_already_quiet": false,
-  "alternatives": [
-    {"kind":"SAME_DAY","activity_id":"tennis","weekday":"dl","hour":15,"load_pct":40,
-     "reduction_pp":52,"flags":{"long_block":false,"low_data":false}}
-  ],
-  "period": "lectiu",
-  "metric": "avg booked courts / courts, historical average",
-  "no_result_reason": null
-}
-```
+Specified in full in [`ANDROID_INTEGRATION.md`](ANDROID_INTEGRATION.md) §2. Changes from the original proposal: the server keeps the conversation (so `history`/`context` are optional recovery fields), tool results go to `POST /v1/chat/{turn_id}/tool-results`, and responses carry `round` and `needs_clarification`.
 
-`no_result_reason` ∈ `unknown_activity | closed | no_data | already_quiet | no_alternative_10pp`, computed in the executor from `Recommendations`, so SAFIA can explain *why* there is no recommendation.
+### 3.4 Backend layout, configuration and tests
 
-### 3.4 HTTP API
+See [`backend/README.md`](../../backend/README.md): Windows setup, `.env` (`LLM_PROVIDER`, `LLM_MODEL=ornith`, `LLM_BASE_URL`, `UTH_KEY`), run/test commands, and the test matrix (scenario, protocol, wire-level SDK, unit, security and live Ornith tests).
 
-```json
-// POST /v1/chat
-{"conversation_id":"uuid","message":"I els caps de setmana?","locale":"ca",
- "history":[{"role":"user","text":"…"},{"role":"assistant","text":"…"}],
- "context":{"activity_id":"sala_fitness","weekdays":["dl","dt","dc","dj","dv"],"period":"lectiu"}}
+### 3.5 Later: RAG
 
-// 200 — tools needed
-{"status":"tool_calls","turn_id":"t_…","expires_in_s":300,
- "tool_calls":[{"call_id":"c1","name":"find_quieter_slots",
-   "arguments":{"activity_id":"sala_fitness","weekdays":["ds","dg"],"period":"lectiu","limit":3}}]}
-
-// POST /v1/chat/{turn_id}/tool-results
-{"results":[{"call_id":"c1","ok":true,"output":{…}}]}
-//   a failed local call: {"call_id":"c1","ok":false,"error":"DB_UNAVAILABLE"}
-
-// 200 — final
-{"status":"final","conversation_id":"uuid","reply":"…","language":"ca",
- "sources":[{"table":"hourly_availability","label":"Ocupació històrica, abr–oct 2026"}],
- "limitations":["historical_only","bookings_not_attendance"],
- "recommendation":null,"needs_clarification":false,
- "context":{"activity_id":"sala_fitness","weekdays":["ds","dg"],"period":"lectiu"}}
-
-// error (4xx/5xx)
-{"error":{"code":"LLM_UNAVAILABLE|RATE_LIMITED|TURN_EXPIRED|INVALID_TOOL_RESULT|BAD_REQUEST|INTERNAL",
-          "message":"…","retryable":true}}
-```
-
-### 3.5 Backend layout
-
-```
-backend/
-  app/
-    main.py                 # FastAPI app, /health
-    api/chat.py             # POST /v1/chat, POST /v1/chat/{turn_id}/tool-results
-    api/schemas.py          # request/response + tool-result Pydantic models
-    orchestrator.py         # tool loop, turn store, context, language
-    llm/openai_client.py    # OpenAI SDK wrapper; OPENAI_MODEL from env
-    llm/prompts.py          # system prompt: ca/es/en, no-invention, units, historical-only
-    tools/schemas.py        # JSON schemas (generated into contracts/tools.schema.json)
-    tools/backend_tools.py  # resolve_facility, data_limitations
-    validation/             # argument checks, result checks, numeric grounding
-  tests/                    # pytest: 14 scenarios replaying contracts/fixtures, secrets scan
-  .env.example              # OPENAI_API_KEY=, OPENAI_MODEL=
-  requirements.txt
-contracts/
-  tools.schema.json
-  fixtures/*.json           # produced by the Android instrumented test from the real DB
-```
-
-### 3.6 Android additions (existing screens untouched)
-
-- `INTERNET` permission; Retrofit + OkHttp + kotlinx-serialization converter (serialization is already in the project); `lifecycle-viewmodel-compose`.
-- `data/chat/`: `SafiaApi`, DTOs, `ChatRepository` (runs the request → tool → result loop), `SafiaToolExecutor` (maps tool names to `AvailabilityRepository` / DAO calls; rejects unknown tools and out-of-range arguments a second time).
-- `ui/chat/`: `ChatViewModel` exposing `StateFlow<ChatUiState>` (messages, `isSending`, `error`, retry); `ChatScreen`; new `ScreenChat` route plus an entry point on Home.
-- Base URL from `BuildConfig` (`http://10.0.2.2:8000` on the emulator). **No API key on the device.**
-- `recommendation` cards reuse the existing `RecommendationCard`.
-- Tests: `SafiaToolExecutorTest` (unit) and an instrumented test against the prepackaged DB that also writes `contracts/fixtures/`.
+`app/retrieval/` defines a `Retriever` hook whose snippets are added to the system prompt, and `tools/registry.py` supports server-side tools. Either lets document retrieval be added inside this backend with no change to the Android protocol.
 
 ---
 
@@ -222,3 +156,4 @@ contracts/
 2. ~~Fix `shiftChange` in P2~~ → **done**: `SHIFT_CHANGE_HOURS` in `Availability.kt` now flags fitness 10 h / 15 h, which removes them from recommendations; new unit test in `AvailabilityMappingTest`.
 3. Where the backend runs for the demo (laptop on same Wi-Fi vs. a small hosted instance).
 4. Whether directed activities should be added to the DB later (requires Data Engineering + SAF confirmation of `DataInscripcio`).
+5. Verify Ornith tool-calling behaviour with `backend/scripts/smoke_ornith.py` from a network that reaches `dcc-llm-gw.uab.cat`.

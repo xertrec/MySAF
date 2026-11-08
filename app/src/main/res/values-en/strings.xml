@@ -112,4 +112,34 @@
         <item quantity="one">pitch</item>
         <item quantity="other">pitches</item>
     </plurals>
+
+    <string name="home_chat_title">Ask SAFIA</string>
+    <string name="home_chat_subtitle">The SAF assistant: opening hours, occupancy and quieter times.</string>
+    <string name="home_chat_open">Open the assistant</string>
+
+    <string name="chat_title">SAFIA</string>
+    <string name="chat_headline">Hi! I’m SAFIA</string>
+    <string name="chat_intro">Ask me about opening hours, capacity and when the SAF is usually less busy. I answer using the app’s historical data.</string>
+    <string name="chat_suggestions_heading">Try asking…</string>
+    <string name="chat_suggestion_1">What time does the SAF close on Saturdays?</string>
+    <string name="chat_suggestion_2">When is the fitness room least busy?</string>
+    <string name="chat_suggestion_3">I want to play padel on Monday at 18:00. Are there quieter alternatives?</string>
+    <string name="chat_suggestion_4">Which activities can I do at the SAF?</string>
+    <string name="chat_disclaimer">SAFIA uses a UAB language model. Your questions are sent to the assistant’s server; occupancy data is read on your device.</string>
+    <string name="chat_input_placeholder">Type a question…</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_new_conversation">New conversation</string>
+    <string name="chat_thinking">SAFIA is thinking…</string>
+    <string name="chat_source">Source: %1$s</string>
+    <string name="chat_slot_detail">%1$s · %2$d%%</string>
+    <string name="chat_retry">Try again</string>
+    <string name="chat_error_network">Can’t reach SAFIA. Check your connection and that the server is running.</string>
+    <string name="chat_error_rate_limited">Too many requests. Try again in a few seconds.</string>
+    <string name="chat_error_not_configured">The assistant isn’t configured on the server.</string>
+    <string name="chat_error_generic">SAFIA couldn’t answer right now.</string>
+    <string name="chat_limit_provisional_capacity">Capacities are provisional (SAF inventory).</string>
+    <string name="chat_limit_general_hours_only">Only the general SAF schedule is available, not per-facility hours.</string>
+    <string name="chat_limit_unvalidated_metric">This activity’s metric hasn’t been validated yet.</string>
+    <string name="chat_limit_data_unavailable">Some data couldn’t be read.</string>
+    <string name="chat_limit_unverified_figures">Some figures couldn’t be verified against the data.</string>
 </resources>

@@ -1,0 +1,923 @@
+{
+  "description": "SAFIA tool contract. 'arguments' is what the backend sends to Android (already validated); 'output' is what Android must return as ToolResult.output when ok=true.",
+  "tools": [
+    {
+      "name": "list_activities",
+      "executed_by": "android",
+      "uses_p2": false,
+      "description": "List every SAF activity/facility covered by the database, with its unit (people or courts), capacity and the physical resources it aggregates.",
+      "arguments": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output": {
+        "$defs": {
+          "ActivityRow": {
+            "properties": {
+              "activity_id": {
+                "title": "Activity Id",
+                "type": "string"
+              },
+              "is_person_count": {
+                "title": "Is Person Count",
+                "type": "boolean"
+              },
+              "capacity": {
+                "minimum": 0,
+                "title": "Capacity",
+                "type": "integer"
+              },
+              "resource_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Resource Ids",
+                "type": "array"
+              }
+            },
+            "required": [
+              "activity_id",
+              "is_person_count",
+              "capacity"
+            ],
+            "title": "ActivityRow",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "activities": {
+            "items": {
+              "$ref": "#/$defs/ActivityRow"
+            },
+            "title": "Activities",
+            "type": "array"
+          }
+        },
+        "required": [
+          "activities"
+        ],
+        "title": "ListActivitiesResult",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_opening_hours",
+      "executed_by": "android",
+      "uses_p2": false,
+      "description": "General SAF opening hours per weekday. Only the general schedule exists; there are no per-facility hours.",
+      "arguments": {
+        "type": "object",
+        "properties": {
+          "weekdays": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "dl",
+                "dt",
+                "dc",
+                "dj",
+                "dv",
+                "ds",
+                "dg"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 7,
+            "description": "Catalan weekday codes: dl=Mon, dt=Tue, dc=Wed, dj=Thu, dv=Fri, ds=Sat, dg=Sun. Weekend = [\"ds\",\"dg\"]; weekdays = [\"dl\",\"dt\",\"dc\",\"dj\",\"dv\"]."
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "output": {
+        "$defs": {
+          "OpeningHoursRow": {
+            "properties": {
+              "weekday": {
+                "enum": [
+                  "dl",
+                  "dt",
+                  "dc",
+                  "dj",
+                  "dv",
+                  "ds",
+                  "dg"
+                ],
+                "title": "Weekday",
+                "type": "string"
+              },
+              "open_min": {
+                "maximum": 1440,
+                "minimum": 0,
+                "title": "Open Min",
+                "type": "integer"
+              },
+              "close_min": {
+                "maximum": 1440,
+                "minimum": 0,
+                "title": "Close Min",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "weekday",
+              "open_min",
+              "close_min"
+            ],
+            "title": "OpeningHoursRow",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "opening_hours": {
+            "items": {
+              "$ref": "#/$defs/OpeningHoursRow"
+            },
+            "title": "Opening Hours",
+            "type": "array"
+          }
+        },
+        "required": [
+          "opening_hours"
+        ],
+        "title": "OpeningHoursResult",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_facility_info",
+      "executed_by": "android",
+      "uses_p2": false,
+      "description": "Capacity, unit (people for rooms/pools, courts for courts/pitches) and resources of one activity. Use for 'how many courts', 'what is the capacity of...'.",
+      "arguments": {
+        "type": "object",
+        "properties": {
+          "activity_id": {
+            "type": "string",
+            "enum": [
+              "piscina_25m",
+              "sala_fitness",
+              "padel",
+              "tennis",
+              "esquaix",
+              "pavello",
+              "futbol_sala",
+              "futbol_7_11",
+              "barbell",
+              "callistenia",
+              "rocodrom"
+            ],
+            "description": "Activity id from the SAFIA catalogue."
+          }
+        },
+        "required": [
+          "activity_id"
+        ],
+        "additionalProperties": false
+      },
+      "output": {
+        "$defs": {
+          "ActivityRow": {
+            "properties": {
+              "activity_id": {
+                "title": "Activity Id",
+                "type": "string"
+              },
+              "is_person_count": {
+                "title": "Is Person Count",
+                "type": "boolean"
+              },
+              "capacity": {
+                "minimum": 0,
+                "title": "Capacity",
+                "type": "integer"
+              },
+              "resource_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Resource Ids",
+                "type": "array"
+              }
+            },
+            "required": [
+              "activity_id",
+              "is_person_count",
+              "capacity"
+            ],
+            "title": "ActivityRow",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "activity": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ActivityRow"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "activity"
+        ],
+        "title": "FacilityInfoResult",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_hourly_occupancy",
+      "executed_by": "android",
+      "uses_p2": false,
+      "description": "Historical average occupancy per hour for one activity on the given weekdays (Apr-Oct 2026). Historical patterns only, never live data.",
+      "arguments": {
+        "type": "object",
+        "properties": {
+          "activity_id": {
+            "type": "string",
+            "enum": [
+              "piscina_25m",
+              "sala_fitness",
+              "padel",
+              "tennis",
+              "esquaix",
+              "pavello",
+              "futbol_sala",
+              "futbol_7_11",
+              "barbell",
+              "callistenia",
+              "rocodrom"
+            ],
+            "description": "Activity id from the SAFIA catalogue."
+          },
+          "weekdays": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "dl",
+                "dt",
+                "dc",
+                "dj",
+                "dv",
+                "ds",
+                "dg"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 7,
+            "description": "Catalan weekday codes: dl=Mon, dt=Tue, dc=Wed, dj=Thu, dv=Fri, ds=Sat, dg=Sun. Weekend = [\"ds\",\"dg\"]; weekdays = [\"dl\",\"dt\",\"dc\",\"dj\",\"dv\"]."
+          },
+          "hour_from": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 23,
+            "description": "Optional first hour (inclusive)."
+          },
+          "hour_to": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 23,
+            "description": "Optional last hour (inclusive)."
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "lectiu",
+              "all"
+            ],
+            "description": "lectiu = Apr-Jun and Sep-Oct 2026 (default). all = Apr-Oct 2026 including July/August."
+          }
+        },
+        "required": [
+          "activity_id",
+          "weekdays"
+        ],
+        "additionalProperties": false
+      },
+      "output": {
+        "$defs": {
+          "DayHours": {
+            "properties": {
+              "weekday": {
+                "enum": [
+                  "dl",
+                  "dt",
+                  "dc",
+                  "dj",
+                  "dv",
+                  "ds",
+                  "dg"
+                ],
+                "title": "Weekday",
+                "type": "string"
+              },
+              "hours": {
+                "items": {
+                  "$ref": "#/$defs/HourRow"
+                },
+                "title": "Hours",
+                "type": "array"
+              }
+            },
+            "required": [
+              "weekday",
+              "hours"
+            ],
+            "title": "DayHours",
+            "type": "object"
+          },
+          "HourRow": {
+            "description": "Serialised ``HourAvailability`` plus Kotlin's ``occupancyLabel`` and ``isUsable``.",
+            "properties": {
+              "hour": {
+                "maximum": 23,
+                "minimum": 0,
+                "title": "Hour",
+                "type": "integer"
+              },
+              "occupied": {
+                "minimum": 0,
+                "title": "Occupied",
+                "type": "integer"
+              },
+              "capacity": {
+                "minimum": 0,
+                "title": "Capacity",
+                "type": "integer"
+              },
+              "load": {
+                "maximum": 10,
+                "minimum": 0,
+                "title": "Load",
+                "type": "number"
+              },
+              "is_closed": {
+                "default": false,
+                "title": "Is Closed",
+                "type": "boolean"
+              },
+              "shift_change": {
+                "default": false,
+                "title": "Shift Change",
+                "type": "boolean"
+              },
+              "low_data": {
+                "default": false,
+                "title": "Low Data",
+                "type": "boolean"
+              },
+              "long_block": {
+                "default": false,
+                "title": "Long Block",
+                "type": "boolean"
+              },
+              "usable": {
+                "title": "Usable",
+                "type": "boolean"
+              },
+              "label": {
+                "enum": [
+                  "QUIET",
+                  "MODERATE",
+                  "FULL"
+                ],
+                "title": "Label",
+                "type": "string"
+              }
+            },
+            "required": [
+              "hour",
+              "occupied",
+              "capacity",
+              "load",
+              "usable",
+              "label"
+            ],
+            "title": "HourRow",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "activity_id": {
+            "title": "Activity Id",
+            "type": "string"
+          },
+          "period": {
+            "enum": [
+              "lectiu",
+              "all"
+            ],
+            "title": "Period",
+            "type": "string"
+          },
+          "days": {
+            "items": {
+              "$ref": "#/$defs/DayHours"
+            },
+            "title": "Days",
+            "type": "array"
+          }
+        },
+        "required": [
+          "activity_id",
+          "period",
+          "days"
+        ],
+        "title": "HourlyOccupancyResult",
+        "type": "object"
+      }
+    },
+    {
+      "name": "find_quieter_slots",
+      "executed_by": "android",
+      "uses_p2": true,
+      "description": "Recommendation engine (P2): the historically quietest reliable hours of one activity on the given weekdays. Use for 'when is X less crowded / best time to go'.",
+      "arguments": {
+        "type": "object",
+        "properties": {
+          "activity_id": {
+            "type": "string",
+            "enum": [
+              "piscina_25m",
+              "sala_fitness",
+              "padel",
+              "tennis",
+              "esquaix",
+              "pavello",
+              "futbol_sala",
+              "futbol_7_11",
+              "barbell",
+              "callistenia",
+              "rocodrom"
+            ],
+            "description": "Activity id from the SAFIA catalogue."
+          },
+          "weekdays": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "dl",
+                "dt",
+                "dc",
+                "dj",
+                "dv",
+                "ds",
+                "dg"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 7,
+            "description": "Catalan weekday codes: dl=Mon, dt=Tue, dc=Wed, dj=Thu, dv=Fri, ds=Sat, dg=Sun. Weekend = [\"ds\",\"dg\"]; weekdays = [\"dl\",\"dt\",\"dc\",\"dj\",\"dv\"]."
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "lectiu",
+              "all"
+            ],
+            "description": "lectiu = Apr-Jun and Sep-Oct 2026 (default). all = Apr-Oct 2026 including July/August."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Slots per weekday (default 3)."
+          }
+        },
+        "required": [
+          "activity_id",
+          "weekdays"
+        ],
+        "additionalProperties": false
+      },
+      "output": {
+        "$defs": {
+          "HourRow": {
+            "description": "Serialised ``HourAvailability`` plus Kotlin's ``occupancyLabel`` and ``isUsable``.",
+            "properties": {
+              "hour": {
+                "maximum": 23,
+                "minimum": 0,
+                "title": "Hour",
+                "type": "integer"
+              },
+              "occupied": {
+                "minimum": 0,
+                "title": "Occupied",
+                "type": "integer"
+              },
+              "capacity": {
+                "minimum": 0,
+                "title": "Capacity",
+                "type": "integer"
+              },
+              "load": {
+                "maximum": 10,
+                "minimum": 0,
+                "title": "Load",
+                "type": "number"
+              },
+              "is_closed": {
+                "default": false,
+                "title": "Is Closed",
+                "type": "boolean"
+              },
+              "shift_change": {
+                "default": false,
+                "title": "Shift Change",
+                "type": "boolean"
+              },
+              "low_data": {
+                "default": false,
+                "title": "Low Data",
+                "type": "boolean"
+              },
+              "long_block": {
+                "default": false,
+                "title": "Long Block",
+                "type": "boolean"
+              },
+              "usable": {
+                "title": "Usable",
+                "type": "boolean"
+              },
+              "label": {
+                "enum": [
+                  "QUIET",
+                  "MODERATE",
+                  "FULL"
+                ],
+                "title": "Label",
+                "type": "string"
+              }
+            },
+            "required": [
+              "hour",
+              "occupied",
+              "capacity",
+              "load",
+              "usable",
+              "label"
+            ],
+            "title": "HourRow",
+            "type": "object"
+          },
+          "QuietSlot": {
+            "properties": {
+              "weekday": {
+                "enum": [
+                  "dl",
+                  "dt",
+                  "dc",
+                  "dj",
+                  "dv",
+                  "ds",
+                  "dg"
+                ],
+                "title": "Weekday",
+                "type": "string"
+              },
+              "row": {
+                "$ref": "#/$defs/HourRow"
+              }
+            },
+            "required": [
+              "weekday",
+              "row"
+            ],
+            "title": "QuietSlot",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "activity_id": {
+            "title": "Activity Id",
+            "type": "string"
+          },
+          "period": {
+            "enum": [
+              "lectiu",
+              "all"
+            ],
+            "title": "Period",
+            "type": "string"
+          },
+          "slots": {
+            "items": {
+              "$ref": "#/$defs/QuietSlot"
+            },
+            "title": "Slots",
+            "type": "array"
+          }
+        },
+        "required": [
+          "activity_id",
+          "period",
+          "slots"
+        ],
+        "title": "QuieterSlotsResult",
+        "type": "object"
+      }
+    },
+    {
+      "name": "recommend_alternatives",
+      "executed_by": "android",
+      "uses_p2": true,
+      "description": "Recommendation engine (P2): quieter alternatives to one activity at a given weekday and hour: a nearby hour the same day, the same hour another day, or another comparable activity. Use for 'alternative to X', 'X is busy at H, what else'.",
+      "arguments": {
+        "type": "object",
+        "properties": {
+          "activity_id": {
+            "type": "string",
+            "enum": [
+              "piscina_25m",
+              "sala_fitness",
+              "padel",
+              "tennis",
+              "esquaix",
+              "pavello",
+              "futbol_sala",
+              "futbol_7_11",
+              "barbell",
+              "callistenia",
+              "rocodrom"
+            ],
+            "description": "Activity id from the SAFIA catalogue."
+          },
+          "weekday": {
+            "type": "string",
+            "enum": [
+              "dl",
+              "dt",
+              "dc",
+              "dj",
+              "dv",
+              "ds",
+              "dg"
+            ]
+          },
+          "hour": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 23,
+            "description": "Requested hour, 0-23."
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "lectiu",
+              "all"
+            ],
+            "description": "lectiu = Apr-Jun and Sep-Oct 2026 (default). all = Apr-Oct 2026 including July/August."
+          }
+        },
+        "required": [
+          "activity_id",
+          "weekday",
+          "hour"
+        ],
+        "additionalProperties": false
+      },
+      "output": {
+        "$defs": {
+          "AlternativeOut": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "SAME_DAY",
+                  "OTHER_DAY",
+                  "OTHER_ACTIVITY"
+                ],
+                "title": "Kind",
+                "type": "string"
+              },
+              "activity_id": {
+                "title": "Activity Id",
+                "type": "string"
+              },
+              "weekday": {
+                "enum": [
+                  "dl",
+                  "dt",
+                  "dc",
+                  "dj",
+                  "dv",
+                  "ds",
+                  "dg"
+                ],
+                "title": "Weekday",
+                "type": "string"
+              },
+              "reduction_pp": {
+                "title": "Reduction Pp",
+                "type": "integer"
+              },
+              "row": {
+                "$ref": "#/$defs/HourRow"
+              }
+            },
+            "required": [
+              "kind",
+              "activity_id",
+              "weekday",
+              "reduction_pp",
+              "row"
+            ],
+            "title": "AlternativeOut",
+            "type": "object"
+          },
+          "HourRow": {
+            "description": "Serialised ``HourAvailability`` plus Kotlin's ``occupancyLabel`` and ``isUsable``.",
+            "properties": {
+              "hour": {
+                "maximum": 23,
+                "minimum": 0,
+                "title": "Hour",
+                "type": "integer"
+              },
+              "occupied": {
+                "minimum": 0,
+                "title": "Occupied",
+                "type": "integer"
+              },
+              "capacity": {
+                "minimum": 0,
+                "title": "Capacity",
+                "type": "integer"
+              },
+              "load": {
+                "maximum": 10,
+                "minimum": 0,
+                "title": "Load",
+                "type": "number"
+              },
+              "is_closed": {
+                "default": false,
+                "title": "Is Closed",
+                "type": "boolean"
+              },
+              "shift_change": {
+                "default": false,
+                "title": "Shift Change",
+                "type": "boolean"
+              },
+              "low_data": {
+                "default": false,
+                "title": "Low Data",
+                "type": "boolean"
+              },
+              "long_block": {
+                "default": false,
+                "title": "Long Block",
+                "type": "boolean"
+              },
+              "usable": {
+                "title": "Usable",
+                "type": "boolean"
+              },
+              "label": {
+                "enum": [
+                  "QUIET",
+                  "MODERATE",
+                  "FULL"
+                ],
+                "title": "Label",
+                "type": "string"
+              }
+            },
+            "required": [
+              "hour",
+              "occupied",
+              "capacity",
+              "load",
+              "usable",
+              "label"
+            ],
+            "title": "HourRow",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "activity_id": {
+            "title": "Activity Id",
+            "type": "string"
+          },
+          "weekday": {
+            "enum": [
+              "dl",
+              "dt",
+              "dc",
+              "dj",
+              "dv",
+              "ds",
+              "dg"
+            ],
+            "title": "Weekday",
+            "type": "string"
+          },
+          "hour": {
+            "maximum": 23,
+            "minimum": 0,
+            "title": "Hour",
+            "type": "integer"
+          },
+          "period": {
+            "enum": [
+              "lectiu",
+              "all"
+            ],
+            "title": "Period",
+            "type": "string"
+          },
+          "requested": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/HourRow"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "is_already_quiet": {
+            "title": "Is Already Quiet",
+            "type": "boolean"
+          },
+          "alternatives": {
+            "items": {
+              "$ref": "#/$defs/AlternativeOut"
+            },
+            "title": "Alternatives",
+            "type": "array"
+          },
+          "no_result_reason": {
+            "anyOf": [
+              {
+                "enum": [
+                  "unknown_activity",
+                  "closed",
+                  "no_data",
+                  "already_quiet",
+                  "no_alternative_10pp"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "No Result Reason"
+          }
+        },
+        "required": [
+          "activity_id",
+          "weekday",
+          "hour",
+          "period",
+          "requested",
+          "is_already_quiet",
+          "alternatives"
+        ],
+        "title": "RecommendationResult",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_dataset_info",
+      "executed_by": "android",
+      "uses_p2": false,
+      "description": "Coverage of the historical dataset (date range, active days, cleaning rule version).",
+      "arguments": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output": {
+        "properties": {
+          "entries": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Entries",
+            "type": "object"
+          }
+        },
+        "required": [
+          "entries"
+        ],
+        "title": "DatasetInfoResult",
+        "type": "object"
+      }
+    }
+  ]
+}
