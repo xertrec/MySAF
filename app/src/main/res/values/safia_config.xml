@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        SAFIA backend (backend/, FastAPI). 10.0.2.2 is the host PC as seen from the Android emulator.
+        On a physical phone use http://YOUR_PC_LAN_IP:8000/ and start uvicorn with host 0.0.0.0.
+    -->
+    <string name="safia_base_url" translatable="false">http://172.20.10.5:8000/</string>
+</resources>

@@ -1,6 +1,15 @@
 <resources>
     <string name="time_hour">%1$02d:00</string>
-    <string name="activity_pool">Piscina</string>
+    <string name="activity_pool">Piscina 25 m</string>
+    <string name="activity_pool_16m">Piscina 16 m</string>
+    <string name="activity_boxtraining">Sala boxtraining</string>
+    <string name="activity_room_1_rhythm">Sala 1 · Ritmes</string>
+    <string name="activity_room_2_rhythm">Sala 2 · Ritmes</string>
+    <string name="activity_room_3_zen">Sala 3 · Zen</string>
+    <string name="activity_room_4_cycling">Sala 4 · Cycling</string>
+    <string name="activity_outdoor_basketball">Bàsquet exterior</string>
+    <string name="activity_beach_volleyball">Vòlei platja</string>
+    <string name="activity_class_room_note">Sala d’activitats dirigides: les dades són inscripcions a classes, no ús lliure. Una ocupació baixa vol dir que hi ha poques classes, no que la sala estigui disponible.</string>
     <string name="activity_fitness_room">Sala fitness</string>
     <string name="activity_padel">Pàdel</string>
     <string name="activity_tennis">Tennis</string>
@@ -27,7 +36,8 @@
     <string name="activity_long_blocks_note">Algunes franges poden incloure blocs de club o escola.</string>
     <string name="activity_select_hour">Selecciona una hora</string>
     <string name="activity_find_alternatives">Troba alternatives per a les %1$s</string>
-    <string name="activity_example_data_note">Dades d’exemple per a la maqueta. Les xifres definitives es calcularan al dispositiu a partir de daily_counts.json.</string>
+    <string name="activity_data_note">Mitjanes històriques de les reserves del SAF (abril–octubre de 2026), calculades a partir de la base de dades local de l’app.</string>
+    <string name="activity_no_data">No hi ha dades per a aquesta activitat.</string>
     <string name="activity_metric_occupied">≈ %1$d de %2$d %3$s</string>
     <string name="activity_metric_available">≈ %1$d de %2$d %3$s lliures</string>
     <string name="activity_metric_percentage">%1$d%%</string>
@@ -88,13 +98,12 @@
     <string name="recommendations_good_time">Bon moment! Aquesta franja ja acostuma a ser tranquil·la.</string>
     <string name="recommendations_none">No hem trobat alternatives prou més tranquil·les per a aquesta hora.</string>
     <string name="recommendations_historical_note">Dades: mitjanes històriques del període lectiu (abril–juny i setembre–octubre de 2026). Es compten reserves; no és una ocupació en temps real.</string>
-    <string name="recommendations_demo_note">Recomanacions de demostració: es connectaran al motor local i aplicaran el llindar de 10 punts percentuals.</string>
-    <string name="recommendation_same_activity_today">Mateixa activitat, avui</string>
+    <string name="recommendations_demo_note">Es proposa com a màxim una alternativa de cada tipus: la franja més tranquil·la, si ho és almenys 10 punts percentuals. Les franges amb poques dades no es proposen.</string>
+    <string name="recommendation_same_activity_same_day">Mateixa activitat, mateix dia</string>
     <string name="recommendation_same_activity_another_day">Mateixa activitat, un altre dia</string>
     <string name="recommendation_alternative_activity">Activitat alternativa</string>
-    <string name="recommendation_today_time">14:00</string>
-    <string name="recommendation_tuesday_time">Dimarts a les %1$s</string>
-    <string name="recommendation_fitness_time">Sala fitness · %1$s</string>
+    <string name="recommendation_day_time">%1$s a les %2$s</string>
+    <string name="recommendation_activity_time">%1$s · %2$s</string>
     <string name="recommendation_people_detail">≈ %1$d de %2$d %3$s · %4$s</string>
     <string name="recommendation_units_detail">≈ %1$d de %2$d %3$s lliures · %4$s</string>
     <string name="recommendation_reduction">−%1$d pp</string>
@@ -112,4 +121,135 @@
         <item quantity="one">camp</item>
         <item quantity="other">camps</item>
     </plurals>
+
+    <string name="home_chat_title">Pregunta a SAFIA</string>
+    <string name="home_chat_subtitle">L’assistent del SAF: horaris, ocupació i franges més tranquil·les.</string>
+    <string name="home_chat_open">Obrir l’assistent</string>
+
+    <string name="chat_title">SAFIA</string>
+    <string name="chat_headline">Hola! Sóc SAFIA</string>
+    <string name="chat_intro">Pregunta’m sobre horaris, aforaments i quan acostuma a haver-hi menys gent al SAF. Responc a partir de les dades històriques de l’app.</string>
+    <string name="chat_suggestions_heading">Prova amb…</string>
+    <string name="chat_suggestion_1">A quina hora tanca el SAF els dissabtes?</string>
+    <string name="chat_suggestion_2">Quan hi ha menys gent a la sala fitness?</string>
+    <string name="chat_suggestion_3">Vull jugar a pàdel dilluns a les 18:00. Hi ha alternatives més tranquil·les?</string>
+    <string name="chat_suggestion_4">Quines activitats puc fer al SAF?</string>
+    <string name="chat_disclaimer">SAFIA fa servir un model de llenguatge de la UAB. Les teves preguntes s’envien al servidor de l’assistent; les dades d’ocupació es consulten al dispositiu.</string>
+    <string name="chat_input_placeholder">Escriu una pregunta…</string>
+    <string name="chat_send">Enviar</string>
+    <string name="chat_new_conversation">Nova conversa</string>
+    <string name="chat_thinking">SAFIA està pensant…</string>
+    <string name="chat_source">Font: %1$s</string>
+    <string name="chat_slot_detail">%1$s · %2$d%%</string>
+    <string name="chat_retry">Torna-ho a provar</string>
+    <string name="chat_error_network">No es pot connectar amb SAFIA. Comprova la connexió i que el servidor estigui en marxa.</string>
+    <string name="chat_error_rate_limited">Hi ha massa peticions. Torna-ho a provar d’aquí a uns segons.</string>
+    <string name="chat_error_not_configured">L’assistent no està configurat al servidor.</string>
+    <string name="chat_error_generic">SAFIA no ha pogut respondre ara mateix.</string>
+    <string name="chat_limit_provisional_capacity">Els aforaments són provisionals (inventari del SAF).</string>
+    <string name="chat_limit_general_hours_only">Només hi ha l’horari general del SAF, no el de cada instal·lació.</string>
+    <string name="chat_limit_unvalidated_metric">La mètrica d’aquesta activitat encara no està validada.</string>
+    <string name="chat_limit_data_unavailable">No s’han pogut consultar algunes dades.</string>
+    <string name="chat_limit_unverified_figures">Algunes xifres no s’han pogut verificar amb les dades.</string>
+
+    <!-- Redesign -->
+    <string name="nav_home">Inici</string>
+    <string name="nav_recommendations">Recomanacions</string>
+    <string name="nav_safia">SAFIA</string>
+
+    <string name="home_reco_title">Recomanacions</string>
+    <string name="home_reco_subtitle">Troba la millor instal·lació i horari segons l’ocupació històrica.</string>
+    <string name="home_tile_facilities">Instal·lacions</string>
+    <string name="home_tile_sports">Esports</string>
+    <string name="home_tile_schedule">Horaris</string>
+    <string name="home_tile_occupancy">Ocupació</string>
+
+    <string name="occupancy_level_quiet">Ocupació baixa</string>
+    <string name="occupancy_level_moderate">Ocupació moderada</string>
+    <string name="occupancy_level_full">Ocupació alta</string>
+
+    <string name="recommend_headline">Què vols fer?</string>
+    <string name="recommend_intro">Et recomanarem la millor opció segons l’ocupació històrica.</string>
+    <string name="recommend_type">Tipus de recomanació</string>
+    <string name="recommend_type_facility">Instal·lació</string>
+    <string name="recommend_type_sport">Esport</string>
+    <string name="recommend_date">Data</string>
+    <string name="recommend_slot">Franja horària (opcional)</string>
+    <string name="recommend_any_hour">Qualsevol hora</string>
+    <string name="recommend_submit">Obtenir recomanació</string>
+    <string name="date_today">Avui, %1$s</string>
+    <string name="date_tomorrow">Demà, %1$s</string>
+    <string name="hour_range">%1$02d:00 – %2$02d:00</string>
+    <string name="ranges_and">%1$s i %2$s</string>
+
+    <string name="result_title">Recomanació</string>
+    <string name="result_eyebrow">La nostra recomanació</string>
+    <string name="result_subtitle_any">Aquestes són les franges amb menor ocupació esperada el %1$s.</string>
+    <string name="result_subtitle_quiet">Menor ocupació esperada en l’horari seleccionat.</string>
+    <string name="result_subtitle_busy">A l’horari seleccionat acostuma a haver-hi força gent. Mira les millors franges o les alternatives.</string>
+    <string name="result_selected_slot">Horari triat: %1$s</string>
+    <string name="result_best_slots">Millors franges horàries</string>
+    <string name="result_why">Per què?</string>
+    <string name="result_why_body">Segons les dades històriques del període lectiu (abr – oct 2026), aquestes franges solen tenir menys afluència el %1$s.</string>
+    <string name="result_view_occupancy">Veure ocupació detallada</string>
+    <string name="result_view_alternatives">Veure alternatives</string>
+    <string name="result_no_data">No hi ha franges amb prou dades per a aquest dia.</string>
+
+    <string name="occupancy_title">Ocupació</string>
+    <string name="tab_today">Avui</string>
+    <string name="tab_week">Setmana</string>
+    <string name="tab_history">Històric</string>
+    <string name="occupancy_chart_title">Ocupació mitjana per hora</string>
+    <string name="occupancy_sub_today">Avui, %1$s · període lectiu</string>
+    <string name="occupancy_sub_week">%1$s · període lectiu</string>
+    <string name="occupancy_sub_history">%1$s · abr – oct 2026</string>
+    <string name="occupancy_quiet_ranges">Franges més tranquil·les</string>
+    <string name="occupancy_tap_hint">Toca una barra per veure l’aforament d’aquella hora.</string>
+    <string name="occupancy_capacity_people">Aforament: %1$d/%2$d %3$s</string>
+    <string name="occupancy_capacity_units">Reservades: %1$d/%2$d %3$s</string>
+    <string name="occupancy_percentage">%1$d%% d’ocupació</string>
+    <string name="occupancy_find_alternatives">Buscar alternatives a les %1$s</string>
+    <string name="occupancy_bar_description">%1$s, %2$s</string>
+
+    <string name="alternatives_title">Alternatives</string>
+    <string name="alternatives_headline">Hi ha molta ocupació?</string>
+    <string name="alternatives_intro">Aquí tens altres opcions similars amb menys afluència històrica el %1$s a les %2$s.</string>
+    <string name="alternatives_selected">%1$s · %2$s</string>
+    <string name="alternatives_similar_facilities">Instal·lacions similars</string>
+    <string name="alternatives_similar_sports">Esports similars</string>
+    <string name="alternatives_other_slots">Altres franges per a %1$s</string>
+    <string name="alternatives_none">No hi ha alternatives similars amb dades per a aquesta franja.</string>
+    <string name="alternatives_suggestion_title">Suggeriment</string>
+    <string name="alternatives_suggestion_body">Aquestes alternatives es basen en patrons d’ocupació històrics (abr – oct 2026) per a activitats similars.</string>
+
+    <string name="catalog_intro_facilities">Espais amb aforament. Toca’n un per veure’n l’ocupació per hores.</string>
+    <string name="catalog_intro_sports">Pistes i camps. Toca’n un per veure’n l’ocupació per hores.</string>
+    <string name="catalog_intro_occupancy">Tria una instal·lació o un esport per veure’n l’ocupació històrica.</string>
+    <string name="catalog_now">Ara: %1$s</string>
+    <string name="catalog_now_closed">Ara: tancat</string>
+    <string name="catalog_now_unknown">Ara: sense dades</string>
+
+    <string name="schedule_headline">Horari del SAF</string>
+    <string name="schedule_intro">Horari general d’obertura de les instal·lacions.</string>
+    <string name="schedule_open_now">Obert ara · tanca a les %1$s</string>
+    <string name="schedule_closed_now">Tancat ara</string>
+    <string name="schedule_today">Avui</string>
+    <string name="schedule_range">%1$s – %2$s</string>
+    <string name="schedule_note">És l’horari general del SAF; algunes instal·lacions poden tenir horaris propis.</string>
+    <string name="time_hm">%1$02d:%2$02d</string>
+    <!-- App logo / favourite sport -->
+    <string name="logo_make_my_sport">Fes-lo el meu esport</string>
+    <string name="logo_is_my_sport">El teu esport</string>
+    <string name="logo_in_app_note">L’app fa servir aquest logo.</string>
+    <string name="logo_remove">Treu</string>
+    <string name="logo_home_screen">Fes-lo servir també a la pantalla d’inici</string>
+    <string name="logo_home_screen_note">La icona canvia quan surts de l’app; el launcher pot trigar uns segons.</string>
+    <string name="chat_action_copy">Copiar</string>
+    <string name="chat_action_share">Compartir</string>
+    <string name="chat_action_edit">Editar i reenviar</string>
+    <string name="chat_copied">Missatge copiat</string>
+    <string name="chat_share_title">Compartir missatge</string>
+    <string name="chat_editing">Editant el missatge</string>
+    <string name="chat_editing_cancel">Cancel·lar l’edició</string>
+    <string name="recommendation_open_slot">Veure aquesta franja</string>
 </resources>

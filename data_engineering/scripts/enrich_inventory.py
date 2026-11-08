@@ -1,144 +1,141 @@
 """
 03b_enrich_inventory.py
 
-Cruza resource_alias con capacidades conocidas para rellenar capacity_units.
-Lo que no está en el diccionario, queda None y se marca pendiente_validacion.
+Asigna a cada resource_id de resource_alias.csv su aforo en PERSONAS
+tomado EXCLUSIVAMENTE de la hoja `Espais` del Excel original.
 
-Inventario (aproximado, ajustar con SAF si hay cifras oficiales):
-- piscina 25m: 8 carriles × 5 pax = 40
-- piscina 16m: 32 (2 mitades de 16)
-- sala fitness: 120
-- sala 4 cycling: 32
-- espai barbell: 20
-- sala 1 ritmes: 35
-- sala 2 ritmes: 25
-- sala 3 zen: 18
-- sala 6 box: 14
-- cal·listènia: 24
-- rocòdrom interior: 18
-- rocòdrom exterior: 25
-- pistas/tenis/padel/fútbol/pabellón: 1 unidad
+Reglas (corrigen la version anterior, que escribia cifras propias):
+- Ningun aforo se escribe a mano en este script. Solo se declara QUE filas
+  del inventario corresponden a cada recurso (INVENTORY_MAP). Esa
+  correspondencia es provisional hasta que la confirme el SAF.
+- Un recurso con una fila de inventario -> capacity_people_source = "inventory".
+- Un recurso que agrega varias filas (p. ej. la piscina de 25 m = 8 carriles)
+  -> suma de esas filas, capacity_people_source = "derived_sum".
+- Filas exactamente duplicadas del inventario (p. ej. "carrer 6" x2) cuentan
+  una sola vez; se informa en pantalla.
+- Recurso sin fila de inventario -> capacity_people = NULL y
+  capacity_people_source = "unknown". Nunca se inventa (ni se divide un aforo
+  entre mitades).
+- capacity_units (fraccion estructural de pista: 1, 0.5, 1/3) NO se toca aqui.
+
+Salida: sobrescribe data/interim/mapping/resource_alias.csv anadiendo
+capacity_people, capacity_people_source, capacity_people_inventory_rows,
+capacity_people_mapping_status. Es idempotente.
 """
 from pathlib import Path
 import pandas as pd
 
 BASE = Path(__file__).resolve().parents[1]
+RAW = BASE / "data/raw/saf-espais-2026-equips.xlsx"
 ALIAS = BASE / "data/interim/mapping/resource_alias.csv"
-OUT = BASE / "data/interim/mapping"
-OUT.mkdir(parents=True, exist_ok=True)
 
-CAPACITIES = {
-    # Piscinas
-    "PISCINA_25M_COBERTA": 40.0,
-    "PISCINA_25M_CARRER_1": 5.0,
-    "PISCINA_25M_CARRER_2": 5.0,
-    "PISCINA_25M_CARRER_3": 5.0,
-    "PISCINA_25M_CARRER_4": 5.0,
-    "PISCINA_25M_CARRER_5": 5.0,
-    "PISCINA_25M_CARRER_6": 5.0,
-    "PISCINA_25M_CARRER_7": 5.0,
-    "PISCINA_25M_CARRER_8": 5.0,
-    "PISCINA_16M_COMPLETA": 32.0,
-    "PISCINA_16M_MEITAT_A": 16.0,
-    "PISCINA_16M_MEITAT_B": 16.0,
-
-    # Salas
-    "SALA_FITNES": 120.0,
-    "SALA_4_CYCLING": 32.0,
-    "ESPAI_BARBELL": 20.0,
-    "AADD_ESPAI_BARBELL": 20.0,
-    "SALA_1_RITMES": 35.0,
-    "SALA_2_RITMES": 25.0,
-    "SALA_3_ZEN": 18.0,
-    "AADD_SALA_1_RITMES": 35.0,
-    "AADD_SALA_2_RITMES": 25.0,
-    "AADD_SALA_3_ZEN": 18.0,
-    "SALA_6_BOXTRAINING": 14.0,
-
-    # Espacios
-    "CALISTENIA": 24.0,
-    "ROCODROM_INTERIOR": 18.0,
-    "ROCODROM_EXTERIOR": 25.0,
-
-    # Pistas (unidad = 1)
-    "PADEL_PISTA_1": 1.0,
-    "PADEL_PISTA_2": 1.0,
-    "PADEL_PISTA_3": 1.0,
-    "PADEL_PISTA_4": 1.0,
-    "TENIS_PISTA_1": 1.0,
-    "TENIS_PISTA_2": 1.0,
-    "TENIS_PISTA_3": 1.0,
-    "TENIS_PISTA_4": 1.0,
-    "TENIS_PISTA_5": 1.0,
-    "ESQUAIX_PISTA_2": 1.0,
-    "ESQUAIX_PISTA_3": 1.0,
-    "ESQUAIX_PISTA_4": 1.0,
-    "PAVELLO_PISTA_2": 1.0,
-    "PAVELLO_PISTA_3": 1.0,
-    "PAVELLO_PISTA_2_MITAT_1": 0.5,
-    "PAVELLO_PISTA_2_MITAT_2": 0.5,
-    "PAVELLO_PISTA_3_MITAT_1": 0.5,
-    "PAVELLO_PISTA_3_MITAT_2": 0.5,
-    "PAVELLO_BADMINTON_1": 1.0,
-    "PAVELLO_BADMINTON_1_SUB_1": 1 / 3,
-    "PAVELLO_BADMINTON_1_SUB_2": 1 / 3,
-    "PAVELLO_BADMINTON_1_SUB_3": 1 / 3,
-    "FUTBOL7_CAMP_1": 1.0,
-    "FUTBOL7_CAMP_2": 1.0,
-    "FUTBOL7_CAMP_3": 1.0,
-    "FUTBOL7_CAMP_4": 1.0,
-    "FUTBOL7_CAMP_4_MITAT_1": 0.5,
-    "FUTBOL7_CAMP_4_MITAT_2": 0.5,
-    "FUTBOL_SALA_1": 1.0,
-    "CAMPS_EXTERIORS": 1.0,
-    "BASQUET_EXTERIOR": 1.0,
-    "VOLEI_PLATJA": 1.0,
+# resource_id -> lista de (Espai, Subespai) del inventario, textos EXACTOS de la
+# hoja Espais. Subespai None = celda vacia. Correspondencia PROVISIONAL.
+INVENTORY_MAP = {
+    "SALA_FITNES": [("Sala fitnes + sala cardio", None)],
+    "ESPAI_BARBELL": [("Espai Barbell", None)],
+    "AADD_ESPAI_BARBELL": [("Espai Barbell", None)],
+    "AADD_SALA_1_RITMES": [("sales activitats dirigides", "sala 1")],
+    "AADD_SALA_2_RITMES": [("sales activitats dirigides", "sala 2")],
+    "AADD_SALA_3_ZEN": [("sales activitats dirigides", "sala 3")],
+    "SALA_4_CYCLING": [("sales activitats dirigides", "sala 4")],
+    "SALA_6_BOXTRAINING": [("sala boxtraining (esquaix 1)", None)],
+    "CALISTENIA": [("zona cal·listènia", None)],
+    "ROCODROM_INTERIOR": [("rocòdrom interior", None)],
+    "ROCODROM_EXTERIOR": [("rocòdrom exterior", None)],
+    "PISCINA_16M_COMPLETA": [("piscina de 16 metres", None)],
+    # PISCINA_16M_MEITAT_A / _B: no estan en el inventario -> unknown.
+    **{f"PISCINA_25M_CARRER_{n}": [("piscina 25 metres", f"carrer {n}")]
+       for n in range(1, 9)},
+    "PISCINA_25M_COBERTA": [("piscina 25 metres", f"carrer {n}")
+                            for n in range(1, 9)],
+    # Pistas: aforo en personas por pista (informativo; la ocupacion de pistas
+    # se mide en unidades, no en personas).
+    **{f"TENIS_PISTA_{n}": [("tennis", f"tennis {n}")] for n in range(1, 6)},
+    **{f"ESQUAIX_PISTA_{n}": [("esquaix", f"esquaix {n}")] for n in (2, 3, 4)},
+    "PADEL_PISTA_1": [("pistes de pàdel", "pista 1")],
+    # PADEL_PISTA_2: el inventario tiene "pista 1" dos veces y ninguna
+    # "pista 2". Probable errata, pendiente del SAF -> unknown.
+    "PADEL_PISTA_3": [("pistes de pàdel", "pista 3")],
+    "PADEL_PISTA_4": [("pistes de pàdel", "pista 4")],
+    "FUTBOL7_CAMP_1": [("futbol 7", "camp 1")],
+    "FUTBOL7_CAMP_2": [("futbol 7", "camp 2")],
+    "FUTBOL7_CAMP_3": [("futbol 7", "camps 3")],   # texto tal cual del Excel
+    "FUTBOL7_CAMP_4": [("futbol 7", "camp 4")],
+    "BASQUET_EXTERIOR": [("Bàsquet exterior", None)],
+    "FUTBOL_SALA_1": [("futbol sala extrerior", None)],  # texto tal cual
+    "VOLEI_PLATJA": [("voleibol platja", None)],
+    # Pabellon (poli 1/2/3?) y resto: sin correspondencia confirmada -> unknown.
 }
 
-PENDIENTES_LEGITIMOS = {
-    "",  # anomalía TENNIS ds-dg
-    "AADD_FORA_SAF",
-    "CORRER_CAMPUS",
-    "SAF_2_PISCINA",
-    "PISCINA_25M_SOLARIUM",
-    "PAVELLO_COBERT",
-    "CAMPS_EXTERIORS_CONTAINER",  # por si acaso
-}
 
-alias = pd.read_csv(ALIAS, sep=";")
+def main():
+    inv = pd.read_excel(RAW, sheet_name="Espais")
+    inv["source_row"] = inv.index + 2          # fila de Excel (cabecera = 1)
+    inv["is_exact_duplicate"] = inv.duplicated(["Espai", "Subespai", "Aforament"])
 
-alias["capacity_units"] = alias.apply(
-    lambda r: CAPACITIES.get(r["resource_id"], r["capacity_units"]),
-    axis=1,
-)
+    dups = inv[inv["is_exact_duplicate"]]
+    if len(dups):
+        print("Filas de inventario exactamente duplicadas (cuentan una vez):")
+        print(dups[["source_row", "Espai", "Subespai", "Aforament"]].to_string(index=False))
 
-con_cap = alias["capacity_units"].notna().sum()
-sin_cap = alias["capacity_units"].isna()
-sin_cap_ids = alias.loc[sin_cap, "resource_id"].fillna("").unique().tolist()
+    keyed = inv[~inv["is_exact_duplicate"]]
+    lookup = {}
+    for r in keyed.itertuples():
+        sub = None if pd.isna(r.Subespai) else str(r.Subespai)
+        lookup.setdefault((str(r.Espai), sub), []).append(r)
 
-print("=" * 70)
-print("PASO 3b — enrich_inventory")
-print("=" * 70)
-print(f"Filas: {len(alias)}")
-print(f"Con capacity_units: {con_cap}")
-print(f"Sin capacity_units: {sin_cap.sum()}")
-print(f"Resource IDs sin capacity: {sin_cap_ids}")
+    alias = pd.read_csv(ALIAS, sep=";")
+    out_cap, out_src, out_rows, out_status = [], [], [], []
+    missing_keys = []
+    for rid in alias["resource_id"].fillna(""):
+        keys = INVENTORY_MAP.get(rid)
+        if not keys:
+            out_cap.append(None); out_src.append("unknown")
+            out_rows.append(None); out_status.append(None)
+            continue
+        matched = []
+        for k in keys:
+            hits = lookup.get(k, [])
+            if len(hits) != 1:
+                missing_keys.append((rid, k, len(hits)))
+            matched.extend(hits)
+        if not matched or len(matched) != len(keys):
+            out_cap.append(None); out_src.append("unknown")
+            out_rows.append(None); out_status.append("mapping_error")
+            continue
+        out_cap.append(float(sum(m.Aforament for m in matched)))
+        out_src.append("inventory" if len(matched) == 1 else "derived_sum")
+        out_rows.append(",".join(str(m.source_row) for m in matched))
+        out_status.append("provisional")
 
-# Detectar IDs sin capacity que NO deberían ser pendientes
-problematicos = [
-    rid for rid in sin_cap_ids
-    if rid not in PENDIENTES_LEGITIMOS
-       and rid in CAPACITIES  # está en el diccionario pero no se aplicó
-]
-if problematicos:
-    print(f"\nWARN — IDs con capacity definida pero no aplicada: {problematicos}")
-else:
-    print("\nOK — todos los IDs con capacity conocida tienen valor.")
+    if missing_keys:
+        raise SystemExit(
+            "ERROR: claves de INVENTORY_MAP sin una unica fila en Espais: "
+            f"{missing_keys}")
 
-# Mostrar IDs sin capacity (para transparencia)
-print("\nIDs sin capacity_units (deberían ser contenedores/servicios/anomalías):")
-print(alias.loc[sin_cap, ["resource_id", "resource_kind", "metric_type"]]
-      .drop_duplicates().to_string(index=False))
+    alias["capacity_people"] = out_cap
+    alias["capacity_people_source"] = out_src
+    alias["capacity_people_inventory_rows"] = out_rows
+    alias["capacity_people_mapping_status"] = out_status
 
-alias.to_csv(OUT / "resource_alias.csv", sep=";", index=False, encoding="utf-8-sig")
-print(f"\nSalida: {OUT / 'resource_alias.csv'}")
+    # capacity_units solo tiene sentido para recursos de unidad (pistas).
+    is_unit = alias["metric_type"] == "unidad_recurso"
+    alias.loc[~is_unit, "capacity_units"] = None
+
+    alias.to_csv(ALIAS, sep=";", index=False, encoding="utf-8-sig")
+
+    s = alias.drop_duplicates("resource_id")
+    print("=" * 70)
+    print("PASO 3b — enrich_inventory (aforo desde Espais)")
+    print("=" * 70)
+    print(s["capacity_people_source"].value_counts().to_string())
+    print("\nAforos asignados (personas):")
+    print(s[s["capacity_people"].notna()][
+        ["resource_id", "capacity_people", "capacity_people_source",
+         "capacity_people_inventory_rows"]].to_string(index=False))
+    print(f"\nSalida: {ALIAS}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,793 @@
+{
+ "_meta": {
+  "description": "Android-shaped tool outputs used by backend tests.",
+  "source": "Values read from data_engineering/database/mysaf.db (period lectiu). Row fields follow Availability.kt (toHourAvailability, occupancyLabel, isUsable, with the 10h/15h fitness shift-change fix). P2 outputs (find_quieter_slots, recommend_alternatives) were derived by hand from Recommendations.kt rules.",
+  "todo": "Replace with fixtures recorded by the Android SafiaToolExecutor instrumented test so the backend tests replay the real Kotlin P2 output."
+ },
+ "list_activities": {
+  "activities": [
+   {
+    "activity_id": "piscina_25m",
+    "is_person_count": true,
+    "capacity": 40,
+    "resource_ids": [
+     "PISCINA_25M_COBERTA"
+    ]
+   },
+   {
+    "activity_id": "sala_fitness",
+    "is_person_count": true,
+    "capacity": 120,
+    "resource_ids": [
+     "SALA_FITNES"
+    ]
+   },
+   {
+    "activity_id": "padel",
+    "is_person_count": false,
+    "capacity": 4,
+    "resource_ids": [
+     "PADEL_PISTA_1",
+     "PADEL_PISTA_2",
+     "PADEL_PISTA_3",
+     "PADEL_PISTA_4"
+    ]
+   },
+   {
+    "activity_id": "tennis",
+    "is_person_count": false,
+    "capacity": 5,
+    "resource_ids": [
+     "TENIS_PISTA_1",
+     "TENIS_PISTA_2",
+     "TENIS_PISTA_3",
+     "TENIS_PISTA_4",
+     "TENIS_PISTA_5"
+    ]
+   },
+   {
+    "activity_id": "esquaix",
+    "is_person_count": false,
+    "capacity": 3,
+    "resource_ids": [
+     "ESQUAIX_PISTA_2",
+     "ESQUAIX_PISTA_3",
+     "ESQUAIX_PISTA_4"
+    ]
+   },
+   {
+    "activity_id": "pavello",
+    "is_person_count": false,
+    "capacity": 3,
+    "resource_ids": [
+     "PAVELLO_PISTA_2",
+     "PAVELLO_PISTA_3",
+     "PAVELLO_BADMINTON_1"
+    ]
+   },
+   {
+    "activity_id": "futbol_sala",
+    "is_person_count": false,
+    "capacity": 1,
+    "resource_ids": [
+     "FUTBOL_SALA_1"
+    ]
+   },
+   {
+    "activity_id": "futbol_7_11",
+    "is_person_count": false,
+    "capacity": 4,
+    "resource_ids": [
+     "FUTBOL7_CAMP_1",
+     "FUTBOL7_CAMP_2",
+     "FUTBOL7_CAMP_3",
+     "FUTBOL7_CAMP_4"
+    ]
+   },
+   {
+    "activity_id": "barbell",
+    "is_person_count": true,
+    "capacity": 25,
+    "resource_ids": [
+     "ESPAI_BARBELL",
+     "AADD_ESPAI_BARBELL"
+    ]
+   },
+   {
+    "activity_id": "callistenia",
+    "is_person_count": true,
+    "capacity": 20,
+    "resource_ids": [
+     "CALISTENIA"
+    ]
+   },
+   {
+    "activity_id": "rocodrom",
+    "is_person_count": true,
+    "capacity": 26,
+    "resource_ids": [
+     "ROCODROM_INTERIOR",
+     "ROCODROM_EXTERIOR"
+    ]
+   }
+  ]
+ },
+ "get_opening_hours": {
+  "opening_hours": [
+   {
+    "weekday": "dl",
+    "open_min": 420,
+    "close_min": 1260
+   },
+   {
+    "weekday": "dt",
+    "open_min": 420,
+    "close_min": 1260
+   },
+   {
+    "weekday": "dc",
+    "open_min": 420,
+    "close_min": 1260
+   },
+   {
+    "weekday": "dj",
+    "open_min": 420,
+    "close_min": 1260
+   },
+   {
+    "weekday": "dv",
+    "open_min": 420,
+    "close_min": 1260
+   },
+   {
+    "weekday": "ds",
+    "open_min": 480,
+    "close_min": 1200
+   },
+   {
+    "weekday": "dg",
+    "open_min": 540,
+    "close_min": 840
+   }
+  ]
+ },
+ "get_facility_info__tennis": {
+  "activity": {
+   "activity_id": "tennis",
+   "is_person_count": false,
+   "capacity": 5,
+   "resource_ids": [
+    "TENIS_PISTA_1",
+    "TENIS_PISTA_2",
+    "TENIS_PISTA_3",
+    "TENIS_PISTA_4",
+    "TENIS_PISTA_5"
+   ]
+  }
+ },
+ "get_facility_info__piscina_25m": {
+  "activity": {
+   "activity_id": "piscina_25m",
+   "is_person_count": true,
+   "capacity": 40,
+   "resource_ids": [
+    "PISCINA_25M_COBERTA"
+   ]
+  }
+ },
+ "get_facility_info__rocodrom": {
+  "activity": {
+   "activity_id": "rocodrom",
+   "is_person_count": true,
+   "capacity": 26,
+   "resource_ids": [
+    "ROCODROM_INTERIOR",
+    "ROCODROM_EXTERIOR"
+   ]
+  }
+ },
+ "get_hourly_occupancy__piscina_25m_dl": {
+  "activity_id": "piscina_25m",
+  "period": "lectiu",
+  "days": [
+   {
+    "weekday": "dl",
+    "hours": [
+     {
+      "hour": 7,
+      "occupied": 15,
+      "capacity": 40,
+      "load": 0.3632,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 8,
+      "occupied": 15,
+      "capacity": 40,
+      "load": 0.3833,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 9,
+      "occupied": 14,
+      "capacity": 40,
+      "load": 0.35,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 10,
+      "occupied": 12,
+      "capacity": 40,
+      "load": 0.2986,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 11,
+      "occupied": 11,
+      "capacity": 40,
+      "load": 0.2712,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 12,
+      "occupied": 15,
+      "capacity": 40,
+      "load": 0.3819,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 13,
+      "occupied": 17,
+      "capacity": 40,
+      "load": 0.4153,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 14,
+      "occupied": 14,
+      "capacity": 40,
+      "load": 0.3424,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 15,
+      "occupied": 14,
+      "capacity": 40,
+      "load": 0.3389,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 16,
+      "occupied": 15,
+      "capacity": 40,
+      "load": 0.3833,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 17,
+      "occupied": 22,
+      "capacity": 40,
+      "load": 0.5458,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "MODERATE"
+     },
+     {
+      "hour": 18,
+      "occupied": 23,
+      "capacity": 40,
+      "load": 0.5687,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "MODERATE"
+     },
+     {
+      "hour": 19,
+      "occupied": 26,
+      "capacity": 40,
+      "load": 0.6528,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "MODERATE"
+     },
+     {
+      "hour": 20,
+      "occupied": 16,
+      "capacity": 40,
+      "load": 0.3972,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     }
+    ]
+   }
+  ]
+ },
+ "get_hourly_occupancy__rocodrom_dl_17_19": {
+  "activity_id": "rocodrom",
+  "period": "lectiu",
+  "days": [
+   {
+    "weekday": "dl",
+    "hours": [
+     {
+      "hour": 17,
+      "occupied": 2,
+      "capacity": 26,
+      "load": 0.0769,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 18,
+      "occupied": 4,
+      "capacity": 26,
+      "load": 0.141,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     },
+     {
+      "hour": 19,
+      "occupied": 3,
+      "capacity": 26,
+      "load": 0.1026,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "QUIET"
+     }
+    ]
+   }
+  ]
+ },
+ "get_hourly_occupancy__sala_fitness_dl_9_11": {
+  "activity_id": "sala_fitness",
+  "period": "lectiu",
+  "days": [
+   {
+    "weekday": "dl",
+    "hours": [
+     {
+      "hour": 9,
+      "occupied": 86,
+      "capacity": 120,
+      "load": 0.7186,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "MODERATE"
+     },
+     {
+      "hour": 10,
+      "occupied": 75,
+      "capacity": 120,
+      "load": 0.6287,
+      "is_closed": false,
+      "shift_change": true,
+      "low_data": false,
+      "long_block": false,
+      "usable": false,
+      "label": "MODERATE"
+     },
+     {
+      "hour": 11,
+      "occupied": 89,
+      "capacity": 120,
+      "load": 0.7396,
+      "is_closed": false,
+      "shift_change": false,
+      "low_data": false,
+      "long_block": false,
+      "usable": true,
+      "label": "MODERATE"
+     }
+    ]
+   }
+  ]
+ },
+ "find_quieter_slots__sala_fitness_dl": {
+  "activity_id": "sala_fitness",
+  "period": "lectiu",
+  "slots": [
+   {
+    "weekday": "dl",
+    "row": {
+     "hour": 7,
+     "occupied": 69,
+     "capacity": 120,
+     "load": 0.5757,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   },
+   {
+    "weekday": "dl",
+    "row": {
+     "hour": 14,
+     "occupied": 82,
+     "capacity": 120,
+     "load": 0.6809,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   },
+   {
+    "weekday": "dl",
+    "row": {
+     "hour": 9,
+     "occupied": 86,
+     "capacity": 120,
+     "load": 0.7186,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   }
+  ]
+ },
+ "find_quieter_slots__sala_fitness_ds_dg": {
+  "activity_id": "sala_fitness",
+  "period": "lectiu",
+  "slots": [
+   {
+    "weekday": "ds",
+    "row": {
+     "hour": 14,
+     "occupied": 22,
+     "capacity": 120,
+     "load": 0.1812,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "ds",
+    "row": {
+     "hour": 16,
+     "occupied": 26,
+     "capacity": 120,
+     "load": 0.2141,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "ds",
+    "row": {
+     "hour": 8,
+     "occupied": 32,
+     "capacity": 120,
+     "load": 0.2649,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "dg",
+    "row": {
+     "hour": 9,
+     "occupied": 33,
+     "capacity": 120,
+     "load": 0.2748,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "dg",
+    "row": {
+     "hour": 13,
+     "occupied": 63,
+     "capacity": 120,
+     "load": 0.5229,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   },
+   {
+    "weekday": "dg",
+    "row": {
+     "hour": 12,
+     "occupied": 69,
+     "capacity": 120,
+     "load": 0.5732,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   }
+  ]
+ },
+ "find_quieter_slots__piscina_25m_ds_dg": {
+  "activity_id": "piscina_25m",
+  "period": "lectiu",
+  "slots": [
+   {
+    "weekday": "ds",
+    "row": {
+     "hour": 16,
+     "occupied": 8,
+     "capacity": 40,
+     "load": 0.1935,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "ds",
+    "row": {
+     "hour": 15,
+     "occupied": 8,
+     "capacity": 40,
+     "load": 0.1976,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "ds",
+    "row": {
+     "hour": 14,
+     "occupied": 8,
+     "capacity": 40,
+     "load": 0.2018,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "dg",
+    "row": {
+     "hour": 9,
+     "occupied": 11,
+     "capacity": 40,
+     "load": 0.2819,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "weekday": "dg",
+    "row": {
+     "hour": 10,
+     "occupied": 23,
+     "capacity": 40,
+     "load": 0.5637,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   },
+   {
+    "weekday": "dg",
+    "row": {
+     "hour": 13,
+     "occupied": 24,
+     "capacity": 40,
+     "load": 0.5881,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   }
+  ]
+ },
+ "recommend_alternatives__tennis_dl_18": {
+  "activity_id": "tennis",
+  "weekday": "dl",
+  "hour": 18,
+  "period": "lectiu",
+  "requested": {
+   "hour": 18,
+   "occupied": 5,
+   "capacity": 5,
+   "load": 0.9139,
+   "is_closed": false,
+   "shift_change": false,
+   "low_data": false,
+   "long_block": true,
+   "usable": true,
+   "label": "FULL"
+  },
+  "is_already_quiet": false,
+  "alternatives": [
+   {
+    "kind": "SAME_DAY",
+    "activity_id": "tennis",
+    "weekday": "dl",
+    "reduction_pp": 86,
+    "row": {
+     "hour": 15,
+     "occupied": 0,
+     "capacity": 5,
+     "load": 0.0556,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   },
+   {
+    "kind": "OTHER_DAY",
+    "activity_id": "tennis",
+    "weekday": "ds",
+    "reduction_pp": 36,
+    "row": {
+     "hour": 18,
+     "occupied": 3,
+     "capacity": 5,
+     "load": 0.55,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": true,
+     "usable": true,
+     "label": "MODERATE"
+    }
+   },
+   {
+    "kind": "OTHER_ACTIVITY",
+    "activity_id": "futbol_sala",
+    "weekday": "dl",
+    "reduction_pp": 86,
+    "row": {
+     "hour": 18,
+     "occupied": 0,
+     "capacity": 1,
+     "load": 0.0556,
+     "is_closed": false,
+     "shift_change": false,
+     "low_data": false,
+     "long_block": false,
+     "usable": true,
+     "label": "QUIET"
+    }
+   }
+  ],
+  "no_result_reason": null
+ },
+ "get_dataset_info": {
+  "entries": {
+   "active_days": "193",
+   "booking_scope": "all",
+   "clean_rule_version": "SLOT15_LONG240_NIGHT2100_v1",
+   "closed_day_max_rows": "30",
+   "date_max": "2026-10-31",
+   "date_min": "2026-04-01",
+   "db_version": "1",
+   "source_file": "saf-espais-2026-equips.xlsx"
+  }
+ }
+}

@@ -35,19 +35,14 @@ data class RecommendationUi(
 @Composable
 fun RecommendationCard(
     recommendation: RecommendationUi,
+    onClick: (() -> Unit)? = null,
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-        border = CardDefaults.outlinedCardBorder(),
-    ) {
+    OutlinedSurface(onClick = onClick) {
         Row(
             modifier = Modifier.padding(15.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Icon(Icons.Filled.CalendarMonth, contentDescription = null, tint = UabGreen)
+            Icon(Icons.Filled.CalendarMonth, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
             Column(
                 modifier = Modifier.padding(start = 12.dp).weight(1f),
                 verticalArrangement = Arrangement.spacedBy(3.dp),
@@ -57,20 +52,23 @@ fun RecommendationCard(
                 Text(recommendation.detail, fontSize = 12.sp, lineHeight = 16.sp)
             }
             Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(7.dp)) {
-                Surface(color = UabGreen.copy(alpha = 0.12f), shape = RoundedCornerShape(50)) {
+                Surface(color = MaterialTheme.colorScheme.primaryContainer, shape = RoundedCornerShape(50)) {
                     Text(
                         stringResource(R.string.recommendation_reduction, recommendation.reduction),
                         modifier = Modifier.padding(horizontal = 9.dp, vertical = 5.dp),
-                        color = UabGreen,
+                        color = MaterialTheme.colorScheme.primary,
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp,
                     )
                 }
-                Icon(
-                    Icons.Filled.ChevronRight,
-                    contentDescription = stringResource(R.string.recommendation_view_content_description),
-                    tint = UabGreen,
-                )
+                // The arrow only appears when the card actually leads somewhere.
+                if (onClick != null) {
+                    Icon(
+                        Icons.Filled.ChevronRight,
+                        contentDescription = stringResource(R.string.recommendation_open_slot),
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
             }
         }
     }

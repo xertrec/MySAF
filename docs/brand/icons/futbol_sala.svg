@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+<rect width="108" height="108" fill="#0E6B3A"/>
+<g transform="translate(54,54) scale(1.44) translate(-54,-45)">
+<path d="M34.5,45a19.5,19.5 0 1,0 39,0a19.5,19.5 0 1,0 -39,0Z" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42.04,36.42L65.96,36.42C66.53,36.42 67,36.89 67,37.46L67,52.54C67,53.11 66.53,53.58 65.96,53.58L42.04,53.58C41.47,53.58 41,53.11 41,52.54L41,37.46C41,36.89 41.47,36.42 42.04,36.42Z" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54,36.42L54,53.58" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51.01,45a2.99,2.99 0 1,0 5.98,0a2.99,2.99 0 1,0 -5.98,0Z" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M41,40.84C46.2,40.84 46.2,49.16 41,49.16" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M67,40.84C61.8,40.84 61.8,49.16 67,49.16" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

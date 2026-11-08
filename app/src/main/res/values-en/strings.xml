@@ -1,6 +1,15 @@
 <resources>
     <string name="time_hour">%1$02d:00</string>
-    <string name="activity_pool">Swimming pool</string>
+    <string name="activity_pool">25 m pool</string>
+    <string name="activity_pool_16m">16 m pool</string>
+    <string name="activity_boxtraining">Box training room</string>
+    <string name="activity_room_1_rhythm">Room 1 · Rhythm</string>
+    <string name="activity_room_2_rhythm">Room 2 · Rhythm</string>
+    <string name="activity_room_3_zen">Room 3 · Zen</string>
+    <string name="activity_room_4_cycling">Room 4 · Cycling</string>
+    <string name="activity_outdoor_basketball">Outdoor basketball</string>
+    <string name="activity_beach_volleyball">Beach volleyball</string>
+    <string name="activity_class_room_note">Group class room: the data are class enrolments, not free use. Low occupancy means few classes, not that the room is free to use.</string>
     <string name="activity_fitness_room">Fitness room</string>
     <string name="activity_padel">Padel</string>
     <string name="activity_tennis">Tennis</string>
@@ -27,7 +36,8 @@
     <string name="activity_long_blocks_note">Some time slots may include club or school sessions.</string>
     <string name="activity_select_hour">Select a time</string>
     <string name="activity_find_alternatives">Find alternatives for %1$s</string>
-    <string name="activity_example_data_note">Sample data for this prototype. Final figures will be calculated on the device from daily_counts.json.</string>
+    <string name="activity_data_note">Historical averages of SAF bookings (April–October 2026), computed from the app’s local database.</string>
+    <string name="activity_no_data">No data is available for this activity.</string>
     <string name="activity_metric_occupied">≈ %1$d of %2$d %3$s</string>
     <string name="activity_metric_available">≈ %1$d of %2$d %3$s free</string>
     <string name="activity_metric_percentage">%1$d%%</string>
@@ -88,13 +98,12 @@
     <string name="recommendations_good_time">Good choice! This time slot is usually quiet already.</string>
     <string name="recommendations_none">No alternatives that are sufficiently quieter were found for this time.</string>
     <string name="recommendations_historical_note">Data: historical averages for the teaching period (April–June and September–October 2026). Bookings are counted; this is not real-time occupancy.</string>
-    <string name="recommendations_demo_note">Prototype recommendations: these will be connected to the local engine and will apply the 10-percentage-point threshold.</string>
-    <string name="recommendation_same_activity_today">Same activity, today</string>
+    <string name="recommendations_demo_note">At most one alternative of each kind is suggested: the quietest slot, if it is at least 10 percentage points quieter. Slots with few data are not suggested.</string>
+    <string name="recommendation_same_activity_same_day">Same activity, same day</string>
     <string name="recommendation_same_activity_another_day">Same activity, another day</string>
     <string name="recommendation_alternative_activity">Alternative activity</string>
-    <string name="recommendation_today_time">14:00</string>
-    <string name="recommendation_tuesday_time">Tuesday at %1$s</string>
-    <string name="recommendation_fitness_time">Fitness room · %1$s</string>
+    <string name="recommendation_day_time">%1$s at %2$s</string>
+    <string name="recommendation_activity_time">%1$s · %2$s</string>
     <string name="recommendation_people_detail">≈ %1$d of %2$d %3$s · %4$s</string>
     <string name="recommendation_units_detail">≈ %1$d of %2$d %3$s free · %4$s</string>
     <string name="recommendation_reduction">−%1$d pp</string>
@@ -112,4 +121,135 @@
         <item quantity="one">pitch</item>
         <item quantity="other">pitches</item>
     </plurals>
+
+    <string name="home_chat_title">Ask SAFIA</string>
+    <string name="home_chat_subtitle">The SAF assistant: opening hours, occupancy and quieter times.</string>
+    <string name="home_chat_open">Open the assistant</string>
+
+    <string name="chat_title">SAFIA</string>
+    <string name="chat_headline">Hi! I’m SAFIA</string>
+    <string name="chat_intro">Ask me about opening hours, capacity and when the SAF is usually less busy. I answer using the app’s historical data.</string>
+    <string name="chat_suggestions_heading">Try asking…</string>
+    <string name="chat_suggestion_1">What time does the SAF close on Saturdays?</string>
+    <string name="chat_suggestion_2">When is the fitness room least busy?</string>
+    <string name="chat_suggestion_3">I want to play padel on Monday at 18:00. Are there quieter alternatives?</string>
+    <string name="chat_suggestion_4">Which activities can I do at the SAF?</string>
+    <string name="chat_disclaimer">SAFIA uses a UAB language model. Your questions are sent to the assistant’s server; occupancy data is read on your device.</string>
+    <string name="chat_input_placeholder">Type a question…</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_new_conversation">New conversation</string>
+    <string name="chat_thinking">SAFIA is thinking…</string>
+    <string name="chat_source">Source: %1$s</string>
+    <string name="chat_slot_detail">%1$s · %2$d%%</string>
+    <string name="chat_retry">Try again</string>
+    <string name="chat_error_network">Can’t reach SAFIA. Check your connection and that the server is running.</string>
+    <string name="chat_error_rate_limited">Too many requests. Try again in a few seconds.</string>
+    <string name="chat_error_not_configured">The assistant isn’t configured on the server.</string>
+    <string name="chat_error_generic">SAFIA couldn’t answer right now.</string>
+    <string name="chat_limit_provisional_capacity">Capacities are provisional (SAF inventory).</string>
+    <string name="chat_limit_general_hours_only">Only the general SAF schedule is available, not per-facility hours.</string>
+    <string name="chat_limit_unvalidated_metric">This activity’s metric hasn’t been validated yet.</string>
+    <string name="chat_limit_data_unavailable">Some data couldn’t be read.</string>
+    <string name="chat_limit_unverified_figures">Some figures couldn’t be verified against the data.</string>
+
+    <!-- Redesign -->
+    <string name="nav_home">Home</string>
+    <string name="nav_recommendations">Recommendations</string>
+    <string name="nav_safia">SAFIA</string>
+
+    <string name="home_reco_title">Recommendations</string>
+    <string name="home_reco_subtitle">Find the best facility and time based on historical occupancy.</string>
+    <string name="home_tile_facilities">Facilities</string>
+    <string name="home_tile_sports">Sports</string>
+    <string name="home_tile_schedule">Opening hours</string>
+    <string name="home_tile_occupancy">Occupancy</string>
+
+    <string name="occupancy_level_quiet">Low occupancy</string>
+    <string name="occupancy_level_moderate">Moderate occupancy</string>
+    <string name="occupancy_level_full">High occupancy</string>
+
+    <string name="recommend_headline">What do you want to do?</string>
+    <string name="recommend_intro">We’ll recommend the best option based on historical occupancy.</string>
+    <string name="recommend_type">Recommendation type</string>
+    <string name="recommend_type_facility">Facility</string>
+    <string name="recommend_type_sport">Sport</string>
+    <string name="recommend_date">Date</string>
+    <string name="recommend_slot">Time slot (optional)</string>
+    <string name="recommend_any_hour">Any time</string>
+    <string name="recommend_submit">Get recommendation</string>
+    <string name="date_today">Today, %1$s</string>
+    <string name="date_tomorrow">Tomorrow, %1$s</string>
+    <string name="hour_range">%1$02d:00 – %2$02d:00</string>
+    <string name="ranges_and">%1$s and %2$s</string>
+
+    <string name="result_title">Recommendation</string>
+    <string name="result_eyebrow">Our recommendation</string>
+    <string name="result_subtitle_any">These are the slots with the lowest expected occupancy on %1$s.</string>
+    <string name="result_subtitle_quiet">Lowest expected occupancy at the selected time.</string>
+    <string name="result_subtitle_busy">The selected time is usually busy. Check the best slots or the alternatives.</string>
+    <string name="result_selected_slot">Selected time: %1$s</string>
+    <string name="result_best_slots">Best time slots</string>
+    <string name="result_why">Why?</string>
+    <string name="result_why_body">According to historical term-time data (Apr – Oct 2026), these slots are usually less busy on %1$s.</string>
+    <string name="result_view_occupancy">See detailed occupancy</string>
+    <string name="result_view_alternatives">See alternatives</string>
+    <string name="result_no_data">There are no slots with enough data for this day.</string>
+
+    <string name="occupancy_title">Occupancy</string>
+    <string name="tab_today">Today</string>
+    <string name="tab_week">Week</string>
+    <string name="tab_history">History</string>
+    <string name="occupancy_chart_title">Average occupancy per hour</string>
+    <string name="occupancy_sub_today">Today, %1$s · term time</string>
+    <string name="occupancy_sub_week">%1$s · term time</string>
+    <string name="occupancy_sub_history">%1$s · Apr – Oct 2026</string>
+    <string name="occupancy_quiet_ranges">Quietest slots</string>
+    <string name="occupancy_tap_hint">Tap a bar to see the occupancy for that hour.</string>
+    <string name="occupancy_capacity_people">Occupancy: %1$d/%2$d %3$s</string>
+    <string name="occupancy_capacity_units">Booked: %1$d/%2$d %3$s</string>
+    <string name="occupancy_percentage">%1$d%% occupied</string>
+    <string name="occupancy_find_alternatives">Find alternatives for %1$s</string>
+    <string name="occupancy_bar_description">%1$s, %2$s</string>
+
+    <string name="alternatives_title">Alternatives</string>
+    <string name="alternatives_headline">Too busy?</string>
+    <string name="alternatives_intro">Here are similar options with fewer people historically on %1$s at %2$s.</string>
+    <string name="alternatives_selected">%1$s · %2$s</string>
+    <string name="alternatives_similar_facilities">Similar facilities</string>
+    <string name="alternatives_similar_sports">Similar sports</string>
+    <string name="alternatives_other_slots">Other slots for %1$s</string>
+    <string name="alternatives_none">No similar alternatives with data for this slot.</string>
+    <string name="alternatives_suggestion_title">Tip</string>
+    <string name="alternatives_suggestion_body">These alternatives are based on historical occupancy patterns (Apr – Oct 2026) for similar activities.</string>
+
+    <string name="catalog_intro_facilities">Spaces with a capacity limit. Tap one to see its hourly occupancy.</string>
+    <string name="catalog_intro_sports">Courts and pitches. Tap one to see its hourly occupancy.</string>
+    <string name="catalog_intro_occupancy">Pick a facility or sport to see its historical occupancy.</string>
+    <string name="catalog_now">Now: %1$s</string>
+    <string name="catalog_now_closed">Now: closed</string>
+    <string name="catalog_now_unknown">Now: no data</string>
+
+    <string name="schedule_headline">SAF opening hours</string>
+    <string name="schedule_intro">General opening hours of the facilities.</string>
+    <string name="schedule_open_now">Open now · closes at %1$s</string>
+    <string name="schedule_closed_now">Closed now</string>
+    <string name="schedule_today">Today</string>
+    <string name="schedule_range">%1$s – %2$s</string>
+    <string name="schedule_note">These are the general SAF hours; some facilities may have their own schedule.</string>
+    <string name="time_hm">%1$02d:%2$02d</string>
+    <!-- App logo / favourite sport -->
+    <string name="logo_make_my_sport">Make this my sport</string>
+    <string name="logo_is_my_sport">Your sport</string>
+    <string name="logo_in_app_note">The app uses this logo.</string>
+    <string name="logo_remove">Remove</string>
+    <string name="logo_home_screen">Also use on home screen</string>
+    <string name="logo_home_screen_note">The icon changes when you leave the app; your launcher may take a few seconds.</string>
+    <string name="chat_action_copy">Copy</string>
+    <string name="chat_action_share">Share</string>
+    <string name="chat_action_edit">Edit and resend</string>
+    <string name="chat_copied">Message copied</string>
+    <string name="chat_share_title">Share message</string>
+    <string name="chat_editing">Editing message</string>
+    <string name="chat_editing_cancel">Cancel editing</string>
+    <string name="recommendation_open_slot">View this slot</string>
 </resources>
