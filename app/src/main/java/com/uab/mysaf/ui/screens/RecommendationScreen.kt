@@ -43,6 +43,7 @@ import com.uab.mysaf.data.quietestHours
 import com.uab.mysaf.data.weekdayCode
 import com.uab.mysaf.data.weekdayNameRes
 import com.uab.mysaf.ui.components.AppTopBar
+import com.uab.mysaf.ui.components.InfoNoteCard
 import com.uab.mysaf.ui.components.LevelIndicator
 import com.uab.mysaf.ui.components.OutlinedSurface
 import com.uab.mysaf.ui.components.SoftGreenPanel
@@ -84,6 +85,7 @@ fun RecommendationScreen(
                 .padding(horizontal = 16.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
+            activity.noteRes?.let { InfoNoteCard(stringResource(it)) }
             // Hero
             SoftGreenPanel {
                 Column(

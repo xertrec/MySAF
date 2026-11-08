@@ -301,7 +301,9 @@ def test_real_database_cell_matches_independent_computation(real_db):
 def test_real_database_expected_shape(real_db):
     con = sqlite3.connect(real_db)
     caps = dict(con.execute("SELECT id, capacity FROM activity"))
-    assert caps == {"piscina_25m": 40, "sala_fitness": 120, "padel": 4, "tennis": 5,
+    assert caps == {"piscina_25m": 40, "piscina_16m": 25, "sala_fitness": 120,
+                    "sala_boxtraining": 14, "sala_1_ritmes": 35, "sala_2_ritmes": 20,
+                    "sala_3_zen": 20, "sala_4_cycling": 35, "basquet_exterior": 1, "volei_platja": 1, "padel": 4, "tennis": 5,
                     "esquaix": 3, "pavello": 3, "futbol_sala": 1, "futbol_7_11": 4,
                     "barbell": 25, "callistenia": 20, "rocodrom": 26}
     # domingo: solo de 9 a 14

@@ -25,7 +25,9 @@ class AvailabilityRepository(private val dao: AvailabilityDao) {
         val period = Period.of(allPeriod)
         val activities = dao.activities()
         val requestedKind = activities.firstOrNull { it.id == activityId }?.isPersonCount
-        val comparable = activities.filter { it.isPersonCount == requestedKind }.map { it.id }.toSet()
+        val comparable = activities
+            .filter { requestedKind != null && areComparable(activityId, requestedKind, it.id, it.isPersonCount) }
+            .map { it.id }.toSet()
 
         return findAlternatives(
             activityId = activityId,

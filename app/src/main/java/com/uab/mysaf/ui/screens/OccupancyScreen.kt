@@ -45,6 +45,7 @@ import com.uab.mysaf.data.quietRanges
 import com.uab.mysaf.data.todayWeekday
 import com.uab.mysaf.data.weekdayNameRes
 import com.uab.mysaf.ui.components.AppTopBar
+import com.uab.mysaf.ui.components.InfoNoteCard
 import com.uab.mysaf.ui.components.FavouriteSportCard
 import com.uab.mysaf.ui.components.LevelIndicator
 import com.uab.mysaf.ui.components.OccupancyChart
@@ -114,6 +115,7 @@ fun OccupancyScreen(
                 .padding(horizontal = 16.dp, vertical = 16.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
+            activity.noteRes?.let { InfoNoteCard(stringResource(it)) }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     activity.icon,

@@ -1,6 +1,15 @@
 <resources>
     <string name="time_hour">%1$02d:00</string>
-    <string name="activity_pool">Swimming pool</string>
+    <string name="activity_pool">25 m pool</string>
+    <string name="activity_pool_16m">16 m pool</string>
+    <string name="activity_boxtraining">Box training room</string>
+    <string name="activity_room_1_rhythm">Room 1 · Rhythm</string>
+    <string name="activity_room_2_rhythm">Room 2 · Rhythm</string>
+    <string name="activity_room_3_zen">Room 3 · Zen</string>
+    <string name="activity_room_4_cycling">Room 4 · Cycling</string>
+    <string name="activity_outdoor_basketball">Outdoor basketball</string>
+    <string name="activity_beach_volleyball">Beach volleyball</string>
+    <string name="activity_class_room_note">Group class room: the data are class enrolments, not free use. Low occupancy means few classes, not that the room is free to use.</string>
     <string name="activity_fitness_room">Fitness room</string>
     <string name="activity_padel">Padel</string>
     <string name="activity_tennis">Tennis</string>

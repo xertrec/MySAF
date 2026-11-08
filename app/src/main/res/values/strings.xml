@@ -1,6 +1,15 @@
 <resources>
     <string name="time_hour">%1$02d:00</string>
-    <string name="activity_pool">Piscina</string>
+    <string name="activity_pool">Piscina 25 m</string>
+    <string name="activity_pool_16m">Piscina 16 m</string>
+    <string name="activity_boxtraining">Sala boxtraining</string>
+    <string name="activity_room_1_rhythm">Sala 1 · Ritmes</string>
+    <string name="activity_room_2_rhythm">Sala 2 · Ritmes</string>
+    <string name="activity_room_3_zen">Sala 3 · Zen</string>
+    <string name="activity_room_4_cycling">Sala 4 · Cycling</string>
+    <string name="activity_outdoor_basketball">Bàsquet exterior</string>
+    <string name="activity_beach_volleyball">Vòlei platja</string>
+    <string name="activity_class_room_note">Sala d’activitats dirigides: les dades són inscripcions a classes, no ús lliure. Una ocupació baixa vol dir que hi ha poques classes, no que la sala estigui disponible.</string>
     <string name="activity_fitness_room">Sala fitness</string>
     <string name="activity_padel">Pàdel</string>
     <string name="activity_tennis">Tennis</string>

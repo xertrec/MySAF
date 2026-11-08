@@ -95,6 +95,16 @@ data class OpeningHours(val weekday: String, val openMin: Int, val closeMin: Int
     fun isOpenAt(minuteOfDay: Int): Boolean = minuteOfDay in openMin until closeMin
 }
 
+/**
+ * Directed-activity rooms: their bookings are class enrolments, not free use, so they are only
+ * compared with each other and never suggested as quieter alternatives to other spaces.
+ */
+val CLASS_ROOM_IDS: Set<String> = setOf("sala_1_ritmes", "sala_2_ritmes", "sala_3_zen", "sala_4_cycling")
+
+/** True when [a] and [b] can be compared as alternatives (same unit and same kind of use). */
+fun areComparable(a: String, aIsPersonCount: Boolean, b: String, bIsPersonCount: Boolean): Boolean =
+    aIsPersonCount == bIsPersonCount && (a in CLASS_ROOM_IDS) == (b in CLASS_ROOM_IDS)
+
 /** Short weekday code ("dl"…"dg") for a [java.time.DayOfWeek]. */
 fun weekdayCode(day: java.time.DayOfWeek): String = WEEKDAYS[day.value - 1]
 

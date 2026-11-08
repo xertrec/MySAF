@@ -32,6 +32,7 @@ import com.uab.mysaf.data.HourAvailability
 import com.uab.mysaf.data.Recommendations
 import com.uab.mysaf.data.activities
 import com.uab.mysaf.data.activityById
+import com.uab.mysaf.data.areComparable
 import com.uab.mysaf.data.occupancyLabel
 import com.uab.mysaf.data.weekdayNameRes
 import com.uab.mysaf.ui.components.AppTopBar
@@ -76,7 +77,7 @@ fun AlternativesScreen(
 
     // Only activities measured the same way (people vs courts) are comparable.
     val similar = activities
-        .filter { it.id != activityId && it.isPersonCount == activity.isPersonCount }
+        .filter { it.id != activityId && areComparable(activityId, activity.isPersonCount, it.id, it.isPersonCount) }
         .mapNotNull { info -> data?.slot?.get(info.id)?.takeIf { !it.isClosed }?.let { info to it } }
         .sortedBy { it.second.load }
     val otherSlots = data?.recommendations?.alternatives.orEmpty()

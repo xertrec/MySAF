@@ -29,7 +29,7 @@ The 11 activities: `piscina_25m` (40 people), `sala_fitness` (120), `barbell` (2
 ### 1.3 What the database does *not* contain
 
 - **Directed activities (classes)** — the `Activitats dirigides` sheet is cleaned to parquet but not loaded into the DB (and `DataInscripcio` is unvalidated anyway).
-- 16 m pool, cycling room, box training, beach volley, outdoor basketball, badminton sub-courts as separate items — they exist in the inventory/mapping CSVs but are not exposed as activities.
+- Badminton sub-courts and pitch halves as separate items — they exist in the inventory/mapping CSVs but are not exposed as activities.
 - Per-facility opening hours (only the general schedule).
 - Any real-time data.
 

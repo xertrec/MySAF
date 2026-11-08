@@ -80,7 +80,15 @@ class Activity:
 ACTIVITIES: tuple[Activity, ...] = (
     # PISCINA_25M_COBERTA ya incluye sus 8 carriles (includes_children).
     Activity("piscina_25m", True, ("PISCINA_25M_COBERTA",)),
+    # PISCINA_16M_COMPLETA ya incluye sus dos mitades (MEITAT A/B).
+    Activity("piscina_16m", True, ("PISCINA_16M_COMPLETA",)),
     Activity("sala_fitness", True, ("SALA_FITNES",)),
+    Activity("sala_boxtraining", True, ("SALA_6_BOXTRAINING",)),
+    # Salas de actividades dirigidas: las reservas son inscripciones a clases.
+    Activity("sala_1_ritmes", True, ("AADD_SALA_1_RITMES",)),
+    Activity("sala_2_ritmes", True, ("AADD_SALA_2_RITMES",)),
+    Activity("sala_3_zen", True, ("AADD_SALA_3_ZEN",)),
+    Activity("sala_4_cycling", True, ("SALA_4_CYCLING",)),
     Activity("padel", False, tuple(f"PADEL_PISTA_{i}" for i in range(1, 5))),
     Activity("tennis", False, tuple(f"TENIS_PISTA_{i}" for i in range(1, 6))),
     Activity("esquaix", False, tuple(f"ESQUAIX_PISTA_{i}" for i in range(2, 5))),
@@ -88,6 +96,8 @@ ACTIVITIES: tuple[Activity, ...] = (
     Activity("pavello", False, ("PAVELLO_PISTA_2", "PAVELLO_PISTA_3", "PAVELLO_BADMINTON_1")),
     Activity("futbol_sala", False, ("FUTBOL_SALA_1",)),
     Activity("futbol_7_11", False, tuple(f"FUTBOL7_CAMP_{i}" for i in range(1, 5))),
+    Activity("basquet_exterior", False, ("BASQUET_EXTERIOR",)),
+    Activity("volei_platja", False, ("VOLEI_PLATJA",)),
     # Uso libre + actividades dirigidas comparten el mismo espacio (aforo 25).
     Activity("barbell", True, ("ESPAI_BARBELL", "AADD_ESPAI_BARBELL"),
              capacity_resources=("ESPAI_BARBELL",)),

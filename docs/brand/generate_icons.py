@@ -303,10 +303,84 @@ def g_climbing():
     ]
 
 
+def g_small_pool():  # pool ladder over the water (16 m pool)
+    return [
+        stroke(G().M(-6.0, 3.6).L(-6.0, -4.6).C(-6.0, -8.8, -0.6, -8.8, -0.6, -5.2), 2.3),
+        stroke(G().M(1.6, 3.6).L(1.6, -4.6).C(1.6, -8.8, 7.0, -8.8, 7.0, -5.2), 2.3),
+        stroke(G().M(-6.0, -1.6).L(1.6, -1.6).M(-6.0, 1.6).L(1.6, 1.6), 1.7),
+        stroke(G().wave(-10, 10, 7.0, 1.5, 3), 2.3),
+    ]
+
+
+def g_beach_volley():  # volleyball over the sand
+    return [
+        stroke(G().circle(0, -2.6, 7.0), 2.2),
+        stroke(G().M(-1.0, -9.5).C(-4.4, -6.0, -4.6, -0.8, -2.2, 3.9), 1.6),
+        stroke(G().M(-6.6, -4.8).C(-2.2, -3.0, 3.0, -3.4, 6.4, -6.0), 1.6),
+        stroke(G().M(6.8, -1.0).C(3.0, -0.6, 0.0, 1.2, -2.0, 4.0), 1.6),
+        stroke(G().wave(-10, 10, 8.2, 1.0, 2), 2.0),
+    ]
+
+
+def g_outdoor_basketball():  # backboard, rim and net
+    return [
+        stroke(G().rrect(-8.0, -9.4, 8.0, -1.8, 1.0), 2.0),
+        stroke(G().rrect(-2.8, -6.0, 2.8, -1.8, 0.3), 1.4),
+        stroke(G().M(-4.6, -0.2).L(4.6, -0.2), 2.4),
+        stroke(G().M(-4.2, -0.2).L(-2.6, 7.6).L(2.6, 7.6).L(4.2, -0.2)
+               .M(-1.4, -0.2).L(-0.9, 7.6).M(1.4, -0.2).L(0.9, 7.6)
+               .M(-3.5, 3.6).L(3.5, 3.6), 1.2),
+    ]
+
+
+def g_boxing():  # boxing glove
+    return [
+        stroke(G().M(-4.4, 2.6).L(-4.4, -4.0).C(-4.4, -9.6, 7.4, -9.6, 7.4, -3.2)
+               .C(7.4, 0.4, 5.6, 2.6, 4.2, 2.6).L(-4.4, 2.6).Z(), 2.3),
+        stroke(G().M(-4.4, -3.4).C(-8.6, -3.4, -8.6, 1.8, -4.4, 1.8), 2.1),
+        fill(G().rrect(-4.0, 4.4, 4.6, 9.2, 1.0)),
+    ]
+
+
+def g_rhythm():  # beamed music notes (rhythm / dance rooms)
+    return [
+        fill(G().ellipse(-4.8, 6.0, 2.9, 2.2)),
+        fill(G().ellipse(4.4, 4.0, 2.9, 2.2)),
+        stroke(G().M(-2.0, 6.0).L(-2.0, -6.0).M(7.2, 4.0).L(7.2, -8.0), 1.9),
+        fill(G().M(-2.95, -6.4).L(8.15, -8.8).L(8.15, -5.2).L(-2.95, -2.8).Z()),
+    ]
+
+
+def g_zen():  # seated figure in lotus pose (zen / yoga room)
+    return [
+        fill(G().circle(0, -7.4, 2.4)),
+        fill(G().M(-2.4, -4.4).L(2.4, -4.4).L(3.4, 3.0).L(-3.4, 3.0).Z()),
+        stroke(G().M(-2.0, -3.6).L(-5.6, -0.2).L(-7.2, 3.6).M(2.0, -3.6).L(5.6, -0.2).L(7.2, 3.6), 2.0),
+        fill(G().M(-9.6, 5.0).C(-5.0, 2.2, 5.0, 2.2, 9.6, 5.0).C(5.0, 8.6, -5.0, 8.6, -9.6, 5.0).Z()),
+    ]
+
+
+def g_cycling():  # bicycle (indoor cycling room)
+    return [
+        stroke(G().circle(-5.6, 3.6, 4.0).circle(5.6, 3.6, 4.0), 1.9),
+        stroke(G().M(-5.6, 3.6).L(-0.4, 3.6).L(-2.8, -3.2).M(-0.4, 3.6).L(4.0, -3.2).L(5.6, 3.6)
+               .M(-2.8, -3.2).L(4.0, -3.2), 1.9),
+        stroke(G().M(-4.6, -3.4).L(-1.2, -3.4).M(4.0, -3.2).L(3.0, -6.4).L(5.8, -6.4), 2.0),
+    ]
+
+
 # name -> glyph fn. Names match ActivityInfo ids (except "main").
 ICONS = {
     "main": g_main,
     "piscina_25m": g_pool,
+    "piscina_16m": g_small_pool,
+    "sala_boxtraining": g_boxing,
+    "sala_1_ritmes": g_rhythm,
+    "sala_2_ritmes": g_rhythm,
+    "sala_3_zen": g_zen,
+    "sala_4_cycling": g_cycling,
+    "basquet_exterior": g_outdoor_basketball,
+    "volei_platja": g_beach_volley,
     "sala_fitness": g_fitness_room,
     "padel": g_padel,
     "tennis": g_tennis,

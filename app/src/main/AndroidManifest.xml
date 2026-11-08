@@ -51,6 +51,118 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
+            android:name=".Launcher_sala_boxtraining"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_sala_boxtraining"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_sala_boxtraining"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_sala_1_ritmes"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_sala_1_ritmes"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_sala_1_ritmes"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_sala_2_ritmes"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_sala_2_ritmes"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_sala_2_ritmes"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_sala_3_zen"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_sala_3_zen"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_sala_3_zen"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_sala_4_cycling"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_sala_4_cycling"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_sala_4_cycling"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_basquet_exterior"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_basquet_exterior"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_basquet_exterior"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_volei_platja"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_volei_platja"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_volei_platja"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Launcher_piscina_16m"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_piscina_16m"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_piscina_16m"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
             android:name=".Launcher_sala_fitness"
             android:enabled="false"
             android:exported="true"
