@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+<rect width="108" height="108" fill="#0E6B3A"/>
+<g transform="translate(54,54) scale(1.44) translate(-54,-45)">
+<path d="M34.5,45a19.5,19.5 0 1,0 39,0a19.5,19.5 0 1,0 -39,0Z" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M56.36,37.95C59.08,41.83 59.09,46.51 56.39,48.41C53.68,50.3 49.28,48.69 46.57,44.81C43.85,40.93 43.84,36.25 46.54,34.35C49.25,32.46 53.65,34.07 56.36,37.95Z" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.75,37.01L53.28,49.18M46.54,34.35L56.39,48.41M49.65,33.58L58.18,45.75M44.76,40.84L53.25,34.89M46.57,44.81L56.36,37.95M49.68,47.86L58.17,41.92" fill="none" stroke="#FFFFFF" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M56.46,48.51L61.31,55.44" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60.37,37.2a2.47,2.47 0 1,0 4.94,0a2.47,2.47 0 1,0 -4.94,0Z" fill="#FFFFFF"/>
+</g>
+</svg>
