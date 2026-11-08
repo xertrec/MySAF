@@ -1,6 +1,6 @@
 # SAFIA — Architecture
 
-Status: **backend v0.1 implemented** (`backend/`), LLM = UAB **Ornith** (`https://dcc-llm-gw.uab.cat/uabthehack/v1`, OpenAI-compatible). Android chat screen and tool executor: not yet implemented — contract in [`ANDROID_INTEGRATION.md`](ANDROID_INTEGRATION.md). Section 1 is the original audit (commit `203177a`). Based on the repo at commit `203177a`.
+Status: **backend v0.1 implemented** (`backend/`), LLM = UAB **Ornith** (`https://dcc-llm-gw.uab.cat/uabthehack/v1`, OpenAI-compatible). Android chat screen and tool executor: implemented (`app/.../ui/chat/`, `app/.../data/chat/`), contract in [`ANDROID_INTEGRATION.md`](ANDROID_INTEGRATION.md). Section 1 is the original audit of the repo at commit `203177a` and is kept as written; since then the database has grown from 11 to 19 activities. For an overview of the whole repository see the root [`README.md`](../../README.md).
 
 ---
 
