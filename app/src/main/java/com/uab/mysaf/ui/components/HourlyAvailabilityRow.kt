@@ -44,7 +44,7 @@ fun HourlyAvailabilityRow(
     selected: Boolean,
     onClick: () -> Unit,
 ) {
-    val ratio = (row.occupied.toFloat() / row.capacity.coerceAtLeast(1)).coerceIn(0f, 1f)
+    val ratio = row.load.coerceIn(0f, 1f)
     val label = occupancyLabel(row)
     val specialStatus = when {
         row.isClosed -> stringResource(R.string.status_closed)
@@ -71,7 +71,7 @@ fun HourlyAvailabilityRow(
     val metric = when {
         row.isClosed || row.shiftChange -> ""
         isPersonCount -> stringResource(R.string.activity_metric_occupied, row.occupied, row.capacity, unitLabel)
-        else -> stringResource(R.string.activity_metric_available, row.capacity - row.occupied, row.capacity, unitLabel)
+        else -> stringResource(R.string.activity_metric_available, (row.capacity - row.occupied).coerceAtLeast(0), row.capacity, unitLabel)
     }
     val hourLabel = stringResource(R.string.time_hour, row.hour)
     val accessibilityMetric =

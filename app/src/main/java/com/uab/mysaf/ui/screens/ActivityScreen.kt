@@ -10,7 +10,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Schedule
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -21,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -30,15 +33,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uab.mysaf.R
+import com.uab.mysaf.data.HourAvailability
 import com.uab.mysaf.data.activityById
 import com.uab.mysaf.data.quieterHour
-import com.uab.mysaf.data.sampleAvailability
 import com.uab.mysaf.data.weekdayNameRes
 import com.uab.mysaf.ui.components.AppTopBar
 import com.uab.mysaf.ui.components.HourlyAvailabilityRow
 import com.uab.mysaf.ui.components.InfoNoteCard
 import com.uab.mysaf.ui.components.PeriodSelector
 import com.uab.mysaf.ui.components.WeekdaySelector
+import com.uab.mysaf.ui.components.loadOrDefault
+import com.uab.mysaf.ui.components.rememberAvailabilityRepository
 import com.uab.mysaf.ui.theme.UabGreen
 import java.time.DayOfWeek
 import java.time.LocalDate
@@ -66,7 +71,14 @@ fun ActivityScreen(
     var allPeriod by rememberSaveable { mutableStateOf(false) }
     var selectedHour by rememberSaveable { mutableStateOf<Int?>(null) }
     val dayName = stringResource(weekdayNameRes(selectedDay))
-    val rows = sampleAvailability(activity, selectedDay, allPeriod)
+    val repository = rememberAvailabilityRepository()
+    // null while loading; empty if the database has no rows for this activity.
+    val loadedRows by produceState<List<HourAvailability>?>(null, activity.id, selectedDay, allPeriod) {
+        value = loadOrDefault(emptyList()) {
+            repository.dayAvailability(activity.id, selectedDay, allPeriod)
+        }
+    }
+    val rows = loadedRows.orEmpty()
     val quietHour = quieterHour(rows)
 
     Scaffold(
@@ -123,6 +135,14 @@ fun ActivityScreen(
                 fontSize = 13.sp,
             )
 
+            if (loadedRows == null) {
+                Box(Modifier.fillMaxWidth().padding(24.dp), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = UabGreen)
+                }
+            } else if (rows.isEmpty()) {
+                Text(stringResource(R.string.activity_no_data), fontSize = 14.sp)
+            }
+
             Column(modifier = Modifier.fillMaxWidth()) {
                 rows.forEachIndexed { index, row ->
                     HourlyAvailabilityRow(
@@ -163,7 +183,7 @@ fun ActivityScreen(
             }
 
             Text(
-                stringResource(R.string.activity_example_data_note),
+                stringResource(R.string.activity_data_note),
                 modifier = Modifier.padding(bottom = 20.dp),
                 fontSize = 11.sp,
                 lineHeight = 15.sp,

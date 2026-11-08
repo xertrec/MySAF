@@ -27,7 +27,8 @@
     <string name="activity_long_blocks_note">Some time slots may include club or school sessions.</string>
     <string name="activity_select_hour">Select a time</string>
     <string name="activity_find_alternatives">Find alternatives for %1$s</string>
-    <string name="activity_example_data_note">Sample data for this prototype. Final figures will be calculated on the device from daily_counts.json.</string>
+    <string name="activity_data_note">Historical averages of SAF bookings (April–October 2026), computed from the app’s local database.</string>
+    <string name="activity_no_data">No data is available for this activity.</string>
     <string name="activity_metric_occupied">≈ %1$d of %2$d %3$s</string>
     <string name="activity_metric_available">≈ %1$d of %2$d %3$s free</string>
     <string name="activity_metric_percentage">%1$d%%</string>
@@ -88,13 +89,12 @@
     <string name="recommendations_good_time">Good choice! This time slot is usually quiet already.</string>
     <string name="recommendations_none">No alternatives that are sufficiently quieter were found for this time.</string>
     <string name="recommendations_historical_note">Data: historical averages for the teaching period (April–June and September–October 2026). Bookings are counted; this is not real-time occupancy.</string>
-    <string name="recommendations_demo_note">Prototype recommendations: these will be connected to the local engine and will apply the 10-percentage-point threshold.</string>
-    <string name="recommendation_same_activity_today">Same activity, today</string>
+    <string name="recommendations_demo_note">At most one alternative of each kind is suggested: the quietest slot, if it is at least 10 percentage points quieter. Slots with few data are not suggested.</string>
+    <string name="recommendation_same_activity_same_day">Same activity, same day</string>
     <string name="recommendation_same_activity_another_day">Same activity, another day</string>
     <string name="recommendation_alternative_activity">Alternative activity</string>
-    <string name="recommendation_today_time">14:00</string>
-    <string name="recommendation_tuesday_time">Tuesday at %1$s</string>
-    <string name="recommendation_fitness_time">Fitness room · %1$s</string>
+    <string name="recommendation_day_time">%1$s at %2$s</string>
+    <string name="recommendation_activity_time">%1$s · %2$s</string>
     <string name="recommendation_people_detail">≈ %1$d of %2$d %3$s · %4$s</string>
     <string name="recommendation_units_detail">≈ %1$d of %2$d %3$s free · %4$s</string>
     <string name="recommendation_reduction">−%1$d pp</string>

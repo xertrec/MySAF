@@ -11,6 +11,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -18,6 +20,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
@@ -26,14 +30,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uab.mysaf.R
-import com.uab.mysaf.data.OccupancyLabel
+import com.uab.mysaf.data.Alternative
+import com.uab.mysaf.data.AlternativeKind
+import com.uab.mysaf.data.Recommendations
+import com.uab.mysaf.data.occupancyLabel
 import com.uab.mysaf.data.activityById
-import com.uab.mysaf.data.sampleAvailability
 import com.uab.mysaf.data.weekdayNameRes
 import com.uab.mysaf.ui.components.AppTopBar
 import com.uab.mysaf.ui.components.InfoNoteCard
 import com.uab.mysaf.ui.components.RecommendationCard
 import com.uab.mysaf.ui.components.RecommendationUi
+import com.uab.mysaf.ui.components.loadOrDefault
+import com.uab.mysaf.ui.components.rememberAvailabilityRepository
 import com.uab.mysaf.ui.theme.UabGreen
 
 @Composable
@@ -47,76 +55,16 @@ fun RecommendationsScreen(
     val activity = activityById(activityId)
     val day = stringResource(weekdayNameRes(weekday))
     val selectedTime = stringResource(R.string.time_hour, hour)
-    val requestedLoad = sampleAvailability(activity, weekday, allPeriod = false)
-        .firstOrNull { it.hour == hour }
-        ?.let { it.occupied.toFloat() / it.capacity.coerceAtLeast(1) }
-    val fitnessActivity = activityById("sala_fitness")
     val activityName = stringResource(activity.nameRes)
-
-    val rawAlternatives = listOf(
-        Triple(
-            RecommendationUi(
-                eyebrow = stringResource(R.string.recommendation_same_activity_today),
-                title = stringResource(R.string.recommendation_today_time),
-                detail = "",
-                reduction = 0,
-            ),
-            activity,
-            0.37f,
-        ),
-        Triple(
-            RecommendationUi(
-                eyebrow = stringResource(R.string.recommendation_same_activity_another_day),
-                title = stringResource(R.string.recommendation_tuesday_time, selectedTime),
-                detail = "",
-                reduction = 0,
-            ),
-            activity,
-            0.73f,
-        ),
-        Triple(
-            RecommendationUi(
-                eyebrow = stringResource(R.string.recommendation_alternative_activity),
-                title = stringResource(R.string.recommendation_fitness_time, selectedTime),
-                detail = "",
-                reduction = 0,
-            ),
-            fitnessActivity,
-            0.70f,
-        ),
-    )
-
-    val alternatives = rawAlternatives.mapNotNull { (candidate, candidateActivity, targetLoad) ->
-        val reduction = (((requestedLoad ?: 0f) - targetLoad) * 100).toInt()
-        if (reduction < 10) return@mapNotNull null
-
-        val occupied = (candidateActivity.capacity * targetLoad).toInt().coerceIn(0, candidateActivity.capacity)
-        val occupancyLabelRes = when {
-            targetLoad < 0.5f -> OccupancyLabel.QUIET.labelRes
-            targetLoad < 0.8f -> OccupancyLabel.MODERATE.labelRes
-            else -> OccupancyLabel.FULL.labelRes
+    val repository = rememberAvailabilityRepository()
+    // null while loading.
+    val recommendations by produceState<Recommendations?>(null, activityId, weekday, hour) {
+        value = loadOrDefault(Recommendations(requested = null, alternatives = emptyList())) {
+            repository.recommendations(activityId, weekday, hour)
         }
-        val label = stringResource(occupancyLabelRes)
-        val unitLabel = pluralStringResource(candidateActivity.unitRes, candidateActivity.capacity)
-        val detail = if (candidateActivity.isPersonCount) {
-            stringResource(
-                R.string.recommendation_people_detail,
-                occupied,
-                candidateActivity.capacity,
-                unitLabel,
-                label,
-            )
-        } else {
-            stringResource(
-                R.string.recommendation_units_detail,
-                candidateActivity.capacity - occupied,
-                candidateActivity.capacity,
-                unitLabel,
-                label,
-            )
-        }
-        candidate.copy(detail = detail, reduction = reduction)
     }
+    val alreadyQuiet = recommendations?.isAlreadyQuiet == true
+    val alternatives = recommendations?.alternatives.orEmpty().map { alternativeUi(it) }
 
     Scaffold(
         topBar = {
@@ -150,7 +98,7 @@ fun RecommendationsScreen(
                         )
                     }
                     Text(
-                        text = if (requestedLoad != null && requestedLoad < 0.5f) {
+                        text = if (alreadyQuiet) {
                             stringResource(R.string.recommendations_already_quiet, day, selectedTime)
                         } else {
                             stringResource(R.string.recommendations_lower_load, day, selectedTime)
@@ -162,7 +110,7 @@ fun RecommendationsScreen(
                 }
             }
 
-            if (requestedLoad != null && requestedLoad < 0.5f) {
+            if (alreadyQuiet) {
                 Surface(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(16.dp),
@@ -174,6 +122,10 @@ fun RecommendationsScreen(
                         color = UabGreen,
                         fontWeight = FontWeight.SemiBold,
                     )
+                }
+            } else if (recommendations == null) {
+                Box(Modifier.fillMaxWidth().padding(24.dp), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = UabGreen)
                 }
             } else if (alternatives.isEmpty()) {
                 Text(stringResource(R.string.recommendations_none), fontSize = 14.sp)
@@ -202,4 +154,46 @@ fun RecommendationsScreen(
             )
         }
     }
+}
+
+@Composable
+private fun alternativeUi(alternative: Alternative): RecommendationUi {
+    val candidate = activityById(alternative.activityId)
+    val row = alternative.row
+    val time = stringResource(R.string.time_hour, row.hour)
+    val (eyebrowRes, title) = when (alternative.kind) {
+        AlternativeKind.SAME_DAY ->
+            R.string.recommendation_same_activity_same_day to time
+        AlternativeKind.OTHER_DAY ->
+            R.string.recommendation_same_activity_another_day to stringResource(
+                R.string.recommendation_day_time,
+                stringResource(weekdayNameRes(alternative.weekday)).replaceFirstChar { it.uppercase() },
+                time,
+            )
+        AlternativeKind.OTHER_ACTIVITY ->
+            R.string.recommendation_alternative_activity to stringResource(
+                R.string.recommendation_activity_time,
+                stringResource(candidate.nameRes),
+                time,
+            )
+    }
+    val label = stringResource(occupancyLabel(row).labelRes)
+    val unitLabel = pluralStringResource(candidate.unitRes, row.capacity)
+    val detail = if (candidate.isPersonCount) {
+        stringResource(R.string.recommendation_people_detail, row.occupied, row.capacity, unitLabel, label)
+    } else {
+        stringResource(
+            R.string.recommendation_units_detail,
+            (row.capacity - row.occupied).coerceAtLeast(0),
+            row.capacity,
+            unitLabel,
+            label,
+        )
+    }
+    return RecommendationUi(
+        eyebrow = stringResource(eyebrowRes),
+        title = title,
+        detail = detail,
+        reduction = alternative.reductionPp,
+    )
 }
