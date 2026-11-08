@@ -40,6 +40,19 @@ class AvailabilityRepository(private val dao: AvailabilityDao) {
         )
     }
 
+    /** Every activity's row for one weekday and hour, keyed by activity id. */
+    suspend fun slotForAll(weekday: String, hour: Int, allPeriod: Boolean = false): Map<String, HourAvailability> =
+        dao.slotAcrossActivities(Period.of(allPeriod), weekday, hour)
+            .associate { it.activityId to it.toHourAvailability() }
+
+    /** General SAF opening hours, in [WEEKDAYS] order. */
+    suspend fun openingHours(): List<OpeningHours> {
+        val byDay = dao.openingHours().associateBy { it.weekday }
+        return WEEKDAYS.mapNotNull { day ->
+            byDay[day]?.let { OpeningHours(day, it.openMin, it.closeMin) }
+        }
+    }
+
     companion object {
         fun from(context: Context): AvailabilityRepository =
             AvailabilityRepository(MySafDatabase.getInstance(context).availabilityDao())

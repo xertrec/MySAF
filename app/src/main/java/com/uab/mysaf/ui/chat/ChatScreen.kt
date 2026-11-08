@@ -98,7 +98,7 @@ import kotlinx.serialization.json.jsonPrimitive
 
 @Composable
 fun ChatScreen(
-    onBack: () -> Unit,
+    onBack: (() -> Unit)? = null,
     onOpenMethodology: () -> Unit,
 ) {
     val context = LocalContext.current.applicationContext

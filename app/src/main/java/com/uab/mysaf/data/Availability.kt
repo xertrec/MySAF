@@ -89,3 +89,33 @@ fun weekdayNameRes(short: String): Int = when (short) {
     "dg" -> R.string.weekday_sunday
     else -> R.string.weekday_monday
 }
+
+/** General SAF opening time for one weekday, in minutes from midnight. */
+data class OpeningHours(val weekday: String, val openMin: Int, val closeMin: Int) {
+    fun isOpenAt(minuteOfDay: Int): Boolean = minuteOfDay in openMin until closeMin
+}
+
+/** Short weekday code ("dl"…"dg") for a [java.time.DayOfWeek]. */
+fun weekdayCode(day: java.time.DayOfWeek): String = WEEKDAYS[day.value - 1]
+
+/** Weekday code for today. */
+fun todayWeekday(): String = weekdayCode(java.time.LocalDate.now().dayOfWeek)
+
+/**
+ * Groups the [limit] quietest usable hours into contiguous ranges (start hour, end hour exclusive),
+ * sorted by start time. E.g. quiet 8, 9 and 13 → [8..10, 13..14].
+ */
+fun quietRanges(rows: List<HourAvailability>, limit: Int = 3): List<IntRange> {
+    val hours = quietestHours(rows, limit).map { it.hour }.sorted()
+    val ranges = mutableListOf<IntRange>()
+    for (h in hours) {
+        val last = ranges.lastOrNull()
+        if (last != null && last.last == h) ranges[ranges.lastIndex] = last.first..(h + 1)
+        else ranges += h..(h + 1)
+    }
+    return ranges
+}
+
+/** The busiest usable hour of a day, or null. */
+fun busiestHour(rows: List<HourAvailability>): Int? =
+    rows.filter { it.isUsable }.maxByOrNull { it.load }?.hour

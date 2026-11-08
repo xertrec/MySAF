@@ -40,3 +40,9 @@ val activities = listOf(
 )
 
 fun activityById(id: String): ActivityInfo = activities.firstOrNull { it.id == id } ?: activities.first()
+
+/** Spaces measured by capacity (people): pool, rooms, climbing wall… */
+val facilities: List<ActivityInfo> get() = activities.filter { it.isPersonCount }
+
+/** Sports played on courts or pitches (measured in units). */
+val sports: List<ActivityInfo> get() = activities.filterNot { it.isPersonCount }

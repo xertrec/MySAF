@@ -142,4 +142,90 @@
     <string name="chat_limit_unvalidated_metric">This activity’s metric hasn’t been validated yet.</string>
     <string name="chat_limit_data_unavailable">Some data couldn’t be read.</string>
     <string name="chat_limit_unverified_figures">Some figures couldn’t be verified against the data.</string>
+
+    <!-- Redesign -->
+    <string name="nav_home">Home</string>
+    <string name="nav_recommendations">Recommendations</string>
+    <string name="nav_safia">SAFIA</string>
+
+    <string name="home_reco_title">Recommendations</string>
+    <string name="home_reco_subtitle">Find the best facility and time based on historical occupancy.</string>
+    <string name="home_tile_facilities">Facilities</string>
+    <string name="home_tile_sports">Sports</string>
+    <string name="home_tile_schedule">Opening hours</string>
+    <string name="home_tile_occupancy">Occupancy</string>
+
+    <string name="occupancy_level_quiet">Low occupancy</string>
+    <string name="occupancy_level_moderate">Moderate occupancy</string>
+    <string name="occupancy_level_full">High occupancy</string>
+
+    <string name="recommend_headline">What do you want to do?</string>
+    <string name="recommend_intro">We’ll recommend the best option based on historical occupancy.</string>
+    <string name="recommend_type">Recommendation type</string>
+    <string name="recommend_type_facility">Facility</string>
+    <string name="recommend_type_sport">Sport</string>
+    <string name="recommend_date">Date</string>
+    <string name="recommend_slot">Time slot (optional)</string>
+    <string name="recommend_any_hour">Any time</string>
+    <string name="recommend_submit">Get recommendation</string>
+    <string name="date_today">Today, %1$s</string>
+    <string name="date_tomorrow">Tomorrow, %1$s</string>
+    <string name="hour_range">%1$02d:00 – %2$02d:00</string>
+    <string name="ranges_and">%1$s and %2$s</string>
+
+    <string name="result_title">Recommendation</string>
+    <string name="result_eyebrow">Our recommendation</string>
+    <string name="result_subtitle_any">These are the slots with the lowest expected occupancy on %1$s.</string>
+    <string name="result_subtitle_quiet">Lowest expected occupancy at the selected time.</string>
+    <string name="result_subtitle_busy">The selected time is usually busy. Check the best slots or the alternatives.</string>
+    <string name="result_selected_slot">Selected time: %1$s</string>
+    <string name="result_best_slots">Best time slots</string>
+    <string name="result_why">Why?</string>
+    <string name="result_why_body">According to historical term-time data (Apr – Oct 2026), these slots are usually less busy on %1$s.</string>
+    <string name="result_view_occupancy">See detailed occupancy</string>
+    <string name="result_view_alternatives">See alternatives</string>
+    <string name="result_no_data">There are no slots with enough data for this day.</string>
+
+    <string name="occupancy_title">Occupancy</string>
+    <string name="tab_today">Today</string>
+    <string name="tab_week">Week</string>
+    <string name="tab_history">History</string>
+    <string name="occupancy_chart_title">Average occupancy per hour</string>
+    <string name="occupancy_sub_today">Today, %1$s · term time</string>
+    <string name="occupancy_sub_week">%1$s · term time</string>
+    <string name="occupancy_sub_history">%1$s · Apr – Oct 2026</string>
+    <string name="occupancy_quiet_ranges">Quietest slots</string>
+    <string name="occupancy_tap_hint">Tap a bar to see the occupancy for that hour.</string>
+    <string name="occupancy_capacity_people">Occupancy: %1$d/%2$d %3$s</string>
+    <string name="occupancy_capacity_units">Booked: %1$d/%2$d %3$s</string>
+    <string name="occupancy_percentage">%1$d%% occupied</string>
+    <string name="occupancy_find_alternatives">Find alternatives for %1$s</string>
+    <string name="occupancy_bar_description">%1$s, %2$s</string>
+
+    <string name="alternatives_title">Alternatives</string>
+    <string name="alternatives_headline">Too busy?</string>
+    <string name="alternatives_intro">Here are similar options with fewer people historically on %1$s at %2$s.</string>
+    <string name="alternatives_selected">%1$s · %2$s</string>
+    <string name="alternatives_similar_facilities">Similar facilities</string>
+    <string name="alternatives_similar_sports">Similar sports</string>
+    <string name="alternatives_other_slots">Other slots for %1$s</string>
+    <string name="alternatives_none">No similar alternatives with data for this slot.</string>
+    <string name="alternatives_suggestion_title">Tip</string>
+    <string name="alternatives_suggestion_body">These alternatives are based on historical occupancy patterns (Apr – Oct 2026) for similar activities.</string>
+
+    <string name="catalog_intro_facilities">Spaces with a capacity limit. Tap one to see its hourly occupancy.</string>
+    <string name="catalog_intro_sports">Courts and pitches. Tap one to see its hourly occupancy.</string>
+    <string name="catalog_intro_occupancy">Pick a facility or sport to see its historical occupancy.</string>
+    <string name="catalog_now">Now: %1$s</string>
+    <string name="catalog_now_closed">Now: closed</string>
+    <string name="catalog_now_unknown">Now: no data</string>
+
+    <string name="schedule_headline">SAF opening hours</string>
+    <string name="schedule_intro">General opening hours of the facilities.</string>
+    <string name="schedule_open_now">Open now · closes at %1$s</string>
+    <string name="schedule_closed_now">Closed now</string>
+    <string name="schedule_today">Today</string>
+    <string name="schedule_range">%1$s – %2$s</string>
+    <string name="schedule_note">These are the general SAF hours; some facilities may have their own schedule.</string>
+    <string name="time_hm">%1$02d:%2$02d</string>
 </resources>

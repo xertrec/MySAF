@@ -142,4 +142,90 @@
     <string name="chat_limit_unvalidated_metric">La mètrica d’aquesta activitat encara no està validada.</string>
     <string name="chat_limit_data_unavailable">No s’han pogut consultar algunes dades.</string>
     <string name="chat_limit_unverified_figures">Algunes xifres no s’han pogut verificar amb les dades.</string>
+
+    <!-- Redesign -->
+    <string name="nav_home">Inici</string>
+    <string name="nav_recommendations">Recomanacions</string>
+    <string name="nav_safia">SAFIA</string>
+
+    <string name="home_reco_title">Recomanacions</string>
+    <string name="home_reco_subtitle">Troba la millor instal·lació i horari segons l’ocupació històrica.</string>
+    <string name="home_tile_facilities">Instal·lacions</string>
+    <string name="home_tile_sports">Esports</string>
+    <string name="home_tile_schedule">Horaris</string>
+    <string name="home_tile_occupancy">Ocupació</string>
+
+    <string name="occupancy_level_quiet">Ocupació baixa</string>
+    <string name="occupancy_level_moderate">Ocupació moderada</string>
+    <string name="occupancy_level_full">Ocupació alta</string>
+
+    <string name="recommend_headline">Què vols fer?</string>
+    <string name="recommend_intro">Et recomanarem la millor opció segons l’ocupació històrica.</string>
+    <string name="recommend_type">Tipus de recomanació</string>
+    <string name="recommend_type_facility">Instal·lació</string>
+    <string name="recommend_type_sport">Esport</string>
+    <string name="recommend_date">Data</string>
+    <string name="recommend_slot">Franja horària (opcional)</string>
+    <string name="recommend_any_hour">Qualsevol hora</string>
+    <string name="recommend_submit">Obtenir recomanació</string>
+    <string name="date_today">Avui, %1$s</string>
+    <string name="date_tomorrow">Demà, %1$s</string>
+    <string name="hour_range">%1$02d:00 – %2$02d:00</string>
+    <string name="ranges_and">%1$s i %2$s</string>
+
+    <string name="result_title">Recomanació</string>
+    <string name="result_eyebrow">La nostra recomanació</string>
+    <string name="result_subtitle_any">Aquestes són les franges amb menor ocupació esperada el %1$s.</string>
+    <string name="result_subtitle_quiet">Menor ocupació esperada en l’horari seleccionat.</string>
+    <string name="result_subtitle_busy">A l’horari seleccionat acostuma a haver-hi força gent. Mira les millors franges o les alternatives.</string>
+    <string name="result_selected_slot">Horari triat: %1$s</string>
+    <string name="result_best_slots">Millors franges horàries</string>
+    <string name="result_why">Per què?</string>
+    <string name="result_why_body">Segons les dades històriques del període lectiu (abr – oct 2026), aquestes franges solen tenir menys afluència el %1$s.</string>
+    <string name="result_view_occupancy">Veure ocupació detallada</string>
+    <string name="result_view_alternatives">Veure alternatives</string>
+    <string name="result_no_data">No hi ha franges amb prou dades per a aquest dia.</string>
+
+    <string name="occupancy_title">Ocupació</string>
+    <string name="tab_today">Avui</string>
+    <string name="tab_week">Setmana</string>
+    <string name="tab_history">Històric</string>
+    <string name="occupancy_chart_title">Ocupació mitjana per hora</string>
+    <string name="occupancy_sub_today">Avui, %1$s · període lectiu</string>
+    <string name="occupancy_sub_week">%1$s · període lectiu</string>
+    <string name="occupancy_sub_history">%1$s · abr – oct 2026</string>
+    <string name="occupancy_quiet_ranges">Franges més tranquil·les</string>
+    <string name="occupancy_tap_hint">Toca una barra per veure l’aforament d’aquella hora.</string>
+    <string name="occupancy_capacity_people">Aforament: %1$d/%2$d %3$s</string>
+    <string name="occupancy_capacity_units">Reservades: %1$d/%2$d %3$s</string>
+    <string name="occupancy_percentage">%1$d%% d’ocupació</string>
+    <string name="occupancy_find_alternatives">Buscar alternatives a les %1$s</string>
+    <string name="occupancy_bar_description">%1$s, %2$s</string>
+
+    <string name="alternatives_title">Alternatives</string>
+    <string name="alternatives_headline">Hi ha molta ocupació?</string>
+    <string name="alternatives_intro">Aquí tens altres opcions similars amb menys afluència històrica el %1$s a les %2$s.</string>
+    <string name="alternatives_selected">%1$s · %2$s</string>
+    <string name="alternatives_similar_facilities">Instal·lacions similars</string>
+    <string name="alternatives_similar_sports">Esports similars</string>
+    <string name="alternatives_other_slots">Altres franges per a %1$s</string>
+    <string name="alternatives_none">No hi ha alternatives similars amb dades per a aquesta franja.</string>
+    <string name="alternatives_suggestion_title">Suggeriment</string>
+    <string name="alternatives_suggestion_body">Aquestes alternatives es basen en patrons d’ocupació històrics (abr – oct 2026) per a activitats similars.</string>
+
+    <string name="catalog_intro_facilities">Espais amb aforament. Toca’n un per veure’n l’ocupació per hores.</string>
+    <string name="catalog_intro_sports">Pistes i camps. Toca’n un per veure’n l’ocupació per hores.</string>
+    <string name="catalog_intro_occupancy">Tria una instal·lació o un esport per veure’n l’ocupació històrica.</string>
+    <string name="catalog_now">Ara: %1$s</string>
+    <string name="catalog_now_closed">Ara: tancat</string>
+    <string name="catalog_now_unknown">Ara: sense dades</string>
+
+    <string name="schedule_headline">Horari del SAF</string>
+    <string name="schedule_intro">Horari general d’obertura de les instal·lacions.</string>
+    <string name="schedule_open_now">Obert ara · tanca a les %1$s</string>
+    <string name="schedule_closed_now">Tancat ara</string>
+    <string name="schedule_today">Avui</string>
+    <string name="schedule_range">%1$s – %2$s</string>
+    <string name="schedule_note">És l’horari general del SAF; algunes instal·lacions poden tenir horaris propis.</string>
+    <string name="time_hm">%1$02d:%2$02d</string>
 </resources>
