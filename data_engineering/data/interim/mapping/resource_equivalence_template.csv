@@ -1,119 +1,119 @@
-﻿EspaiPare;Recurs;total_reservas;fechas_distintas;horas_distintas;reservas_mas_4h;categoria;espai_inventari;subespai_inventari;id_recurs_fisic;tipus_calendari;tipus_mesura;estat_validacio;observacions
-PISTES PAVELLÓ (dl-dv);AADD- PISTA PAVELLÓ (sencera dl-dv);123;51;6;1;actividades_dirigidas;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- ESPAIS FORA SAF-UAB (dl-dv);3;2;3;0;actividades_dirigidas;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 1- RITMES (dl-dv);1095;153;15;0;actividades_dirigidas;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 2- RITMES (dl-dv);551;135;17;25;actividades_dirigidas;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 3- ZEN (dl-dv);177;107;12;0;actividades_dirigidas;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);SALA 4- CYCLING (dl-dv);692;141;17;0;actividades_dirigidas;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);AADD- SALA 1- RITMES (ds-dg);132;48;4;0;actividades_dirigidas;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);SALA4- CYCLING (ds-dg);32;29;7;1;actividades_dirigidas;;;;;;pendent;
-CAMPS EXTERIORS (ds-dg);FUTBOL SALA 1 (ds-dg);38;32;6;28;campos_deportivos;;;;;;pendent;
-CAMPS FUTBOL EXTERIORS (dl-dv);FUTBOL SALA 1 (dl-dv);381;179;19;26;campos_deportivos;;;;;;pendent;
-FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dss-dg);22;17;4;0;campos_deportivos;;;;;;pendent;
-FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dss-dg);1;1;1;0;campos_deportivos;;;;;;pendent;
-FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dl-dv);29;22;11;0;campos_deportivos;;;;;;pendent;
-FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dl-dv);15;13;6;0;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 1 (dl-dv);473;183;22;56;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 2 (dl-dv);468;182;17;59;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 3 (dl-dv);469;180;22;55;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 4 (SENCER) (dl-dv);414;180;15;52;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 1 (ds-dg);52;52;3;51;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 2 (ds-dg);50;49;4;48;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 3 (ds-dg);35;35;3;34;campos_deportivos;;;;;;pendent;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 4 (ds-dg);54;29;3;27;campos_deportivos;;;;;;pendent;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (dl-dv);171;89;14;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (dl-dv);105;59;13;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (ds-dg);79;40;4;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (ds-dg);64;38;3;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (dl-dv);281;120;14;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (dl-dv);168;91;14;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (ds-dg);42;26;4;0;deportes_colectivos;;;;;;pendent;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (ds-dg);36;24;4;0;deportes_colectivos;;;;;;pendent;
-PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);611;195;28;62;deportes_colectivos;;;;;;pendent;
-PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);553;172;24;60;deportes_colectivos;;;;;;pendent;
-PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);51;30;4;45;deportes_colectivos;;;;;;pendent;
-PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);79;40;5;29;deportes_colectivos;;;;;;pendent;
-SAF 1- POLIESPORTIU (dl-dv);BÀSQUET - PISTA EXTERIOR (dl-dv);219;124;15;59;deportes_colectivos;;;;;;pendent;
-SAF 1- POLIESPORTIU (ds-dg);BÀSQUET EXTERIOR (ds-dg);31;21;7;0;deportes_colectivos;;;;;;pendent;
-SAF 2- PISCINA (dl-dv);VÒLEI PLATJA (dl-dv);270;107;13;5;deportes_colectivos;;;;;;pendent;
-SAF 2- PISCINA (ds-dg);VÒLEI PLATJA (ds-dg);55;30;7;1;deportes_colectivos;;;;;;pendent;
-SAF 1- POLIESPORTIU (dl-dv);ROCÒDROM EXTERIOR (dl-dv);518;125;14;1;espacios_deportivos;;;;;;pendent;
-SAF 1- POLIESPORTIU (ds-dg);ROCÒDROM EXTERIOR (ds-dg);31;21;6;1;espacios_deportivos;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);CAL.LISTÈNIA (dl-dv);2491;144;16;0;espacios_deportivos;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);ROCÒDROM INTERIOR (dl-dv);1346;144;15;3;espacios_deportivos;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);CALISTÈNIA (ds-dg);130;42;8;0;espacios_deportivos;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);ROCÒDROM INTERIOR (ds-dg);105;41;7;1;espacios_deportivos;;;;;;pendent;
-ESPAI BARBELL (dl-dv);AADD- ESPAI BARBELL (dl-dv);104;75;5;0;fitness;;;;;;pendent;
-ESPAI BARBELL (dl-dv);ESPAI BARBELL (dl-dv);5853;144;18;0;fitness;;;;;;pendent;
-ESQUAIX/C.SOCCER (dl-dv);SALA 6- BOXTRAINING (dl-dv);768;133;15;0;fitness;;;;;;pendent;
-ESQUAIX/C.SOCCER (ds-dg);SALA 6- BOXTRAINING (ds-dg);44;24;11;1;fitness;;;;;;pendent;
-SAF 3 - EDIFICI CENTRAL (dl-dv);SALA FITNES (dl-dv);115490;150;21;0;fitness;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);ESPAI BARBELL (ds-dg);379;49;8;1;fitness;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);SALA FITNES (ds-dg);12498;49;17;0;fitness;;;;;;pendent;
-P. 16M (PETITA) (dl-dv);MEITAT A;13;10;7;0;pendiente_revision;;;;;;pendent;
-P. 16M (PETITA) (dl-dv);MEITAT B;3;3;2;0;pendiente_revision;;;;;;pendent;
-PAVELLÓ COBERT SENCER (dl-dv);PISTES PAVELLÓ (dl-dv);1;1;1;0;pendiente_revision;;;;;;pendent;
-SAF 1- POLIESPORTIU (dl-dv);PAVELLÓ COBERT SENCER (dl-dv);1;1;1;0;pendiente_revision;;;;;;pendent;
-SAF 1- POLIESPORTIU (ds-dg);CAMPS EXTERIORS (ds-dg);2;1;1;0;pendiente_revision;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/1 (dl-dv);8002;154;23;34;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/2 (dl-dv);6138;154;22;35;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/3 (dl-dv);4899;144;19;1;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/4 (dl-dv);3673;144;16;0;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/5 (dl-dv);1882;143;17;0;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/6 (dl-dv);1090;147;21;7;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/7 (dl-dv);744;155;24;43;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/8 (dl-dv);1710;154;24;43;piscina;;;;;;pendent;
-PISCINA (25 M) COBERTA (dl-dv);PISCINES i SOLÀRIUM (dl-dv);1;1;1;0;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/1 (ds-dg);23;19;9;1;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/2 (ds-dg);1222;51;10;1;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/3 (ds-dg);1049;49;9;1;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/4 (ds-dg);745;49;8;2;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/5 (ds-dg);431;49;8;1;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/6 (ds-dg);224;48;9;1;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/7 (ds-dg);203;50;10;2;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/8 (ds-dg);415;50;10;2;piscina;;;;;;pendent;
-PISCINA (25M) (COBERTA) (ds-dg);PISCINES I SOLÀRIUM (ds-dg);2;2;2;1;piscina;;;;;;pendent;
-RECURSOS FÍSICS (ds-dg);SAF 2- PISCINA (ds-dg);5;3;3;0;piscina;;;;;;pendent;
-SAF 2- PISCINA (dl-dv);P. 16M (PETITA) (dl-dv);4192;155;20;4;piscina;;;;;;pendent;
-SAF 2- PISCINA (dl-dv);PISCINA (25 M) COBERTA (dl-dv);1;1;1;0;piscina;;;;;;pendent;
-SAF 2- PISCINA (ds-dg);P. 16M (PETITA) (ds-dg);1237;50;11;3;piscina;;;;;;pendent;
-SAF 2- PISCINA (ds-dg);PISCINA (25M) (COBERTA) (ds-dg);2;2;2;0;piscina;;;;;;pendent;
-BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.1 PAVELLÓ (dl-dv);171;92;14;0;pistas_deportivas;;;;;;pendent;
-BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.2 PAVELLÓ (dl-dv);95;62;8;0;pistas_deportivas;;;;;;pendent;
-BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.3 PAVELLÓ (dl-dv);72;42;11;0;pistas_deportivas;;;;;;pendent;
-BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.1 PAVELLÓ (ds-dg);46;38;4;0;pistas_deportivas;;;;;;pendent;
-BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.2 PAVELLÓ (ds-dg);18;17;3;0;pistas_deportivas;;;;;;pendent;
-BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.3 PAVELLÓ (ds-dg);16;16;3;0;pistas_deportivas;;;;;;pendent;
-ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 2 (dl-dv);328;137;21;2;pistas_deportivas;;;;;;pendent;
-ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 3 (dl-dv);283;132;18;1;pistas_deportivas;;;;;;pendent;
-ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 4 (dl-dv);248;127;18;1;pistas_deportivas;;;;;;pendent;
-ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 2 (ds-dg);44;33;8;2;pistas_deportivas;;;;;;pendent;
-ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 3 (ds-dg);41;32;9;2;pistas_deportivas;;;;;;pendent;
-ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 4 (ds-dg);28;23;7;2;pistas_deportivas;;;;;;pendent;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, a partir 18.30h);196;126;2;0;pistas_deportivas;;;;;;pendent;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, a partir 18.30h);213;130;2;0;pistas_deportivas;;;;;;pendent;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, a partir 18.30h);153;111;2;0;pistas_deportivas;;;;;;pendent;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, a partir 18.30h);179;116;2;0;pistas_deportivas;;;;;;pendent;
-PISTES PAVELLÓ (dl-dv);BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);509;184;21;53;pistas_deportivas;;;;;;pendent;
-PISTES PAVELLÓ (ds-dg);BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);73;56;5;33;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, fins 18.30h);395;134;15;2;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, fins 18.30h);442;148;15;2;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, fins 18.30h);286;122;15;2;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, fins 18.30h);317;133;14;2;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 1 (ds-dg);110;47;7;1;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 2 (ds-dg);120;48;8;1;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 3 (ds-dg);86;43;8;1;pistas_deportivas;;;;;;pendent;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 4 (ds-dg);98;44;8;1;pistas_deportivas;;;;;;pendent;
-SAF 3- EDIFICI CENTRAL (ds-dg);TENNIS (ds-dg);1;1;1;0;pistas_deportivas;;;;;;pendent;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 1 (dl-dv);409;176;16;134;pistas_deportivas;;;;;;pendent;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 2 (dl-dv);399;169;20;130;pistas_deportivas;;;;;;pendent;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 3 (dl-dv);389;146;16;50;pistas_deportivas;;;;;;pendent;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 4 (dl-dv);506;144;16;0;pistas_deportivas;;;;;;pendent;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 5 (dl-dv);563;137;13;0;pistas_deportivas;;;;;;pendent;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 1 (ds-dg);117;47;13;18;pistas_deportivas;;;;;;pendent;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 2 (ds-dg);105;45;12;9;pistas_deportivas;;;;;;pendent;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 3 (ds-dg);90;42;14;2;pistas_deportivas;;;;;;pendent;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 4 (ds-dg);93;41;10;3;pistas_deportivas;;;;;;pendent;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 5 (ds-dg);127;46;11;3;pistas_deportivas;;;;;;pendent;
-RECURSOS FÍSICS (ds-dg);CÓRRER Campus (ÚS VESTIDORS) (ds-dg);83;32;8;0;servicios;;;;;;pendent;
-SAF 1- POLIESPORTIU (dl-dv);CÓRRER Campus (ÚS VESTIDORS) (dl-dv);1330;143;14;0;servicios;;;;;;pendent;
+﻿EspaiPare;Recurs;categoria;tipo_metrica;unidad;total_reservas;fechas_distintas;horas_distintas;reservas_mas_4h;tipus_calendari;franja_horaria;espai_inventari;subespai_inventari;id_recurs_fisic;requiere_validacion;estat_validacio;observaciones;observacions_equivalencia
+PISTES PAVELLÓ (dl-dv);AADD- PISTA PAVELLÓ (sencera dl-dv);actividades_dirigidas;personas;personas;123;51;6;1;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- ESPAIS FORA SAF-UAB (dl-dv);actividades_dirigidas;personas;personas;3;2;3;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 1- RITMES (dl-dv);actividades_dirigidas;personas;personas;1095;153;15;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 2- RITMES (dl-dv);actividades_dirigidas;personas;personas;551;135;17;25;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 3- ZEN (dl-dv);actividades_dirigidas;personas;personas;177;107;12;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);SALA 4- CYCLING (dl-dv);actividades_dirigidas;personas;personas;692;141;17;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3- EDIFICI CENTRAL (ds-dg);AADD- SALA 1- RITMES (ds-dg);actividades_dirigidas;personas;personas;132;48;4;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 3- EDIFICI CENTRAL (ds-dg);SALA4- CYCLING (ds-dg);actividades_dirigidas;personas;personas;32;29;7;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+CAMPS EXTERIORS (ds-dg);FUTBOL SALA 1 (ds-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;38;32;6;28;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+CAMPS FUTBOL EXTERIORS (dl-dv);FUTBOL SALA 1 (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;381;179;19;26;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dss-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;22;17;4;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dss-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;1;1;1;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;29;22;11;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;15;13;6;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 1 (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;473;183;22;56;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 2 (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;468;182;17;59;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 3 (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;469;180;22;55;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 4 (SENCER) (dl-dv);campos_deportivos;ocupacion_recurso;ocupada_libre;414;180;15;52;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 1 (ds-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;52;52;3;51;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 2 (ds-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;50;49;4;48;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 3 (ds-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;35;35;3;34;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 4 (ds-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;54;29;3;27;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 1- POLIESPORTIU (ds-dg);CAMPS EXTERIORS (ds-dg);campos_deportivos;ocupacion_recurso;ocupada_libre;2;1;1;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;171;89;14;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;105;59;13;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;79;40;4;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;64;38;3;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;281;120;14;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;168;91;14;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;42;26;4;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;36;24;4;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;611;195;28;62;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;553;172;24;60;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;51;30;4;45;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;79;40;5;29;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 1- POLIESPORTIU (dl-dv);BÀSQUET - PISTA EXTERIOR (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;219;124;15;59;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 1- POLIESPORTIU (ds-dg);BÀSQUET EXTERIOR (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;31;21;7;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 2- PISCINA (dl-dv);VÒLEI PLATJA (dl-dv);deportes_colectivos;ocupacion_recurso;ocupada_libre;270;107;13;5;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 2- PISCINA (ds-dg);VÒLEI PLATJA (ds-dg);deportes_colectivos;ocupacion_recurso;ocupada_libre;55;30;7;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 1- POLIESPORTIU (dl-dv);ROCÒDROM EXTERIOR (dl-dv);espacios_deportivos;pendiente_validacion;pendiente_validacion;518;125;14;1;lunes_viernes;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 1- POLIESPORTIU (ds-dg);ROCÒDROM EXTERIOR (ds-dg);espacios_deportivos;pendiente_validacion;pendiente_validacion;31;21;6;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 3 - EDIFICI CENTRAL (dl-dv);CAL.LISTÈNIA (dl-dv);espacios_deportivos;pendiente_validacion;pendiente_validacion;2491;144;16;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 3 - EDIFICI CENTRAL (dl-dv);ROCÒDROM INTERIOR (dl-dv);espacios_deportivos;pendiente_validacion;pendiente_validacion;1346;144;15;3;lunes_viernes;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 3- EDIFICI CENTRAL (ds-dg);CALISTÈNIA (ds-dg);espacios_deportivos;pendiente_validacion;pendiente_validacion;130;42;8;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 3- EDIFICI CENTRAL (ds-dg);ROCÒDROM INTERIOR (ds-dg);espacios_deportivos;pendiente_validacion;pendiente_validacion;105;41;7;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+ESPAI BARBELL (dl-dv);AADD- ESPAI BARBELL (dl-dv);fitness;personas;personas;104;75;5;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+ESPAI BARBELL (dl-dv);ESPAI BARBELL (dl-dv);fitness;personas;personas;5853;144;18;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (dl-dv);SALA 6- BOXTRAINING (dl-dv);fitness;personas;personas;768;133;15;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (ds-dg);SALA 6- BOXTRAINING (ds-dg);fitness;personas;personas;44;24;11;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);SALA FITNES (dl-dv);fitness;personas;personas;115490;150;21;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 3- EDIFICI CENTRAL (ds-dg);ESPAI BARBELL (ds-dg);fitness;personas;personas;379;49;8;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 3- EDIFICI CENTRAL (ds-dg);SALA FITNES (ds-dg);fitness;personas;personas;12498;49;17;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+PAVELLÓ COBERT SENCER (dl-dv);PISTES PAVELLÓ (dl-dv);pendiente_revision;pendiente_validacion;pendiente_validacion;1;1;1;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 1- POLIESPORTIU (dl-dv);PAVELLÓ COBERT SENCER (dl-dv);pendiente_revision;pendiente_validacion;pendiente_validacion;1;1;1;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+P. 16M (PETITA) (dl-dv);MEITAT A;piscina;personas;personas;13;10;7;0;lunes_viernes;sin_franja_especial;piscina de 16 metres;;PISCINA_16M_MEITAT_A;Sí;pendiente_validacion;;El sistema de reservas distingue esta mitad de la piscina. El inventario no desglosa subespacios. Pendiente confirmar con SAF la relación entre las mitades y el recurso de piscina completa. No sumar directamente.
+P. 16M (PETITA) (dl-dv);MEITAT B;piscina;personas;personas;3;3;2;0;lunes_viernes;sin_franja_especial;piscina de 16 metres;;PISCINA_16M_MEITAT_B;Sí;pendiente_validacion;;El sistema de reservas distingue esta mitad de la piscina. El inventario no desglosa subespacios. Pendiente confirmar con SAF la relación entre las mitades y el recurso de piscina completa. No sumar directamente.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/1 (dl-dv);piscina;personas;personas;8002;154;23;34;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 1;PISCINA_25M_CARRER_1;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/2 (dl-dv);piscina;personas;personas;6138;154;22;35;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 2;PISCINA_25M_CARRER_2;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/3 (dl-dv);piscina;personas;personas;4899;144;19;1;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 3;PISCINA_25M_CARRER_3;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/4 (dl-dv);piscina;personas;personas;3673;144;16;0;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 4;PISCINA_25M_CARRER_4;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/5 (dl-dv);piscina;personas;personas;1882;143;17;0;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 5;PISCINA_25M_CARRER_5;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/6 (dl-dv);piscina;personas;personas;1090;147;21;7;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 6;PISCINA_25M_CARRER_6;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/7 (dl-dv);piscina;personas;personas;744;155;24;43;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 7;PISCINA_25M_CARRER_7;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/8 (dl-dv);piscina;personas;personas;1710;154;24;43;lunes_viernes;sin_franja_especial;piscina 25 metres;carrer 8;PISCINA_25M_CARRER_8;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25 M) COBERTA (dl-dv);PISCINES i SOLÀRIUM (dl-dv);piscina;personas;personas;1;1;1;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/1 (ds-dg);piscina;personas;personas;23;19;9;1;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 1;PISCINA_25M_CARRER_1;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/2 (ds-dg);piscina;personas;personas;1222;51;10;1;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 2;PISCINA_25M_CARRER_2;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/3 (ds-dg);piscina;personas;personas;1049;49;9;1;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 3;PISCINA_25M_CARRER_3;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/4 (ds-dg);piscina;personas;personas;745;49;8;2;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 4;PISCINA_25M_CARRER_4;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/5 (ds-dg);piscina;personas;personas;431;49;8;1;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 5;PISCINA_25M_CARRER_5;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/6 (ds-dg);piscina;personas;personas;224;48;9;1;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 6;PISCINA_25M_CARRER_6;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/7 (ds-dg);piscina;personas;personas;203;50;10;2;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 7;PISCINA_25M_CARRER_7;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/8 (ds-dg);piscina;personas;personas;415;50;10;2;fin_de_semana;sin_franja_especial;piscina 25 metres;carrer 8;PISCINA_25M_CARRER_8;Sí;regla_documentada;;Misma calle física entre semana y fin de semana. El inventario registra ocho calles.
+PISCINA (25M) (COBERTA) (ds-dg);PISCINES I SOLÀRIUM (ds-dg);piscina;personas;personas;2;2;2;1;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+RECURSOS FÍSICS (ds-dg);SAF 2- PISCINA (ds-dg);piscina;personas;personas;5;3;3;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+SAF 2- PISCINA (dl-dv);P. 16M (PETITA) (dl-dv);piscina;personas;personas;4192;155;20;4;lunes_viernes;sin_franja_especial;piscina de 16 metres;;PISCINA_16M_COMPLETA;Sí;regla_documentada;;Recurso general de la piscina de 16 metros. Los registros de laborables y fin de semana se refieren al mismo espacio.
+SAF 2- PISCINA (dl-dv);PISCINA (25 M) COBERTA (dl-dv);piscina;personas;personas;1;1;1;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+SAF 2- PISCINA (ds-dg);P. 16M (PETITA) (ds-dg);piscina;personas;personas;1237;50;11;3;fin_de_semana;sin_franja_especial;piscina de 16 metres;;PISCINA_16M_COMPLETA;Sí;regla_documentada;;Recurso general de la piscina de 16 metros. Los registros de laborables y fin de semana se refieren al mismo espacio.
+SAF 2- PISCINA (ds-dg);PISCINA (25M) (COBERTA) (ds-dg);piscina;personas;personas;2;2;2;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.1 PAVELLÓ (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;171;92;14;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.2 PAVELLÓ (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;95;62;8;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.3 PAVELLÓ (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;72;42;11;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.1 PAVELLÓ (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;46;38;4;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.2 PAVELLÓ (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;18;17;3;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.3 PAVELLÓ (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;16;16;3;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 2 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;328;137;21;2;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 3 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;283;132;18;1;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 4 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;248;127;18;1;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 2 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;44;33;8;2;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 3 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;41;32;9;2;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 4 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;28;23;7;2;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, a partir 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;196;126;2;0;lunes_viernes;desde_18_30;;;PADEL_PISTA_1;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, a partir 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;213;130;2;0;lunes_viernes;desde_18_30;;;PADEL_PISTA_2;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, a partir 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;153;111;2;0;lunes_viernes;desde_18_30;;;PADEL_PISTA_3;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, a partir 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;179;116;2;0;lunes_viernes;desde_18_30;;;PADEL_PISTA_4;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PISTES PAVELLÓ (dl-dv);BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;509;184;21;53;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+PISTES PAVELLÓ (ds-dg);BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;73;56;5;33;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, fins 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;395;134;15;2;lunes_viernes;hasta_18_30;;;PADEL_PISTA_1;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, fins 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;442;148;15;2;lunes_viernes;hasta_18_30;;;PADEL_PISTA_2;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, fins 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;286;122;15;2;lunes_viernes;hasta_18_30;;;PADEL_PISTA_3;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, fins 18.30h);pistas_deportivas;ocupacion_recurso;ocupada_libre;317;133;14;2;lunes_viernes;hasta_18_30;;;PADEL_PISTA_4;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 1 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;110;47;7;1;fin_de_semana;sin_franja_especial;;;PADEL_PISTA_1;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 2 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;120;48;8;1;fin_de_semana;sin_franja_especial;;;PADEL_PISTA_2;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 3 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;86;43;8;1;fin_de_semana;sin_franja_especial;;;PADEL_PISTA_3;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 4 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;98;44;8;1;fin_de_semana;sin_franja_especial;;;PADEL_PISTA_4;Sí;regla_documentada;;Misma pista física en los dos tramos horarios entre semana y durante el fin de semana.
+SAF 3- EDIFICI CENTRAL (ds-dg);TENNIS (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;1;1;1;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 1 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;409;176;16;134;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 2 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;399;169;20;130;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 3 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;389;146;16;50;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 4 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;506;144;16;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 5 (dl-dv);pistas_deportivas;ocupacion_recurso;ocupada_libre;563;137;13;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 1 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;117;47;13;18;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 2 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;105;45;12;9;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 3 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;90;42;14;2;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 4 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;93;41;10;3;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 5 (ds-dg);pistas_deportivas;ocupacion_recurso;ocupada_libre;127;46;11;3;fin_de_semana;sin_franja_especial;;;;Sí;pendent;;
+RECURSOS FÍSICS (ds-dg);CÓRRER Campus (ÚS VESTIDORS) (ds-dg);servicios;pendiente_validacion;pendiente_validacion;83;32;8;0;fin_de_semana;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
+SAF 1- POLIESPORTIU (dl-dv);CÓRRER Campus (ÚS VESTIDORS) (dl-dv);servicios;pendiente_validacion;pendiente_validacion;1330;143;14;0;lunes_viernes;sin_franja_especial;;;;Sí;pendent;Métrica pendiente de validación;
