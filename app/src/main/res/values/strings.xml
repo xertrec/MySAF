@@ -228,4 +228,11 @@
     <string name="schedule_range">%1$s – %2$s</string>
     <string name="schedule_note">És l’horari general del SAF; algunes instal·lacions poden tenir horaris propis.</string>
     <string name="time_hm">%1$02d:%2$02d</string>
+    <!-- App logo / favourite sport -->
+    <string name="logo_make_my_sport">Fes-lo el meu esport</string>
+    <string name="logo_is_my_sport">El teu esport</string>
+    <string name="logo_in_app_note">L’app fa servir aquest logo.</string>
+    <string name="logo_remove">Treu</string>
+    <string name="logo_home_screen">Fes-lo servir també a la pantalla d’inici</string>
+    <string name="logo_home_screen_note">La icona canvia quan surts de l’app; el launcher pot trigar uns segons.</string>
 </resources>

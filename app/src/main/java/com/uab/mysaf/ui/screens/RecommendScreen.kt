@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uab.mysaf.R
+import com.uab.mysaf.data.icon
 import com.uab.mysaf.data.OpeningHours
 import com.uab.mysaf.data.activityById
 import com.uab.mysaf.data.facilities

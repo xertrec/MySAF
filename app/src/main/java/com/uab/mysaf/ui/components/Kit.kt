@@ -289,7 +289,7 @@ fun <T> DropdownField(
     optionLabel: @Composable (T) -> String,
     onSelected: (T) -> Unit,
     modifier: Modifier = Modifier,
-    optionIcon: ((T) -> ImageVector?)? = null,
+    optionIcon: (@Composable (T) -> ImageVector?)? = null,
 ) {
     var expanded by remember { mutableStateOf(false) }
     Column(modifier = modifier.fillMaxWidth()) {

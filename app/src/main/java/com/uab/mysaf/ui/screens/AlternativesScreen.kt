@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uab.mysaf.R
+import com.uab.mysaf.data.icon
 import com.uab.mysaf.data.Alternative
 import com.uab.mysaf.data.AlternativeKind
 import com.uab.mysaf.data.HourAvailability

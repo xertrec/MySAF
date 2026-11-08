@@ -228,4 +228,11 @@
     <string name="schedule_range">%1$s – %2$s</string>
     <string name="schedule_note">These are the general SAF hours; some facilities may have their own schedule.</string>
     <string name="time_hm">%1$02d:%2$02d</string>
+    <!-- App logo / favourite sport -->
+    <string name="logo_make_my_sport">Make this my sport</string>
+    <string name="logo_is_my_sport">Your sport</string>
+    <string name="logo_in_app_note">The app uses this logo.</string>
+    <string name="logo_remove">Remove</string>
+    <string name="logo_home_screen">Also use on home screen</string>
+    <string name="logo_home_screen_note">The icon changes when you leave the app; your launcher may take a few seconds.</string>
 </resources>

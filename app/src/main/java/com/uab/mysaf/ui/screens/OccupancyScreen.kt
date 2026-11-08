@@ -37,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uab.mysaf.R
+import com.uab.mysaf.data.icon
 import com.uab.mysaf.data.ActivityInfo
 import com.uab.mysaf.data.HourAvailability
 import com.uab.mysaf.data.activityById
@@ -44,6 +45,7 @@ import com.uab.mysaf.data.quietRanges
 import com.uab.mysaf.data.todayWeekday
 import com.uab.mysaf.data.weekdayNameRes
 import com.uab.mysaf.ui.components.AppTopBar
+import com.uab.mysaf.ui.components.FavouriteSportCard
 import com.uab.mysaf.ui.components.LevelIndicator
 import com.uab.mysaf.ui.components.OccupancyChart
 import com.uab.mysaf.ui.components.OutlinedSurface
@@ -126,6 +128,8 @@ fun OccupancyScreen(
                     fontSize = 23.sp,
                 )
             }
+
+            FavouriteSportCard(activity)
 
             SegmentedToggle(
                 options = listOf(

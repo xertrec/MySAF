@@ -48,12 +48,14 @@ fun AppTopBar(
     )
 }
 
-/** Home app bar with the "UAB | SAF" wordmark. */
+/** Home app bar with the user's logo (see [AppLogoBadge]) and the "UAB | SAF" wordmark. */
 @Composable
 fun BrandTopBar(actions: @Composable RowScope.() -> Unit = {}) {
     AppTopBarFrame(
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                AppLogoBadge(size = 34.dp)
+                Spacer(Modifier.width(12.dp))
                 Text("UAB", fontSize = 25.sp, fontWeight = FontWeight.ExtraBold)
                 Spacer(Modifier.width(8.dp))
                 Text(

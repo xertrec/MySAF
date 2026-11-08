@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uab.mysaf.R
+import com.uab.mysaf.data.icon
 import com.uab.mysaf.data.ActivityInfo
 import com.uab.mysaf.data.HourAvailability
 import com.uab.mysaf.data.facilities
