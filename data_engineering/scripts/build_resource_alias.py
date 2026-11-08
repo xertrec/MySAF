@@ -10,6 +10,11 @@ y genera data/interim/mapping/resource_alias.csv con:
 - calendar_label (dl-dv / ds-dg)
 - time_segment (fins_18_30 / desde_18_30)
 - mapping_status (regla_documentada / pendiente_validacion)
+  OJO: "regla_documentada" = regla de codigo (regex), NO confirmacion del SAF.
+
+capacity_units solo se usa para recursos de tipo unidad (pista = 1, mitad = 0.5,
+tercio = 1/3): es una fraccion estructural, no un aforo. El aforo en personas
+NO se fija aqui: lo asigna enrich_inventory.py desde la hoja Espais.
 
 No borra filas. Lo que no matchea queda como pendiente_validacion con nota.
 """
@@ -74,7 +79,7 @@ def r_piscina_25_carril(p, r, f):
         return None
     return _mk(f"PISCINA_25M_CARRER_{m.group(1)}",
                f"Piscina 25m carrer {m.group(1)}",
-               "carrer", "personas", 5.0,
+               "carrer", "personas", None,
                parent="PISCINA_25M_COBERTA", frac=1 / 8)
 
 
@@ -88,8 +93,8 @@ def r_piscina_25_contenedor(p, r, f):
                    notes="Solo 2 filas. Bundle piscina+solarium.")
     if "PISCINA" in f and "25" in f and "COBERTA" in f:
         return _mk("PISCINA_25M_COBERTA", "Piscina 25m coberta",
-                   "piscina", "personas", 40.0,
-                   notes="Contenedor de 8 calles x 5 pax.")
+                   "piscina", "personas", None,
+                   notes="Contenedor de 8 calles. Aforo: ver enrich_inventory (inventario Espais).")
     return None
 
 
@@ -249,7 +254,7 @@ def r_espaibarbell(p, r, f):
 def r_salafitnes(p, r, f):
     if "SALA FITNES" in f:
         return _mk("SALA_FITNES", "Sala fitness",
-                   "sala", "personas", 120.0)
+                   "sala", "personas", None)
     return None
 
 

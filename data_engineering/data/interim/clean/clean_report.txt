@@ -1,56 +1,74 @@
 ======================================================================
-PASO 3 — clean_data — reporte
+PASO 3 — clean_data — reporte (ocupacion por intervalos)
 ======================================================================
 Reserves raw: 194567
 Reserves con resource_id: 194566
 Reserves sin resource_id: 1
+Intervalos invalidos: 0
 calendar_mismatch: 808
-is_long_block: 1371
-reservation_slot (long): 347627
-reservation_slot_agg: 42040
-resources con ocupacion: 42
+is_long_block (> 240 min): 1371
+night_block_candidate (21:00-23:59): 332
+outside_general_hours: 849
+Filas en grupos de filas identicas: 170948 (se conservan)
+
+reservation_slot (fila x franja 15 min): 984457
+reservation_slot_agg (recurso x dia x franja x alcance): 1188832
+Minutos reservados (alcance all) = suma de duraciones: 14737258
+Minutos con reservas solapadas en la misma pista: 58785
+
+Pico de personas simultaneas SALA_FITNES: 121 (aforo inventario 120)
+Franjas de personas con maximo > aforo de inventario: 287
+resource_id
+PISCINA_25M_CARRER_1     52
+PISCINA_25M_CARRER_2    172
+PISCINA_25M_CARRER_3     22
+PISCINA_25M_CARRER_4     16
+PISCINA_25M_CARRER_8     12
+SALA_FITNES              13
+
+Aforo usado por recurso de personas:
+                      capacity_people capacity_people_source
+resource_id                                                 
+AADD_PISTA_PAVELLO                NaN                unknown
+AADD_SALA_1_RITMES               35.0              inventory
+AADD_SALA_2_RITMES               20.0              inventory
+AADD_SALA_3_ZEN                  20.0              inventory
+SALA_4_CYCLING                   35.0              inventory
+AADD_ESPAI_BARBELL               25.0              inventory
+ESPAI_BARBELL                    25.0              inventory
+SALA_6_BOXTRAINING               14.0              inventory
+SALA_FITNES                     120.0              inventory
+PISCINA_16M_MEITAT_A              NaN                unknown
+PISCINA_16M_MEITAT_B              NaN                unknown
+PISCINA_25M_CARRER_1              5.0              inventory
+PISCINA_25M_CARRER_2              5.0              inventory
+PISCINA_25M_CARRER_3              5.0              inventory
+PISCINA_25M_CARRER_4              5.0              inventory
+PISCINA_25M_CARRER_5              5.0              inventory
+PISCINA_25M_CARRER_6              5.0              inventory
+PISCINA_25M_CARRER_7              5.0              inventory
+PISCINA_25M_CARRER_8              5.0              inventory
+PISCINA_16M_COMPLETA             25.0              inventory
+PISCINA_25M_COBERTA              40.0            derived_sum
+
+SALA_FITNES laborables: personas simultaneas medias por hora
+hour
+7     47.6
+8     64.2
+9     64.3
+10    60.4
+11    68.8
+12    71.0
+13    65.0
+14    57.3
+15    54.4
+16    72.3
+17    85.5
+18    90.8
+19    82.5
+20    55.7
 
 Activitats dirigides raw: 48591
-Clases dirigidas (grupos): 247
-Clases con over_capacity: 1
-session_date_known: 0% False
-
-Slots con people_occupied > 0: 12976
-Slots con occupied_units > 0: 25548
-
-Distribucion de slots por metric_type:
-metric_type
-personas          311676
-unidad_recurso     29471
-pendiente           6480
-
-Distribucion de period_id (reservas):
-period_id
-lectiu    160137
-estiu      34430
-
-Top 10 recursos por people_occupied (personas):
-resource_id
-SALA_FITNES             255416.0
-PISCINA_25M_COBERTA      38105.0
-PISCINA_16M_COMPLETA      6900.0
-ESPAI_BARBELL             6625.0
-AADD_SALA_1_RITMES        1545.0
-SALA_6_BOXTRAINING         858.0
-AADD_SALA_2_RITMES         856.0
-SALA_4_CYCLING             786.0
-AADD_SALA_3_ZEN            339.0
-AADD_PISTA_PAVELLO         142.0
-
-Top 10 recursos por occupied_units (unidad_recurso):
-resource_id
-PAVELLO_PISTA_2        2099.5
-PAVELLO_BADMINTON_1    1761.0
-PAVELLO_PISTA_3        1725.5
-TENIS_PISTA_1          1528.0
-TENIS_PISTA_2          1485.0
-FUTBOL7_CAMP_1         1425.0
-FUTBOL7_CAMP_2         1376.0
-PADEL_PISTA_2          1280.0
-FUTBOL7_CAMP_3         1233.0
-FUTBOL7_CAMP_4         1155.5
+Series (codigo+sala+hora): 397
+Filas con sobre-aforo: 34 en 1 series
+session_date_known: False para todas (DataInscripcio no es fecha de sesion)

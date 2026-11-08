@@ -1,119 +1,119 @@
-﻿espai_pare;recurs;resource_id;resource_name;resource_kind;metric_type;capacity_units;parent_resource_id;fraction_of_parent;calendar_label;time_segment;mapping_status;notes
-PISTES PAVELLÓ (dl-dv);AADD- PISTA PAVELLÓ (sencera dl-dv);AADD_PISTA_PAVELLO;AADD pista pavello;aadd;personas;;;;dl-dv;;regla_documentada;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- ESPAIS FORA SAF-UAB (dl-dv);AADD_FORA_SAF;AADD espais fora SAF;aadd;pendiente;;;;dl-dv;;pendiente_validacion;Espacio fuera del SAF. Como se cuenta?
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 1- RITMES (dl-dv);AADD_SALA_1_RITMES;AADD sala 1 ritmes;aadd;personas;35.0;;;dl-dv;;regla_documentada;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 2- RITMES (dl-dv);AADD_SALA_2_RITMES;AADD sala 2 ritmes;aadd;personas;25.0;;;dl-dv;;regla_documentada;
-SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 3- ZEN (dl-dv);AADD_SALA_3_ZEN;AADD sala 3 zen;aadd;personas;18.0;;;dl-dv;;regla_documentada;
-SAF 3 - EDIFICI CENTRAL (dl-dv);SALA 4- CYCLING (dl-dv);SALA_4_CYCLING;Sala 4 cycling;sala;personas;32.0;;;dl-dv;;regla_documentada;
-SAF 3- EDIFICI CENTRAL (ds-dg);AADD- SALA 1- RITMES (ds-dg);AADD_SALA_1_RITMES;AADD sala 1 ritmes;aadd;personas;35.0;;;ds-dg;;regla_documentada;
-SAF 3- EDIFICI CENTRAL (ds-dg);SALA4- CYCLING (ds-dg);SALA_4_CYCLING;Sala 4 cycling;sala;personas;32.0;;;ds-dg;;regla_documentada;
-CAMPS EXTERIORS (ds-dg);FUTBOL SALA 1 (ds-dg);FUTBOL_SALA_1;Futbol sala 1;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-CAMPS FUTBOL EXTERIORS (dl-dv);FUTBOL SALA 1 (dl-dv);FUTBOL_SALA_1;Futbol sala 1;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dss-dg);FUTBOL7_CAMP_4_MITAT_1;Futbol 7 camp 4 meitat 1;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;ds-dg;;regla_documentada;
-FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dss-dg);FUTBOL7_CAMP_4_MITAT_2;Futbol 7 camp 4 meitat 2;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;ds-dg;;regla_documentada;
-FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dl-dv);FUTBOL7_CAMP_4_MITAT_1;Futbol 7 camp 4 meitat 1;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;dl-dv;;regla_documentada;
-FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dl-dv);FUTBOL7_CAMP_4_MITAT_2;Futbol 7 camp 4 meitat 2;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;dl-dv;;regla_documentada;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 1 (dl-dv);FUTBOL7_CAMP_1;Futbol 7 camp 1;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 2 (dl-dv);FUTBOL7_CAMP_2;Futbol 7 camp 2;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 3 (dl-dv);FUTBOL7_CAMP_3;Futbol 7 camp 3;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL7_CAMP_4;Futbol 7 camp 4;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 1 (ds-dg);FUTBOL7_CAMP_1;Futbol 7 camp 1;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 2 (ds-dg);FUTBOL7_CAMP_2;Futbol 7 camp 2;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 3 (ds-dg);FUTBOL7_CAMP_3;Futbol 7 camp 3;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 4 (ds-dg);FUTBOL7_CAMP_4;Futbol 7 camp 4;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-SAF 1- POLIESPORTIU (ds-dg);CAMPS EXTERIORS (ds-dg);CAMPS_EXTERIORS;Camps exteriors;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_2_MITAT_1;Pista 2 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;dl-dv;;regla_documentada;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_2_MITAT_2;Pista 2 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;dl-dv;;regla_documentada;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_2_MITAT_1;Pista 2 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;ds-dg;;regla_documentada;
-BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_2_MITAT_2;Pista 2 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;ds-dg;;regla_documentada;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_3_MITAT_1;Pista 3 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;dl-dv;;regla_documentada;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_3_MITAT_2;Pista 3 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;dl-dv;;regla_documentada;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_3_MITAT_1;Pista 3 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;ds-dg;;regla_documentada;
-BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_3_MITAT_2;Pista 3 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;ds-dg;;regla_documentada;
-PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);PAVELLO_PISTA_2;Pista 2 pavello;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);PAVELLO_PISTA_3;Pista 3 pavello;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);PAVELLO_PISTA_2;Pista 2 pavello;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);PAVELLO_PISTA_3;Pista 3 pavello;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-SAF 1- POLIESPORTIU (dl-dv);BÀSQUET - PISTA EXTERIOR (dl-dv);BASQUET_EXTERIOR;Basquet exterior;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-SAF 1- POLIESPORTIU (ds-dg);BÀSQUET EXTERIOR (ds-dg);BASQUET_EXTERIOR;Basquet exterior;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-SAF 2- PISCINA (dl-dv);VÒLEI PLATJA (dl-dv);VOLEI_PLATJA;Volei platja;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-SAF 2- PISCINA (ds-dg);VÒLEI PLATJA (ds-dg);VOLEI_PLATJA;Volei platja;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-SAF 1- POLIESPORTIU (dl-dv);ROCÒDROM EXTERIOR (dl-dv);ROCODROM_EXTERIOR;Rocodrom exterior;espai;pendiente;25.0;;;dl-dv;;pendiente_validacion;Metrica no validada.
-SAF 1- POLIESPORTIU (ds-dg);ROCÒDROM EXTERIOR (ds-dg);ROCODROM_EXTERIOR;Rocodrom exterior;espai;pendiente;25.0;;;ds-dg;;pendiente_validacion;Metrica no validada.
-SAF 3 - EDIFICI CENTRAL (dl-dv);CAL.LISTÈNIA (dl-dv);CALISTENIA;Calistenia;espai;pendiente;24.0;;;dl-dv;;pendiente_validacion;Metrica no validada.
-SAF 3 - EDIFICI CENTRAL (dl-dv);ROCÒDROM INTERIOR (dl-dv);ROCODROM_INTERIOR;Rocodrom interior;espai;pendiente;18.0;;;dl-dv;;pendiente_validacion;Metrica no validada.
-SAF 3- EDIFICI CENTRAL (ds-dg);CALISTÈNIA (ds-dg);CALISTENIA;Calistenia;espai;pendiente;24.0;;;ds-dg;;pendiente_validacion;Metrica no validada.
-SAF 3- EDIFICI CENTRAL (ds-dg);ROCÒDROM INTERIOR (ds-dg);ROCODROM_INTERIOR;Rocodrom interior;espai;pendiente;18.0;;;ds-dg;;pendiente_validacion;Metrica no validada.
-ESPAI BARBELL (dl-dv);AADD- ESPAI BARBELL (dl-dv);AADD_ESPAI_BARBELL;AADD espai barbell;aadd;personas;20.0;;;dl-dv;;regla_documentada;
-ESPAI BARBELL (dl-dv);ESPAI BARBELL (dl-dv);ESPAI_BARBELL;Espai barbell;sala;personas;20.0;;;dl-dv;;regla_documentada;
-ESQUAIX/C.SOCCER (dl-dv);SALA 6- BOXTRAINING (dl-dv);SALA_6_BOXTRAINING;Sala 6 box training;sala;personas;14.0;;;dl-dv;;regla_documentada;
-ESQUAIX/C.SOCCER (ds-dg);SALA 6- BOXTRAINING (ds-dg);SALA_6_BOXTRAINING;Sala 6 box training;sala;personas;14.0;;;ds-dg;;regla_documentada;
-SAF 3 - EDIFICI CENTRAL (dl-dv);SALA FITNES (dl-dv);SALA_FITNES;Sala fitness;sala;personas;120.0;;;dl-dv;;regla_documentada;
-SAF 3- EDIFICI CENTRAL (ds-dg);ESPAI BARBELL (ds-dg);ESPAI_BARBELL;Espai barbell;sala;personas;20.0;;;ds-dg;;regla_documentada;
-SAF 3- EDIFICI CENTRAL (ds-dg);SALA FITNES (ds-dg);SALA_FITNES;Sala fitness;sala;personas;120.0;;;ds-dg;;regla_documentada;
-PAVELLÓ COBERT SENCER (dl-dv);PISTES PAVELLÓ (dl-dv);PAVELLO_COBERT;Pavello cobert (contenedor);contenedor;pendiente;;;;dl-dv;;pendiente_validacion;
-SAF 1- POLIESPORTIU (dl-dv);PAVELLÓ COBERT SENCER (dl-dv);PAVELLO_COBERT;Pavello cobert (contenedor);contenedor;pendiente;;;;dl-dv;;pendiente_validacion;
-P. 16M (PETITA) (dl-dv);MEITAT A;PISCINA_16M_MEITAT_A;Piscina 16m meitat A;meitat_piscina;personas;16.0;PISCINA_16M_COMPLETA;0.5;;;regla_documentada;
-P. 16M (PETITA) (dl-dv);MEITAT B;PISCINA_16M_MEITAT_B;Piscina 16m meitat B;meitat_piscina;personas;16.0;PISCINA_16M_COMPLETA;0.5;;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/1 (dl-dv);PISCINA_25M_CARRER_1;Piscina 25m carrer 1;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/2 (dl-dv);PISCINA_25M_CARRER_2;Piscina 25m carrer 2;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/3 (dl-dv);PISCINA_25M_CARRER_3;Piscina 25m carrer 3;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/4 (dl-dv);PISCINA_25M_CARRER_4;Piscina 25m carrer 4;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/5 (dl-dv);PISCINA_25M_CARRER_5;Piscina 25m carrer 5;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/6 (dl-dv);PISCINA_25M_CARRER_6;Piscina 25m carrer 6;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/7 (dl-dv);PISCINA_25M_CARRER_7;Piscina 25m carrer 7;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/8 (dl-dv);PISCINA_25M_CARRER_8;Piscina 25m carrer 8;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;
-PISCINA (25 M) COBERTA (dl-dv);PISCINES i SOLÀRIUM (dl-dv);PISCINA_25M_SOLARIUM;Piscines i solarium;bundle;pendiente;;;;dl-dv;;pendiente_validacion;Solo 2 filas. Bundle piscina+solarium.
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/1 (ds-dg);PISCINA_25M_CARRER_1;Piscina 25m carrer 1;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/2 (ds-dg);PISCINA_25M_CARRER_2;Piscina 25m carrer 2;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/3 (ds-dg);PISCINA_25M_CARRER_3;Piscina 25m carrer 3;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/4 (ds-dg);PISCINA_25M_CARRER_4;Piscina 25m carrer 4;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/5 (ds-dg);PISCINA_25M_CARRER_5;Piscina 25m carrer 5;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/6 (ds-dg);PISCINA_25M_CARRER_6;Piscina 25m carrer 6;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/7 (ds-dg);PISCINA_25M_CARRER_7;Piscina 25m carrer 7;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/8 (ds-dg);PISCINA_25M_CARRER_8;Piscina 25m carrer 8;carrer;personas;5.0;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;
-PISCINA (25M) (COBERTA) (ds-dg);PISCINES I SOLÀRIUM (ds-dg);PISCINA_25M_SOLARIUM;Piscines i solarium;bundle;pendiente;;;;ds-dg;;pendiente_validacion;Solo 2 filas. Bundle piscina+solarium.
-RECURSOS FÍSICS (ds-dg);SAF 2- PISCINA (ds-dg);SAF_2_PISCINA;SAF 2 piscina (contenedor);contenedor;pendiente;;;;ds-dg;;pendiente_validacion;
-SAF 2- PISCINA (dl-dv);P. 16M (PETITA) (dl-dv);PISCINA_16M_COMPLETA;Piscina 16m completa;piscina;personas;32.0;;;dl-dv;;regla_documentada;
-SAF 2- PISCINA (dl-dv);PISCINA (25 M) COBERTA (dl-dv);PISCINA_25M_COBERTA;Piscina 25m coberta;piscina;personas;40.0;;;dl-dv;;regla_documentada;Contenedor de 8 calles x 5 pax.
-SAF 2- PISCINA (ds-dg);P. 16M (PETITA) (ds-dg);PISCINA_16M_COMPLETA;Piscina 16m completa;piscina;personas;32.0;;;ds-dg;;regla_documentada;
-SAF 2- PISCINA (ds-dg);PISCINA (25M) (COBERTA) (ds-dg);PISCINA_25M_COBERTA;Piscina 25m coberta;piscina;personas;40.0;;;ds-dg;;regla_documentada;Contenedor de 8 calles x 5 pax.
-BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.1 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1_SUB_1;Badminton pista 1.1;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;dl-dv;;regla_documentada;3 subdivisiones por pista.
-BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.2 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1_SUB_2;Badminton pista 1.2;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;dl-dv;;regla_documentada;3 subdivisiones por pista.
-BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.3 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1_SUB_3;Badminton pista 1.3;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;dl-dv;;regla_documentada;3 subdivisiones por pista.
-BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.1 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1_SUB_1;Badminton pista 1.1;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;ds-dg;;regla_documentada;3 subdivisiones por pista.
-BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.2 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1_SUB_2;Badminton pista 1.2;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;ds-dg;;regla_documentada;3 subdivisiones por pista.
-BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.3 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1_SUB_3;Badminton pista 1.3;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;ds-dg;;regla_documentada;3 subdivisiones por pista.
-ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 2 (dl-dv);ESQUAIX_PISTA_2;Esquaix pista 2;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 3 (dl-dv);ESQUAIX_PISTA_3;Esquaix pista 3;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 4 (dl-dv);ESQUAIX_PISTA_4;Esquaix pista 4;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 2 (ds-dg);ESQUAIX_PISTA_2;Esquaix pista 2;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 3 (ds-dg);ESQUAIX_PISTA_3;Esquaix pista 3;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 4 (ds-dg);ESQUAIX_PISTA_4;Esquaix pista 4;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, a partir 18.30h);PADEL_PISTA_1;Padel pista 1;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, a partir 18.30h);PADEL_PISTA_2;Padel pista 2;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, a partir 18.30h);PADEL_PISTA_3;Padel pista 3;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;
-PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, a partir 18.30h);PADEL_PISTA_4;Padel pista 4;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;
-PISTES PAVELLÓ (dl-dv);BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1;Badminton pista 1 pavello;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-PISTES PAVELLÓ (ds-dg);BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1;Badminton pista 1 pavello;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, fins 18.30h);PADEL_PISTA_1;Padel pista 1;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, fins 18.30h);PADEL_PISTA_2;Padel pista 2;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, fins 18.30h);PADEL_PISTA_3;Padel pista 3;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;
-PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, fins 18.30h);PADEL_PISTA_4;Padel pista 4;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 1 (ds-dg);PADEL_PISTA_1;Padel pista 1;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 2 (ds-dg);PADEL_PISTA_2;Padel pista 2;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 3 (ds-dg);PADEL_PISTA_3;Padel pista 3;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 4 (ds-dg);PADEL_PISTA_4;Padel pista 4;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-SAF 3- EDIFICI CENTRAL (ds-dg);TENNIS (ds-dg);;;;pendiente;;;;ds-dg;;pendiente_validacion;Sin regla aplicable
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 1 (dl-dv);TENIS_PISTA_1;Tennis/pickleball pista 1;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 2 (dl-dv);TENIS_PISTA_2;Tennis/pickleball pista 2;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 3 (dl-dv);TENIS_PISTA_3;Tennis/pickleball pista 3;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 4 (dl-dv);TENIS_PISTA_4;Tennis/pickleball pista 4;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 5 (dl-dv);TENIS_PISTA_5;Tennis/pickleball pista 5;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 1 (ds-dg);TENIS_PISTA_1;Tennis/pickleball pista 1;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 2 (ds-dg);TENIS_PISTA_2;Tennis/pickleball pista 2;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 3 (ds-dg);TENIS_PISTA_3;Tennis/pickleball pista 3;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 4 (ds-dg);TENIS_PISTA_4;Tennis/pickleball pista 4;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 5 (ds-dg);TENIS_PISTA_5;Tennis/pickleball pista 5;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;
-RECURSOS FÍSICS (ds-dg);CÓRRER Campus (ÚS VESTIDORS) (ds-dg);CORRER_CAMPUS;Correr campus (vestidors);servei;pendiente;;;;ds-dg;;pendiente_validacion;No es reserva de pista.
-SAF 1- POLIESPORTIU (dl-dv);CÓRRER Campus (ÚS VESTIDORS) (dl-dv);CORRER_CAMPUS;Correr campus (vestidors);servei;pendiente;;;;dl-dv;;pendiente_validacion;No es reserva de pista.
+﻿espai_pare;recurs;resource_id;resource_name;resource_kind;metric_type;capacity_units;parent_resource_id;fraction_of_parent;calendar_label;time_segment;mapping_status;notes;capacity_people;capacity_people_source;capacity_people_inventory_rows;capacity_people_mapping_status
+PISTES PAVELLÓ (dl-dv);AADD- PISTA PAVELLÓ (sencera dl-dv);AADD_PISTA_PAVELLO;AADD pista pavello;aadd;personas;;;;dl-dv;;regla_documentada;;;unknown;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- ESPAIS FORA SAF-UAB (dl-dv);AADD_FORA_SAF;AADD espais fora SAF;aadd;pendiente;;;;dl-dv;;pendiente_validacion;Espacio fuera del SAF. Como se cuenta?;;unknown;;
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 1- RITMES (dl-dv);AADD_SALA_1_RITMES;AADD sala 1 ritmes;aadd;personas;;;;dl-dv;;regla_documentada;;35.0;inventory;27;provisional
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 2- RITMES (dl-dv);AADD_SALA_2_RITMES;AADD sala 2 ritmes;aadd;personas;;;;dl-dv;;regla_documentada;;20.0;inventory;28;provisional
+SAF 3 - EDIFICI CENTRAL (dl-dv);AADD- SALA 3- ZEN (dl-dv);AADD_SALA_3_ZEN;AADD sala 3 zen;aadd;personas;;;;dl-dv;;regla_documentada;;20.0;inventory;29;provisional
+SAF 3 - EDIFICI CENTRAL (dl-dv);SALA 4- CYCLING (dl-dv);SALA_4_CYCLING;Sala 4 cycling;sala;personas;;;;dl-dv;;regla_documentada;;35.0;inventory;30;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);AADD- SALA 1- RITMES (ds-dg);AADD_SALA_1_RITMES;AADD sala 1 ritmes;aadd;personas;;;;ds-dg;;regla_documentada;;35.0;inventory;27;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);SALA4- CYCLING (ds-dg);SALA_4_CYCLING;Sala 4 cycling;sala;personas;;;;ds-dg;;regla_documentada;;35.0;inventory;30;provisional
+CAMPS EXTERIORS (ds-dg);FUTBOL SALA 1 (ds-dg);FUTBOL_SALA_1;Futbol sala 1;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;14.0;inventory;7;provisional
+CAMPS FUTBOL EXTERIORS (dl-dv);FUTBOL SALA 1 (dl-dv);FUTBOL_SALA_1;Futbol sala 1;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;14.0;inventory;7;provisional
+FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dss-dg);FUTBOL7_CAMP_4_MITAT_1;Futbol 7 camp 4 meitat 1;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;ds-dg;;regla_documentada;;;unknown;;
+FUTBOL 7 - Camp 4 (ds-dg);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dss-dg);FUTBOL7_CAMP_4_MITAT_2;Futbol 7 camp 4 meitat 2;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;ds-dg;;regla_documentada;;;unknown;;
+FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.1 (1/2 CAMP) (dl-dv);FUTBOL7_CAMP_4_MITAT_1;Futbol 7 camp 4 meitat 1;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;dl-dv;;regla_documentada;;;unknown;;
+FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL 7-CAMP 4.2 (1/2 CAMP) (dl-dv);FUTBOL7_CAMP_4_MITAT_2;Futbol 7 camp 4 meitat 2;meitat_camp;unidad_recurso;0.5;FUTBOL7_CAMP_4;0.5;dl-dv;;regla_documentada;;;unknown;;
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 1 (dl-dv);FUTBOL7_CAMP_1;Futbol 7 camp 1;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;18.0;inventory;8;provisional
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 2 (dl-dv);FUTBOL7_CAMP_2;Futbol 7 camp 2;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;18.0;inventory;9;provisional
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 3 (dl-dv);FUTBOL7_CAMP_3;Futbol 7 camp 3;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;18.0;inventory;10;provisional
+FUTBOL11/RUGBI (dl-dv);FUTBOL 7-Camp 4 (SENCER) (dl-dv);FUTBOL7_CAMP_4;Futbol 7 camp 4;camp;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;18.0;inventory;11;provisional
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 1 (ds-dg);FUTBOL7_CAMP_1;Futbol 7 camp 1;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;18.0;inventory;8;provisional
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 2 (ds-dg);FUTBOL7_CAMP_2;Futbol 7 camp 2;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;18.0;inventory;9;provisional
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 3 (ds-dg);FUTBOL7_CAMP_3;Futbol 7 camp 3;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;18.0;inventory;10;provisional
+FUTBOL11/RUGBI (ds-dg);FUTBOL 7 - Camp 4 (ds-dg);FUTBOL7_CAMP_4;Futbol 7 camp 4;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;18.0;inventory;11;provisional
+SAF 1- POLIESPORTIU (ds-dg);CAMPS EXTERIORS (ds-dg);CAMPS_EXTERIORS;Camps exteriors;camp;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_2_MITAT_1;Pista 2 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;dl-dv;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_2_MITAT_2;Pista 2 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;dl-dv;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.1 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_2_MITAT_1;Pista 2 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;ds-dg;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 2.2 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_2_MITAT_2;Pista 2 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_2;0.5;ds-dg;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_3_MITAT_1;Pista 3 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;dl-dv;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (dl-dv);PAVELLO_PISTA_3_MITAT_2;Pista 3 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;dl-dv;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.1 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_3_MITAT_1;Pista 3 pavello meitat 1;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;ds-dg;;regla_documentada;;;unknown;;
+BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);BÀSQUET- 3.2 PAVELLÓ (1/2 PISTA) (ds-dg);PAVELLO_PISTA_3_MITAT_2;Pista 3 pavello meitat 2;meitat_pista;unidad_recurso;0.5;PAVELLO_PISTA_3;0.5;ds-dg;;regla_documentada;;;unknown;;
+PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (dl-dv);PAVELLO_PISTA_2;Pista 2 pavello;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;;unknown;;
+PISTES PAVELLÓ (dl-dv);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (dl-dv);PAVELLO_PISTA_3;Pista 3 pavello;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;;unknown;;
+PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI - PISTA 2 PAVELLÓ (SENCERA) (ds-dg);PAVELLO_PISTA_2;Pista 2 pavello;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;;unknown;;
+PISTES PAVELLÓ (ds-dg);BÀSQUET/VÒLEI- PISTA 3 PAVELLÓ (SENCERA) (ds-dg);PAVELLO_PISTA_3;Pista 3 pavello;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;;unknown;;
+SAF 1- POLIESPORTIU (dl-dv);BÀSQUET - PISTA EXTERIOR (dl-dv);BASQUET_EXTERIOR;Basquet exterior;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;14.0;inventory;5;provisional
+SAF 1- POLIESPORTIU (ds-dg);BÀSQUET EXTERIOR (ds-dg);BASQUET_EXTERIOR;Basquet exterior;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;14.0;inventory;5;provisional
+SAF 2- PISCINA (dl-dv);VÒLEI PLATJA (dl-dv);VOLEI_PLATJA;Volei platja;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;6.0;inventory;26;provisional
+SAF 2- PISCINA (ds-dg);VÒLEI PLATJA (ds-dg);VOLEI_PLATJA;Volei platja;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;6.0;inventory;26;provisional
+SAF 1- POLIESPORTIU (dl-dv);ROCÒDROM EXTERIOR (dl-dv);ROCODROM_EXTERIOR;Rocodrom exterior;espai;pendiente;;;;dl-dv;;pendiente_validacion;Metrica no validada.;16.0;inventory;6;provisional
+SAF 1- POLIESPORTIU (ds-dg);ROCÒDROM EXTERIOR (ds-dg);ROCODROM_EXTERIOR;Rocodrom exterior;espai;pendiente;;;;ds-dg;;pendiente_validacion;Metrica no validada.;16.0;inventory;6;provisional
+SAF 3 - EDIFICI CENTRAL (dl-dv);CAL.LISTÈNIA (dl-dv);CALISTENIA;Calistenia;espai;pendiente;;;;dl-dv;;pendiente_validacion;Metrica no validada.;20.0;inventory;41;provisional
+SAF 3 - EDIFICI CENTRAL (dl-dv);ROCÒDROM INTERIOR (dl-dv);ROCODROM_INTERIOR;Rocodrom interior;espai;pendiente;;;;dl-dv;;pendiente_validacion;Metrica no validada.;10.0;inventory;43;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);CALISTÈNIA (ds-dg);CALISTENIA;Calistenia;espai;pendiente;;;;ds-dg;;pendiente_validacion;Metrica no validada.;20.0;inventory;41;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);ROCÒDROM INTERIOR (ds-dg);ROCODROM_INTERIOR;Rocodrom interior;espai;pendiente;;;;ds-dg;;pendiente_validacion;Metrica no validada.;10.0;inventory;43;provisional
+ESPAI BARBELL (dl-dv);AADD- ESPAI BARBELL (dl-dv);AADD_ESPAI_BARBELL;AADD espai barbell;aadd;personas;;;;dl-dv;;regla_documentada;;25.0;inventory;42;provisional
+ESPAI BARBELL (dl-dv);ESPAI BARBELL (dl-dv);ESPAI_BARBELL;Espai barbell;sala;personas;;;;dl-dv;;regla_documentada;;25.0;inventory;42;provisional
+ESQUAIX/C.SOCCER (dl-dv);SALA 6- BOXTRAINING (dl-dv);SALA_6_BOXTRAINING;Sala 6 box training;sala;personas;;;;dl-dv;;regla_documentada;;14.0;inventory;32;provisional
+ESQUAIX/C.SOCCER (ds-dg);SALA 6- BOXTRAINING (ds-dg);SALA_6_BOXTRAINING;Sala 6 box training;sala;personas;;;;ds-dg;;regla_documentada;;14.0;inventory;32;provisional
+SAF 3 - EDIFICI CENTRAL (dl-dv);SALA FITNES (dl-dv);SALA_FITNES;Sala fitness;sala;personas;;;;dl-dv;;regla_documentada;;120.0;inventory;31;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);ESPAI BARBELL (ds-dg);ESPAI_BARBELL;Espai barbell;sala;personas;;;;ds-dg;;regla_documentada;;25.0;inventory;42;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);SALA FITNES (ds-dg);SALA_FITNES;Sala fitness;sala;personas;;;;ds-dg;;regla_documentada;;120.0;inventory;31;provisional
+PAVELLÓ COBERT SENCER (dl-dv);PISTES PAVELLÓ (dl-dv);PAVELLO_COBERT;Pavello cobert (contenedor);contenedor;pendiente;;;;dl-dv;;pendiente_validacion;;;unknown;;
+SAF 1- POLIESPORTIU (dl-dv);PAVELLÓ COBERT SENCER (dl-dv);PAVELLO_COBERT;Pavello cobert (contenedor);contenedor;pendiente;;;;dl-dv;;pendiente_validacion;;;unknown;;
+P. 16M (PETITA) (dl-dv);MEITAT A;PISCINA_16M_MEITAT_A;Piscina 16m meitat A;meitat_piscina;personas;;PISCINA_16M_COMPLETA;0.5;;;regla_documentada;;;unknown;;
+P. 16M (PETITA) (dl-dv);MEITAT B;PISCINA_16M_MEITAT_B;Piscina 16m meitat B;meitat_piscina;personas;;PISCINA_16M_COMPLETA;0.5;;;regla_documentada;;;unknown;;
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/1 (dl-dv);PISCINA_25M_CARRER_1;Piscina 25m carrer 1;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;16;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/2 (dl-dv);PISCINA_25M_CARRER_2;Piscina 25m carrer 2;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;17;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/3 (dl-dv);PISCINA_25M_CARRER_3;Piscina 25m carrer 3;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;18;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/4 (dl-dv);PISCINA_25M_CARRER_4;Piscina 25m carrer 4;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;19;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/5 (dl-dv);PISCINA_25M_CARRER_5;Piscina 25m carrer 5;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;20;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/6 (dl-dv);PISCINA_25M_CARRER_6;Piscina 25m carrer 6;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;21;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/7 (dl-dv);PISCINA_25M_CARRER_7;Piscina 25m carrer 7;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;23;provisional
+PISCINA (25 M) COBERTA (dl-dv);P. 25M- C/8 (dl-dv);PISCINA_25M_CARRER_8;Piscina 25m carrer 8;carrer;personas;;PISCINA_25M_COBERTA;0.125;dl-dv;;regla_documentada;;5.0;inventory;24;provisional
+PISCINA (25 M) COBERTA (dl-dv);PISCINES i SOLÀRIUM (dl-dv);PISCINA_25M_SOLARIUM;Piscines i solarium;bundle;pendiente;;;;dl-dv;;pendiente_validacion;Solo 2 filas. Bundle piscina+solarium.;;unknown;;
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/1 (ds-dg);PISCINA_25M_CARRER_1;Piscina 25m carrer 1;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;16;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/2 (ds-dg);PISCINA_25M_CARRER_2;Piscina 25m carrer 2;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;17;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/3 (ds-dg);PISCINA_25M_CARRER_3;Piscina 25m carrer 3;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;18;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/4 (ds-dg);PISCINA_25M_CARRER_4;Piscina 25m carrer 4;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;19;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/5 (ds-dg);PISCINA_25M_CARRER_5;Piscina 25m carrer 5;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;20;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/6 (ds-dg);PISCINA_25M_CARRER_6;Piscina 25m carrer 6;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;21;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/7 (ds-dg);PISCINA_25M_CARRER_7;Piscina 25m carrer 7;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;23;provisional
+PISCINA (25M) (COBERTA) (ds-dg);P. 25M- C/8 (ds-dg);PISCINA_25M_CARRER_8;Piscina 25m carrer 8;carrer;personas;;PISCINA_25M_COBERTA;0.125;ds-dg;;regla_documentada;;5.0;inventory;24;provisional
+PISCINA (25M) (COBERTA) (ds-dg);PISCINES I SOLÀRIUM (ds-dg);PISCINA_25M_SOLARIUM;Piscines i solarium;bundle;pendiente;;;;ds-dg;;pendiente_validacion;Solo 2 filas. Bundle piscina+solarium.;;unknown;;
+RECURSOS FÍSICS (ds-dg);SAF 2- PISCINA (ds-dg);SAF_2_PISCINA;SAF 2 piscina (contenedor);contenedor;pendiente;;;;ds-dg;;pendiente_validacion;;;unknown;;
+SAF 2- PISCINA (dl-dv);P. 16M (PETITA) (dl-dv);PISCINA_16M_COMPLETA;Piscina 16m completa;piscina;personas;;;;dl-dv;;regla_documentada;;25.0;inventory;25;provisional
+SAF 2- PISCINA (dl-dv);PISCINA (25 M) COBERTA (dl-dv);PISCINA_25M_COBERTA;Piscina 25m coberta;piscina;personas;;;;dl-dv;;regla_documentada;Contenedor de 8 calles. Aforo: ver enrich_inventory (inventario Espais).;40.0;derived_sum;16,17,18,19,20,21,23,24;provisional
+SAF 2- PISCINA (ds-dg);P. 16M (PETITA) (ds-dg);PISCINA_16M_COMPLETA;Piscina 16m completa;piscina;personas;;;;ds-dg;;regla_documentada;;25.0;inventory;25;provisional
+SAF 2- PISCINA (ds-dg);PISCINA (25M) (COBERTA) (ds-dg);PISCINA_25M_COBERTA;Piscina 25m coberta;piscina;personas;;;;ds-dg;;regla_documentada;Contenedor de 8 calles. Aforo: ver enrich_inventory (inventario Espais).;40.0;derived_sum;16,17,18,19,20,21,23,24;provisional
+BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.1 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1_SUB_1;Badminton pista 1.1;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;dl-dv;;regla_documentada;3 subdivisiones por pista.;;unknown;;
+BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.2 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1_SUB_2;Badminton pista 1.2;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;dl-dv;;regla_documentada;3 subdivisiones por pista.;;unknown;;
+BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);BÀDMINTON- PISTA 1.3 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1_SUB_3;Badminton pista 1.3;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;dl-dv;;regla_documentada;3 subdivisiones por pista.;;unknown;;
+BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.1 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1_SUB_1;Badminton pista 1.1;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;ds-dg;;regla_documentada;3 subdivisiones por pista.;;unknown;;
+BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.2 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1_SUB_2;Badminton pista 1.2;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;ds-dg;;regla_documentada;3 subdivisiones por pista.;;unknown;;
+BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);BÀDMINTON- PISTA 1.3 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1_SUB_3;Badminton pista 1.3;subdivisio_pista;unidad_recurso;0.3333333333333333;PAVELLO_BADMINTON_1;0.3333333333333333;ds-dg;;regla_documentada;3 subdivisiones por pista.;;unknown;;
+ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 2 (dl-dv);ESQUAIX_PISTA_2;Esquaix pista 2;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;2.0;inventory;33;provisional
+ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 3 (dl-dv);ESQUAIX_PISTA_3;Esquaix pista 3;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;2.0;inventory;34;provisional
+ESQUAIX/C.SOCCER (dl-dv);ESQUAIX/C.SOCCER- PISTA 4 (dl-dv);ESQUAIX_PISTA_4;Esquaix pista 4;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;2.0;inventory;35;provisional
+ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 2 (ds-dg);ESQUAIX_PISTA_2;Esquaix pista 2;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;2.0;inventory;33;provisional
+ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 3 (ds-dg);ESQUAIX_PISTA_3;Esquaix pista 3;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;2.0;inventory;34;provisional
+ESQUAIX/C.SOCCER (ds-dg);ESQUAIX/C.SOCCER- PISTA 4 (ds-dg);ESQUAIX_PISTA_4;Esquaix pista 4;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;2.0;inventory;35;provisional
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, a partir 18.30h);PADEL_PISTA_1;Padel pista 1;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;;4.0;inventory;12;provisional
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, a partir 18.30h);PADEL_PISTA_2;Padel pista 2;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;;;unknown;;
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, a partir 18.30h);PADEL_PISTA_3;Padel pista 3;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;;4.0;inventory;14;provisional
+PADEL/PADBOL (dl-dv), a partir 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, a partir 18.30h);PADEL_PISTA_4;Padel pista 4;pista;unidad_recurso;1.0;;;dl-dv;desde_18_30;regla_documentada;;4.0;inventory;15;provisional
+PISTES PAVELLÓ (dl-dv);BÀDMINTON - PISTA 1 PAVELLÓ (dl-dv);PAVELLO_BADMINTON_1;Badminton pista 1 pavello;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;;unknown;;
+PISTES PAVELLÓ (ds-dg);BÀDMINTON - PISTA 1 PAVELLÓ (ds-dg);PAVELLO_BADMINTON_1;Badminton pista 1 pavello;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;;unknown;;
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 1 (dl-dv, fins 18.30h);PADEL_PISTA_1;Padel pista 1;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;;4.0;inventory;12;provisional
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 2 (dl-dv, fins 18.30h);PADEL_PISTA_2;Padel pista 2;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;;;unknown;;
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 3 (dl-dv, fins 18.30h);PADEL_PISTA_3;Padel pista 3;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;;4.0;inventory;14;provisional
+PÀDEL/PADBOL (dl-dv), fins les 18.30h;PÀDEL/PADBOL- PISTA 4 (dl-dv, fins 18.30h);PADEL_PISTA_4;Padel pista 4;pista;unidad_recurso;1.0;;;dl-dv;fins_18_30;regla_documentada;;4.0;inventory;15;provisional
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 1 (ds-dg);PADEL_PISTA_1;Padel pista 1;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;12;provisional
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 2 (ds-dg);PADEL_PISTA_2;Padel pista 2;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;;unknown;;
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 3 (ds-dg);PADEL_PISTA_3;Padel pista 3;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;14;provisional
+PÀDEL/PADBOL (ds-dg);PÀDEL/PADBOL- PISTA 4 (ds-dg);PADEL_PISTA_4;Padel pista 4;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;15;provisional
+SAF 3- EDIFICI CENTRAL (ds-dg);TENNIS (ds-dg);;;;pendiente;;;;ds-dg;;pendiente_validacion;Sin regla aplicable;;unknown;;
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 1 (dl-dv);TENIS_PISTA_1;Tennis/pickleball pista 1;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;4.0;inventory;36;provisional
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 2 (dl-dv);TENIS_PISTA_2;Tennis/pickleball pista 2;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;4.0;inventory;37;provisional
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 3 (dl-dv);TENIS_PISTA_3;Tennis/pickleball pista 3;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;4.0;inventory;38;provisional
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 4 (dl-dv);TENIS_PISTA_4;Tennis/pickleball pista 4;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;4.0;inventory;39;provisional
+TENNIS (dl-dv);TENNIS/PIKLEBALL- PISTA 5 (dl-dv);TENIS_PISTA_5;Tennis/pickleball pista 5;pista;unidad_recurso;1.0;;;dl-dv;;regla_documentada;;4.0;inventory;40;provisional
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 1 (ds-dg);TENIS_PISTA_1;Tennis/pickleball pista 1;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;36;provisional
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 2 (ds-dg);TENIS_PISTA_2;Tennis/pickleball pista 2;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;37;provisional
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 3 (ds-dg);TENIS_PISTA_3;Tennis/pickleball pista 3;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;38;provisional
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 4 (ds-dg);TENIS_PISTA_4;Tennis/pickleball pista 4;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;39;provisional
+TENNIS (ds-dg);TENNIS/PIKLEBALL- PISTA 5 (ds-dg);TENIS_PISTA_5;Tennis/pickleball pista 5;pista;unidad_recurso;1.0;;;ds-dg;;regla_documentada;;4.0;inventory;40;provisional
+RECURSOS FÍSICS (ds-dg);CÓRRER Campus (ÚS VESTIDORS) (ds-dg);CORRER_CAMPUS;Correr campus (vestidors);servei;pendiente;;;;ds-dg;;pendiente_validacion;No es reserva de pista.;;unknown;;
+SAF 1- POLIESPORTIU (dl-dv);CÓRRER Campus (ÚS VESTIDORS) (dl-dv);CORRER_CAMPUS;Correr campus (vestidors);servei;pendiente;;;;dl-dv;;pendiente_validacion;No es reserva de pista.;;unknown;;
