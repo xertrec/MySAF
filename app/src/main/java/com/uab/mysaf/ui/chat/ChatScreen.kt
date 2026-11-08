@@ -5,7 +5,23 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.widget.Toast
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.material.icons.outlined.Close
+import androidx.compose.material.icons.outlined.ContentCopy
+import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Share
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +31,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
@@ -33,6 +50,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.outlined.AddComment
 import androidx.compose.material.icons.outlined.ErrorOutline
 import androidx.compose.material.icons.outlined.Info
@@ -100,6 +118,7 @@ import kotlinx.serialization.json.jsonPrimitive
 fun ChatScreen(
     onBack: (() -> Unit)? = null,
     onOpenMethodology: () -> Unit,
+    onOpenSlot: (activityId: String, weekday: String, hour: Int) -> Unit = { _, _, _ -> },
 ) {
     val context = LocalContext.current.applicationContext
     val viewModel: ChatViewModel = viewModel {
@@ -108,11 +127,14 @@ fun ChatScreen(
     val ui by viewModel.ui.collectAsState()
     val locale = chatLocale()
     var input by rememberSaveable { mutableStateOf("") }
+    /** Id of the user message being edited, or -1. */
+    var editingId by rememberSaveable { mutableStateOf(-1L) }
     val listState = rememberLazyListState()
 
     fun submit(text: String) {
         if (text.isBlank() || ui.isSending) return
-        viewModel.send(text, locale)
+        if (editingId >= 0) viewModel.editAndResend(editingId, text, locale) else viewModel.send(text, locale)
+        editingId = -1L
         input = ""
     }
 
@@ -129,7 +151,13 @@ fun ChatScreen(
                 onBack = onBack,
                 actions = {
                     if (ui.messages.isNotEmpty()) {
-                        IconButton(onClick = viewModel::newConversation, enabled = !ui.isSending) {
+                        IconButton(
+                            onClick = {
+                                editingId = -1L
+                                viewModel.newConversation()
+                            },
+                            enabled = !ui.isSending,
+                        ) {
                             Icon(
                                 Icons.Outlined.AddComment,
                                 contentDescription = stringResource(R.string.chat_new_conversation),
@@ -146,6 +174,11 @@ fun ChatScreen(
                 onValueChange = { input = it },
                 enabled = !ui.isSending,
                 onSend = { submit(input) },
+                editing = editingId >= 0,
+                onCancelEdit = {
+                    editingId = -1L
+                    input = ""
+                },
             )
         },
     ) { innerPadding ->
@@ -163,7 +196,19 @@ fun ChatScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 items(ui.messages, key = { it.id }) { message ->
-                    if (message.fromUser) UserBubble(message.text) else AssistantMessage(message)
+                    if (message.fromUser) {
+                        UserBubble(
+                            text = message.text,
+                            highlighted = message.id == editingId,
+                            canEdit = !ui.isSending,
+                            onEdit = {
+                                editingId = message.id
+                                input = message.text
+                            },
+                        )
+                    } else {
+                        AssistantMessage(message, onOpenSlot)
+                    }
                 }
                 if (ui.isSending) {
                     item(key = "typing") { TypingIndicator() }
@@ -304,45 +349,150 @@ private fun SafiaAvatar(size: Int = 32) {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun UserBubble(text: String) {
+private fun UserBubble(
+    text: String,
+    highlighted: Boolean,
+    canEdit: Boolean,
+    onEdit: () -> Unit,
+) {
+    val context = LocalContext.current
+    var menuOpen by remember { mutableStateOf(false) }
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-        Surface(
-            modifier = Modifier.widthIn(max = 300.dp).padding(start = 48.dp),
-            color = UabGreen,
-            contentColor = Color.White,
-            shape = RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp, bottomStart = 18.dp, bottomEnd = 4.dp),
-        ) {
-            Text(
-                text,
-                modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
-                fontSize = 15.sp,
-                lineHeight = 21.sp,
-            )
+        Box(Modifier.widthIn(max = 300.dp).padding(start = 48.dp)) {
+            Surface(
+                color = if (highlighted) UabGreen.copy(alpha = 0.6f) else UabGreen,
+                contentColor = Color.White,
+                shape = RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp, bottomStart = 18.dp, bottomEnd = 4.dp),
+            ) {
+                Text(
+                    text,
+                    modifier = Modifier
+                        .combinedClickable(
+                            onClick = { menuOpen = true },
+                            onLongClick = { menuOpen = true },
+                        )
+                        .padding(horizontal = 14.dp, vertical = 10.dp),
+                    fontSize = 15.sp,
+                    lineHeight = 21.sp,
+                )
+            }
+            DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                MenuAction(Icons.Outlined.ContentCopy, stringResource(R.string.chat_action_copy)) {
+                    menuOpen = false
+                    copyToClipboard(context, text)
+                }
+                MenuAction(Icons.Outlined.Share, stringResource(R.string.chat_action_share)) {
+                    menuOpen = false
+                    shareText(context, text)
+                }
+                if (canEdit) {
+                    MenuAction(Icons.Outlined.Edit, stringResource(R.string.chat_action_edit)) {
+                        menuOpen = false
+                        onEdit()
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-private fun AssistantMessage(message: ChatMessageUi) {
+private fun MenuAction(icon: ImageVector, label: String, onClick: () -> Unit) {
+    DropdownMenuItem(
+        text = { Text(label) },
+        leadingIcon = { Icon(icon, contentDescription = null, tint = UabGreen) },
+        onClick = onClick,
+    )
+}
+
+/** Small copy / share buttons under a SAFIA reply. */
+@Composable
+private fun MessageActions(text: String) {
+    val context = LocalContext.current
+    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+        MessageActionButton(Icons.Outlined.ContentCopy, stringResource(R.string.chat_action_copy)) {
+            copyToClipboard(context, text)
+        }
+        MessageActionButton(Icons.Outlined.Share, stringResource(R.string.chat_action_share)) {
+            shareText(context, text)
+        }
+    }
+}
+
+@Composable
+private fun MessageActionButton(icon: ImageVector, label: String, onClick: () -> Unit) {
+    TextButton(
+        onClick = onClick,
+        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp),
+        modifier = Modifier.height(32.dp),
+    ) {
+        Icon(icon, contentDescription = null, tint = UabGreen, modifier = Modifier.size(16.dp))
+        Text(
+            label,
+            modifier = Modifier.padding(start = 6.dp),
+            fontSize = 13.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = UabGreen,
+        )
+    }
+}
+
+private fun copyToClipboard(context: Context, text: String) {
+    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager ?: return
+    clipboard.setPrimaryClip(ClipData.newPlainText("SAFIA", text))
+    // Android 13+ already shows its own confirmation.
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        Toast.makeText(context, R.string.chat_copied, Toast.LENGTH_SHORT).show()
+    }
+}
+
+private fun shareText(context: Context, text: String) {
+    val send = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, text)
+    }
+    val chooser = Intent.createChooser(send, context.getString(R.string.chat_share_title))
+        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    context.startActivity(chooser)
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun AssistantMessage(
+    message: ChatMessageUi,
+    onOpenSlot: (activityId: String, weekday: String, hour: Int) -> Unit,
+) {
+    val context = LocalContext.current
+    val plain = remember(message.text) { markdownToPlainText(message.text) }
+    var menuOpen by remember { mutableStateOf(false) }
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
         SafiaAvatar()
         Column(
             modifier = Modifier.padding(start = 10.dp, end = 24.dp).weight(1f),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+          Box {
             Surface(
                 color = MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(topStart = 4.dp, topEnd = 18.dp, bottomStart = 18.dp, bottomEnd = 18.dp),
                 border = CardDefaults.outlinedCardBorder(),
                 shadowElevation = 1.dp,
             ) {
-                Column(Modifier.padding(horizontal = 14.dp, vertical = 11.dp)) {
-                    Text(
+                Column(
+                    Modifier
+                        .combinedClickable(
+                            enabled = message.text.isNotBlank(),
+                            onClick = {},
+                            onLongClick = { menuOpen = true },
+                        )
+                        .padding(horizontal = 14.dp, vertical = 11.dp),
+                ) {
+                    MarkdownText(
                         message.text,
-                        fontSize = 15.sp,
-                        lineHeight = 21.sp,
                         color = MaterialTheme.colorScheme.onSurface,
+                        accent = UabGreen,
                     )
                     val notes = message.limitations.mapNotNull { limitationRes(it) }.distinct()
                     if (message.sources.isNotEmpty() || notes.isNotEmpty()) {
@@ -371,42 +521,65 @@ private fun AssistantMessage(message: ChatMessageUi) {
                     }
                 }
             }
-            message.recommendation?.let { RecommendationBlock(it) }
+            DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                MenuAction(Icons.Outlined.ContentCopy, stringResource(R.string.chat_action_copy)) {
+                    menuOpen = false
+                    copyToClipboard(context, plain)
+                }
+                MenuAction(Icons.Outlined.Share, stringResource(R.string.chat_action_share)) {
+                    menuOpen = false
+                    shareText(context, plain)
+                }
+            }
+          }
+            message.recommendation?.let { RecommendationBlock(it, onOpenSlot) }
+            if (message.text.isNotBlank()) MessageActions(plain)
         }
     }
 }
 
 /** Renders the P2 output attached to a reply with the same cards as the rest of the app. */
 @Composable
-private fun RecommendationBlock(recommendation: RecommendationDto) {
+private fun RecommendationBlock(
+    recommendation: RecommendationDto,
+    onOpenSlot: (activityId: String, weekday: String, hour: Int) -> Unit,
+) {
     when (recommendation.type) {
         "alternatives" -> {
             val alternatives = parseAlternatives(recommendation.data)
-            alternatives.forEach { RecommendationCard(alternativeUi(it)) }
+            alternatives.forEach { alt ->
+                RecommendationCard(
+                    alternativeUi(alt),
+                    onClick = { onOpenSlot(alt.activityId, alt.weekday, alt.row.hour) },
+                )
+            }
         }
         "quieter_slots" -> {
             val slots = parseSlots(recommendation.data)
             if (slots.isEmpty()) return
+            val activityId = recommendation.data.str("activity_id")
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                slots.forEach { (weekday, row) -> QuietSlotRow(weekday, row) }
+                slots.forEach { (weekday, row) ->
+                    QuietSlotRow(
+                        weekday,
+                        row,
+                        onClick = activityId?.let { id -> { onOpenSlot(id, weekday, row.hour) } },
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-private fun QuietSlotRow(weekday: String, row: HourAvailability) {
+private fun QuietSlotRow(weekday: String, row: HourAvailability, onClick: (() -> Unit)?) {
     val label = occupancyLabel(row)
     val color = when (label) {
         OccupancyLabel.QUIET -> LoadQuiet
         OccupancyLabel.MODERATE -> LoadModerate
         OccupancyLabel.FULL -> LoadFull
     }
-    Surface(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(14.dp),
-        color = UabGreen.copy(alpha = 0.07f),
-    ) {
+    val content: @Composable () -> Unit = {
         Row(
             modifier = Modifier.padding(horizontal = 13.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -427,7 +600,22 @@ private fun QuietSlotRow(weekday: String, row: HourAvailability) {
                 fontSize = 12.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            if (onClick != null) {
+                Icon(
+                    Icons.Filled.ChevronRight,
+                    contentDescription = stringResource(R.string.recommendation_open_slot),
+                    tint = UabGreen,
+                    modifier = Modifier.padding(start = 4.dp).size(20.dp),
+                )
+            }
         }
+    }
+    val shape = RoundedCornerShape(14.dp)
+    val background = UabGreen.copy(alpha = 0.07f)
+    if (onClick != null) {
+        Surface(onClick = onClick, modifier = Modifier.fillMaxWidth(), shape = shape, color = background, content = content)
+    } else {
+        Surface(modifier = Modifier.fillMaxWidth(), shape = shape, color = background, content = content)
     }
 }
 
@@ -508,12 +696,35 @@ private fun ChatInputBar(
     onValueChange: (String) -> Unit,
     enabled: Boolean,
     onSend: () -> Unit,
+    editing: Boolean,
+    onCancelEdit: () -> Unit,
 ) {
     Surface(color = MaterialTheme.colorScheme.surface, shadowElevation = 6.dp) {
+      Column(Modifier.windowInsetsPadding(WindowInsets.navigationBars.union(WindowInsets.ime))) {
+        if (editing) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(UabGreen.copy(alpha = 0.08f))
+                    .padding(start = 16.dp, end = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(Icons.Outlined.Edit, contentDescription = null, tint = UabGreen, modifier = Modifier.size(18.dp))
+                Text(
+                    stringResource(R.string.chat_editing),
+                    modifier = Modifier.padding(start = 8.dp).weight(1f),
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = UabGreen,
+                )
+                IconButton(onClick = onCancelEdit) {
+                    Icon(Icons.Outlined.Close, contentDescription = stringResource(R.string.chat_editing_cancel))
+                }
+            }
+        }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .windowInsetsPadding(WindowInsets.navigationBars.union(WindowInsets.ime))
                 .padding(horizontal = 12.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -548,6 +759,7 @@ private fun ChatInputBar(
                 Icon(Icons.AutoMirrored.Filled.Send, contentDescription = stringResource(R.string.chat_send))
             }
         }
+      }
     }
 }
 

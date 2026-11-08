@@ -77,6 +77,28 @@ class ChatViewModel(
         launchSend(message, locale, history)
     }
 
+    /**
+     * Replaces one of the user's own messages with [text] and resends it: everything from that
+     * message onwards is discarded and a fresh server conversation is seeded with the earlier history.
+     */
+    fun editAndResend(messageId: Long, text: String, locale: String) {
+        val message = text.trim()
+        if (message.isEmpty() || _ui.value.isSending) return
+        val index = _ui.value.messages.indexOfFirst { it.id == messageId && it.fromUser }
+        if (index < 0) return send(message, locale)
+        val kept = _ui.value.messages.take(index)
+        conversationId = null // the server copy still holds the old turns
+        _ui.update {
+            it.copy(
+                messages = kept + ChatMessageUi(nextId++, fromUser = true, text = message),
+                isSending = true,
+                error = null,
+                lastFailedText = null,
+            )
+        }
+        launchSend(message, locale, kept.toHistory())
+    }
+
     fun newConversation() {
         if (_ui.value.isSending) return
         conversationId = null

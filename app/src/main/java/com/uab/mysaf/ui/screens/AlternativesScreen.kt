@@ -59,6 +59,7 @@ fun AlternativesScreen(
     hour: Int,
     onBack: () -> Unit,
     onOpenOccupancy: (String) -> Unit,
+    onOpenSlot: (activityId: String, weekday: String, hour: Int) -> Unit,
 ) {
     val activity = activityById(activityId)
     val dayName = stringResource(weekdayNameRes(weekday))
@@ -139,7 +140,12 @@ fun AlternativesScreen(
 
             if (otherSlots.isNotEmpty()) {
                 SectionTitle(stringResource(R.string.alternatives_other_slots, stringResource(activity.nameRes)))
-                otherSlots.forEach { RecommendationCard(alternativeUi(it)) }
+                otherSlots.forEach { alt ->
+                    RecommendationCard(
+                        alternativeUi(alt),
+                        onClick = { onOpenSlot(alt.activityId, alt.weekday, alt.row.hour) },
+                    )
+                }
             }
 
             NotePanel(

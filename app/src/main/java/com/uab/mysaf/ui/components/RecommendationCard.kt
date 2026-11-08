@@ -35,8 +35,9 @@ data class RecommendationUi(
 @Composable
 fun RecommendationCard(
     recommendation: RecommendationUi,
+    onClick: (() -> Unit)? = null,
 ) {
-    OutlinedSurface {
+    OutlinedSurface(onClick = onClick) {
         Row(
             modifier = Modifier.padding(15.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -60,11 +61,14 @@ fun RecommendationCard(
                         fontSize = 12.sp,
                     )
                 }
-                Icon(
-                    Icons.Filled.ChevronRight,
-                    contentDescription = stringResource(R.string.recommendation_view_content_description),
-                    tint = MaterialTheme.colorScheme.primary,
-                )
+                // The arrow only appears when the card actually leads somewhere.
+                if (onClick != null) {
+                    Icon(
+                        Icons.Filled.ChevronRight,
+                        contentDescription = stringResource(R.string.recommendation_open_slot),
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
             }
         }
     }

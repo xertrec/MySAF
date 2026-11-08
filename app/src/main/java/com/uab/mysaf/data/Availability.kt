@@ -98,6 +98,14 @@ data class OpeningHours(val weekday: String, val openMin: Int, val closeMin: Int
 /** Short weekday code ("dl"…"dg") for a [java.time.DayOfWeek]. */
 fun weekdayCode(day: java.time.DayOfWeek): String = WEEKDAYS[day.value - 1]
 
+/** Epoch day of the next date (today included) that falls on weekday [code] ("dl"…"dg"). */
+fun nextEpochDayFor(code: String): Long {
+    val today = java.time.LocalDate.now()
+    val target = WEEKDAYS.indexOf(code).takeIf { it >= 0 } ?: return today.toEpochDay()
+    val delta = (target - (today.dayOfWeek.value - 1) + 7) % 7
+    return today.plusDays(delta.toLong()).toEpochDay()
+}
+
 /** Weekday code for today. */
 fun todayWeekday(): String = weekdayCode(java.time.LocalDate.now().dayOfWeek)
 

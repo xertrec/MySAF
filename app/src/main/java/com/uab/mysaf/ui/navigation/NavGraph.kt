@@ -36,6 +36,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.toRoute
 import com.uab.mysaf.R
+import com.uab.mysaf.data.nextEpochDayFor
 import com.uab.mysaf.ui.chat.ChatScreen
 import com.uab.mysaf.ui.screens.AlternativesScreen
 import com.uab.mysaf.ui.screens.CatalogScreen
@@ -144,6 +145,9 @@ fun NavGraph(
                 ChatScreen(
                     onBack = null,
                     onOpenMethodology = { navController.navigate(ScreenMethodology) },
+                    onOpenSlot = { id, weekday, hour ->
+                        navController.navigate(ScreenRecommendation(id, nextEpochDayFor(weekday), hour))
+                    },
                 )
             }
 
@@ -181,6 +185,9 @@ fun NavGraph(
                     hour = route.hour,
                     onBack = { navController.popBackStack() },
                     onOpenOccupancy = { navController.navigate(ScreenOccupancy(it)) },
+                    onOpenSlot = { id, weekday, hour ->
+                        navController.navigate(ScreenRecommendation(id, nextEpochDayFor(weekday), hour))
+                    },
                 )
             }
 

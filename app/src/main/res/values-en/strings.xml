@@ -235,4 +235,12 @@
     <string name="logo_remove">Remove</string>
     <string name="logo_home_screen">Also use on home screen</string>
     <string name="logo_home_screen_note">The icon changes when you leave the app; your launcher may take a few seconds.</string>
+    <string name="chat_action_copy">Copy</string>
+    <string name="chat_action_share">Share</string>
+    <string name="chat_action_edit">Edit and resend</string>
+    <string name="chat_copied">Message copied</string>
+    <string name="chat_share_title">Share message</string>
+    <string name="chat_editing">Editing message</string>
+    <string name="chat_editing_cancel">Cancel editing</string>
+    <string name="recommendation_open_slot">View this slot</string>
 </resources>

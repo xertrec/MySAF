@@ -235,4 +235,12 @@
     <string name="logo_remove">Treu</string>
     <string name="logo_home_screen">Fes-lo servir també a la pantalla d’inici</string>
     <string name="logo_home_screen_note">La icona canvia quan surts de l’app; el launcher pot trigar uns segons.</string>
+    <string name="chat_action_copy">Copiar</string>
+    <string name="chat_action_share">Compartir</string>
+    <string name="chat_action_edit">Editar i reenviar</string>
+    <string name="chat_copied">Missatge copiat</string>
+    <string name="chat_share_title">Compartir missatge</string>
+    <string name="chat_editing">Editant el missatge</string>
+    <string name="chat_editing_cancel">Cancel·lar l’edició</string>
+    <string name="recommendation_open_slot">Veure aquesta franja</string>
 </resources>
