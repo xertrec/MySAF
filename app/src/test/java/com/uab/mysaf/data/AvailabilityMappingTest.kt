@@ -16,9 +16,10 @@ class AvailabilityMappingTest {
         sampleDays: Int = 20,
         longBlockShare: Double = 0.0,
         isClosed: Boolean = false,
-        hour: Int = 10,
+        hour: Int = 11,
+        activityId: String = "sala_fitness",
     ) = HourlyAvailabilityEntity(
-        activityId = "sala_fitness", period = Period.LECTIU, weekday = "dl", hour = hour,
+        activityId = activityId, period = Period.LECTIU, weekday = "dl", hour = hour,
         avgOccupied = avg, peakOccupied = avg, capacity = capacity, sampleDays = sampleDays,
         longBlockShare = longBlockShare, isClosed = isClosed,
     )
@@ -26,7 +27,7 @@ class AvailabilityMappingTest {
     @Test
     fun mapsAverageToRoundedOccupiedAndExactLoad() {
         val row = entity(avg = 86.2361, capacity = 120).toHourAvailability()
-        assertEquals(10, row.hour)
+        assertEquals(11, row.hour)
         assertEquals(86, row.occupied)
         assertEquals(120, row.capacity)
         assertEquals(0.7186f, row.load, 1e-4f)
@@ -98,6 +99,18 @@ class AvailabilityMappingTest {
         )
         assertEquals(10, quieterHour(rows))
         assertNull(quieterHour(rows.filter { it.hour < 9 }))
+    }
+
+    @Test
+    fun fitnessShiftChangeHoursAreFlaggedAndNotUsable() {
+        for (h in listOf(10, 15)) {
+            val row = entity(hour = h).toHourAvailability()
+            assertTrue(row.shiftChange)
+            assertFalse(row.isUsable)
+        }
+        assertFalse(entity(hour = 11).toHourAvailability().shiftChange)
+        assertFalse(entity(hour = 10, activityId = "piscina_25m").toHourAvailability().shiftChange)
+        assertFalse(entity(hour = 10, isClosed = true).toHourAvailability().shiftChange)
     }
 
     @Test
